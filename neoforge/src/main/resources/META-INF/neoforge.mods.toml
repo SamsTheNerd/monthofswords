@@ -1,15 +1,15 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
-#issueTrackerURL = ""
-license = "Insert License Here"
+issueTrackerURL = "https://github.com/SamsTheNerd/monthofswords/issues"
+license = "LGPL-3.0"
 
 [[mods]]
 modId = "monthofswords"
 version = "${version}"
 displayName = "Month Of Swords"
-authors = "Me!"
+authors = "samsthenerd"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+Adds swords for Swordtember 2024
 '''
 #logoFile = ""
 

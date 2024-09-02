@@ -1,6 +1,6 @@
 package com.samsthenerd.monthofswords;
 
-public final class ExampleMod {
+public final class SwordsMod {
     public static final String MOD_ID = "monthofswords";
 
     public static void init() {
