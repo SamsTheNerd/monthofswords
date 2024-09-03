@@ -120,7 +120,7 @@ publishMods {
     modLoaders.add("quilt")
 
     version = project.version + "-fabric"
-    displayName = "Month Of Swords" + " " + project.version + " [Fabric]"
+    displayName = "Month of Swords" + " " + project.version + " [Fabric]"
 
     curseforge {
         accessToken = System.getenv("CURSEFORGE_API_KEY")

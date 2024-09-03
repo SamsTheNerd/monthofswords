@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "monthofswords",
   "version": "${version}",
-  "name": "Month Of Swords",
+  "name": "Month of Swords",
   "description": "Adds swords for Swordtember 2024",
   "authors": [
     "samsthenerd"

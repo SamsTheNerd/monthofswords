@@ -6,12 +6,12 @@ license = "LGPL-3.0"
 [[mods]]
 modId = "monthofswords"
 version = "${version}"
-displayName = "Month Of Swords"
+displayName = "Month of Swords"
 authors = "samsthenerd"
 description = '''
 Adds swords for Swordtember 2024
 '''
-#logoFile = ""
+logoFile = "assets/monthofswords/icon.png"
 
 [[dependencies.monthofswords]]
 modId = "neoforge"

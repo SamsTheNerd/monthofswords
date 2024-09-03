@@ -114,7 +114,7 @@ publishMods {
     modLoaders.add("neoforge")
 
     version = project.version + "-neoforge"
-    displayName = "Month Of Swords" + " " + project.version + " [NeoForge]"
+    displayName = "Month of Swords" + " " + project.version + " [NeoForge]"
 
     curseforge {
         accessToken = System.getenv("CURSEFORGE_API_KEY")
