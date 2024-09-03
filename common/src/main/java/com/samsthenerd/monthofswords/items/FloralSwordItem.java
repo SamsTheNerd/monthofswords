@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class FloralSwordItem extends SwordItem {
 
-    private static Random random = Random.create();
+    private static Random random = Random.createLocal();
 
     public static final ClassyToolMaterial FLORAL_MATERIAL = new ClassyToolMaterial(150, 8f, 1f,
             BlockTags.INCORRECT_FOR_WOODEN_TOOL, 18, () -> Ingredient.EMPTY);
@@ -26,7 +26,7 @@ public class FloralSwordItem extends SwordItem {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         int skyLight = world.getLightingProvider().get(LightType.SKY).getLightLevel(entity.getBlockPos());
         boolean probSaysYes = random.nextInt(100) < 5; // once a second?
-        if(world instanceof ServerWorld sWorld && slot >= 0 && slot < 9
+        if(world instanceof ServerWorld sWorld && stack.getDamage() > 0 && slot >= 0 && slot < 9
                 && skyLight > 7 && sWorld.isDay() &&  probSaysYes){
             stack.setDamage(Math.max(stack.getDamage()-1, 0));
         }

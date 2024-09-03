@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.util.math.MathHelper;
 
 public class WingSwordItem extends SwordItem {
     public static final ClassyToolMaterial WING_MATERIAL = new ClassyToolMaterial(2031, 12f, 0,
@@ -17,5 +18,7 @@ public class WingSwordItem extends SwordItem {
 
     public void postDamageEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         // nop, don't take durability.
+        target.takeKnockback(1,
+                MathHelper.sin(attacker.getYaw() * ((float)Math.PI / 180)), -MathHelper.cos(attacker.getYaw() * ((float)Math.PI / 180)));
     }
 }
