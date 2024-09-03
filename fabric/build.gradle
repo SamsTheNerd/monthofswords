@@ -1,10 +1,38 @@
 plugins {
     id 'com.github.johnrengelman.shadow'
+    id "me.modmuss50.mod-publish-plugin" version "0.5.1"
 }
+
+archivesBaseName = "${archivesBaseName}-fabric"
 
 architectury {
     platformSetupLoomIde()
     fabric()
+}
+
+
+loom {
+    runs {
+        client {
+            programArgs(["--username", "samsthenerd", "--uuid", "6f07899c-2b26-4221-8033-1f53f7a0e111"])
+        }
+    }
+}
+
+tasks {
+    tasks.withType(Jar).configureEach {
+        exclude("architectury.common.json")
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
+}
+
+tasks.register("jenkinsArtifacts", Copy){
+    from remapJar, remapSourcesJar
+    into "${rootDir.toPath()}/build/jenkinsArtifacts"
+}
+
+build {
+    dependsOn tasks.named("jenkinsArtifacts")
 }
 
 configurations {
@@ -52,4 +80,97 @@ shadowJar {
 
 remapJar {
     input.set shadowJar.archiveFile
+}
+
+
+sourcesJar {
+    def commonSources = project(":common").sourcesJar
+    dependsOn commonSources
+    from commonSources.archiveFile.map { zipTree(it) }
+}
+
+components.java {
+    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+        skip()
+    }
+}
+
+publishing {
+    publications {
+        mavenFabric(MavenPublication) {
+            artifactId = archivesBaseName
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            url System.getenv("local_maven_url")
+        }
+    }
+}
+
+
+publishMods {
+    file = remapJar.archiveFile
+    additionalFiles.from(sourcesJar.archiveFile)
+    changelog = trimChangelog(file("$rootDir/changelog.md").text)
+    type = STABLE
+    modLoaders.add("fabric")
+    modLoaders.add("quilt")
+
+    version = project.version + "-fabric"
+    displayName = "Month Of Swords" + " " + project.version + " [Fabric]"
+
+    curseforge {
+        accessToken = System.getenv("CURSEFORGE_API_KEY")
+        projectId = project.mos_curseforge_id
+        minecraftVersions.add(project.minecraft_version)
+        requires{
+            slug = "fabric-api"
+        }
+        requires{
+            slug = "architectury"
+        }
+    }
+
+    modrinth {
+        accessToken = System.getenv("MODRINTH_API_KEY")
+        projectId = project.mos_modrinth_slug
+        minecraftVersions.add(project.minecraft_version)
+
+        requires{
+            slug = "fabric-api"
+        }
+        requires{
+            slug = "architectury"
+        }
+    }
+
+    github {
+        accessToken = System.getenv("GITHUB_TOKEN") ?: ""
+        repository = System.getenv("GITHUB_REPOSITORY") ?: ""
+        commitish = System.getenv("GIT_COMMIT") ?: ""
+        tagName = "release/${project.version}"
+    }
+}
+
+tasks {
+    publishGithub {
+        dependsOn(
+                project(":common").tasks.remapJar,
+                project(":neoforge").tasks.remapJar,
+        )
+
+        // we need to do this here so that it waits until Forge is already configured
+        // otherwise tasks.remapJar doesn't exist yet
+        publishMods {
+            github {
+                additionalFiles.from(
+                        project(":common").tasks.remapJar.archiveFile,
+                        project(":neoforge").tasks.remapJar.archiveFile,
+                )
+            }
+        }
+    }
 }
