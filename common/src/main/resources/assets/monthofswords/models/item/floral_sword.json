@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:item/handheld_rod",
+  "textures": {
+    "layer0": "monthofswords:item/floral_bare"
+  },
+  "overrides": [
+    {
+      "model": "monthofswords:item/floral/flowering",
+      "predicate": {
+        "monthofswords:floweryness": 0.0
+      }
+    },
+    {
+      "model": "monthofswords:item/floral/budding",
+      "predicate": {
+        "monthofswords:floweryness": 0.4
+      }
+    },
+    {
+      "model": "monthofswords:item/floral_sword",
+      "predicate": {
+        "monthofswords:floweryness": 0.7
+      }
+    }
+
+  ]
+}
