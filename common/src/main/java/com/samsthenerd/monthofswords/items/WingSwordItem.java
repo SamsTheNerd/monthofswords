@@ -8,7 +8,7 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.MathHelper;
 
-public class WingSwordItem extends SwordItem {
+public class WingSwordItem extends SwordtemberItem {
     public static final ClassyToolMaterial WING_MATERIAL = new ClassyToolMaterial(2031, 12f, 0.1f,
             BlockTags.INCORRECT_FOR_GOLD_TOOL, 22, () -> Ingredient.EMPTY);
 
@@ -19,6 +19,7 @@ public class WingSwordItem extends SwordItem {
     @Override
     public void postDamageEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         // nop, don't take durability.
+        // do knockback though.
         target.takeKnockback(1,
                 MathHelper.sin(attacker.getYaw() * ((float)Math.PI / 180)), -MathHelper.cos(attacker.getYaw() * ((float)Math.PI / 180)));
     }

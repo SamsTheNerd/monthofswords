@@ -5,11 +5,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
+import net.minecraft.text.Style;
+import net.minecraft.util.Formatting;
 
-public class CursedSwordItem extends SwordItem {
+import java.util.function.UnaryOperator;
+
+public class CursedSwordItem extends SwordtemberItem {
 
     public CursedSwordItem(Item.Settings itemSettings){
-        super(ToolMaterials.NETHERITE, itemSettings.attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 3, -3.4f)));
+        super(ToolMaterials.NETHERITE, itemSettings.attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 3, -2.9f)));
     }
 
     public void postDamageEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -18,5 +22,10 @@ public class CursedSwordItem extends SwordItem {
         target.damage(target.getWorld().getDamageSources().magic(), Math.max(attackerHealthPortion, targetHealthPortion));
         attacker.damage(target.getWorld().getDamageSources().magic(), attackerHealthPortion);
         // TODO: custom damage type ?
+    }
+
+    @Override
+    public UnaryOperator<Style> getSwordTooltipStyleModifier(){
+        return (style) -> style.withColor(Formatting.RED);
     }
 }

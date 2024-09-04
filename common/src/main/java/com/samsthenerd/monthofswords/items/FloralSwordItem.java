@@ -7,11 +7,15 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Style;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
 
-public class FloralSwordItem extends SwordItem {
+import java.util.function.UnaryOperator;
+
+public class FloralSwordItem extends SwordtemberItem {
 
     private static Random random = Random.createLocal();
 
@@ -20,6 +24,11 @@ public class FloralSwordItem extends SwordItem {
 
     public FloralSwordItem(Item.Settings itemSettings){
         super(FLORAL_MATERIAL, itemSettings.attributeModifiers(SwordItem.createAttributeModifiers(FLORAL_MATERIAL, 3, -2.4f)));
+    }
+
+    @Override
+    public UnaryOperator<Style> getSwordTooltipStyleModifier(){
+        return (style) -> style.withColor(Formatting.GREEN);
     }
 
     @Override

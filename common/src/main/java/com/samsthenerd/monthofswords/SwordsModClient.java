@@ -1,6 +1,7 @@
 package com.samsthenerd.monthofswords;
 
 import com.samsthenerd.monthofswords.registry.SwordsModItems;
+import com.samsthenerd.monthofswords.registry.SwordsModKeybinds;
 import dev.architectury.registry.item.ItemPropertiesRegistry;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.LivingEntity;
@@ -10,6 +11,7 @@ import net.minecraft.util.Identifier;
 public class SwordsModClient {
     public static void init(){
         setupModelPreds();
+        SwordsModKeybinds.init();
     }
 
     private static void setupModelPreds(){

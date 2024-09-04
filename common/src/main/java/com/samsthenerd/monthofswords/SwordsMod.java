@@ -1,6 +1,7 @@
 package com.samsthenerd.monthofswords;
 
 import com.samsthenerd.monthofswords.registry.SwordsModItems;
+import com.samsthenerd.monthofswords.registry.SwordsModNetworking;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,5 +12,6 @@ public final class SwordsMod {
 
     public static void init() {
         SwordsModItems.register();
+        SwordsModNetworking.commonInit();
     }
 }

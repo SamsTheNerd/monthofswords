@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "  F",
+    "BF ",
+    "SB "
+  ],
+  "key": {
+    "F": [
+      { "tag": "minecraft:flowers" }
+    ],
+    "B": [
+      { "tag": "c:fertilizers" },
+      { "item":  "minecraft:bone_meal"}
+    ],
+    "S": {
+      "tag": "minecraft:villager_plantable_seeds"
+    }
+  },
+  "result": {
+    "id": "monthofswords:floral_sword"
+  }
+}

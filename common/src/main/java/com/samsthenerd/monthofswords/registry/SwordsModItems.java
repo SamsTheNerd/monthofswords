@@ -2,6 +2,7 @@ package com.samsthenerd.monthofswords.registry;
 
 import com.samsthenerd.monthofswords.SwordsMod;
 import com.samsthenerd.monthofswords.items.CursedSwordItem;
+import com.samsthenerd.monthofswords.items.DivineSwordItem;
 import com.samsthenerd.monthofswords.items.FloralSwordItem;
 import com.samsthenerd.monthofswords.items.WingSwordItem;
 import dev.architectury.registry.CreativeTabRegistry;
@@ -28,6 +29,9 @@ public class SwordsModItems {
 
     public static final RegistrySupplier<CursedSwordItem> CURSED_SWORD = item("cursed_sword",
             () -> new CursedSwordItem(defaultSettings()));
+
+    public static final RegistrySupplier<DivineSwordItem> DIVINE_SWORD = item("divine_sword",
+            () -> new DivineSwordItem(defaultSettings()));
 
 
     // make our creative tab.

@@ -1,6 +1,20 @@
 {
   "itemgroup.monthofswords.general": "Month of Swords",
+
+  "key.swordsmod.action": "Sword Action",
+  "category.swordsmod.swordscat": "Month of Swords",
+
+  "monthofswords.tooltip.shiftmsg": "[Shift]",
+
   "item.monthofswords.wing_sword": "Winged Sword",
+  "item.monthofswords.wing_sword.tooltip": "Light as a feather, and soft as one too, but it's still got some force to it.",
+
   "item.monthofswords.floral_sword": "Floral Sword",
-  "item.monthofswords.cursed_sword": "Cursed Sword"
+  "item.monthofswords.floral_sword.tooltip": "A blade from the earth, it's healed by the sun.",
+
+  "item.monthofswords.cursed_sword": "Cursed Sword",
+  "item.monthofswords.cursed_sword.tooltip": "Deals 5% of your target's health in exchange for 5% of your own.",
+
+  "item.monthofswords.divine_sword": "Divine Sword",
+  "item.monthofswords.divine_sword.tooltip": "Boop"
 }
