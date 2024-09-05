@@ -8,6 +8,7 @@ import com.samsthenerd.monthofswords.items.WingSwordItem;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -32,6 +33,16 @@ public class SwordsModItems {
 
     public static final RegistrySupplier<DivineSwordItem> DIVINE_SWORD = item("divine_sword",
             () -> new DivineSwordItem(defaultSettings()));
+
+    public static final RegistrySupplier<Item> GUMMY_SWORD = item("gummy_sword",
+            () -> new Item(defaultSettings().food(
+                    new FoodComponent.Builder()
+                            .nutrition(4)
+                            .saturationModifier(0.1f)
+                            .alwaysEdible()
+                            .snack()
+                            .build()
+            )));
 
 
     // make our creative tab.

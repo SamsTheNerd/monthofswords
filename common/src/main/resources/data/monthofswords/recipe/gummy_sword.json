@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "  S",
+    " F ",
+    "D  "
+  ],
+  "key": {
+    "S": [
+      { "item":  "minecraft:sugar"}
+    ],
+    "F": [
+      { "tag": "c:foods/fruit" },
+      { "tag": "c:foods/vegetable" },
+      { "tag": "c:foods/berry" }
+    ],
+    "D": [
+      { "tag": "c:dyes/light_blue" },
+      { "tag": "c:dyes/cyan" },
+      { "tag": "c:dyes/blue" }
+    ]
+  },
+  "result": {
+    "id": "monthofswords:gummy_sword",
+    "count": 4
+  }
+}

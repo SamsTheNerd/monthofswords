@@ -16,5 +16,7 @@
   "item.monthofswords.cursed_sword.tooltip": "Deals 5% of your target's health in exchange for 5% of your own.",
 
   "item.monthofswords.divine_sword": "Divine Sword",
-  "item.monthofswords.divine_sword.tooltip": "Blesses the wielder with a variety of effects when used. Has a 2 minute cooldown."
+  "item.monthofswords.divine_sword.tooltip": "Blesses the wielder with a variety of effects when used. Has a 2 minute cooldown.",
+
+  "item.monthofswords.gummy_sword": "Sword Gummy"
 }
