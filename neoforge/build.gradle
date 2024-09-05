@@ -132,7 +132,7 @@ publishMods {
         minecraftVersions.add(project.minecraft_version)
 
         requires{
-            slug = "architectury"
+            slug = "architectury-api"
         }
     }
 }

@@ -130,7 +130,7 @@ publishMods {
             slug = "fabric-api"
         }
         requires{
-            slug = "architectury"
+            slug = "architectury-api"
         }
     }
 
