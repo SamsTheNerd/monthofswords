@@ -1,5 +1,6 @@
 package com.samsthenerd.monthofswords.items;
 
+import com.samsthenerd.monthofswords.registry.SwordsModDamageTypes;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,9 +20,9 @@ public class CursedSwordItem extends SwordtemberItem {
     public void postDamageEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         float targetHealthPortion = target.getMaxHealth() * 0.05f;
         float attackerHealthPortion = attacker.getMaxHealth() * 0.05f;
-        target.damage(target.getWorld().getDamageSources().magic(), Math.max(attackerHealthPortion, targetHealthPortion));
-        attacker.damage(target.getWorld().getDamageSources().magic(), attackerHealthPortion);
-        // TODO: custom damage type ?
+        target.damage(SwordsModDamageTypes.getCurseDamage(attacker), Math.max(attackerHealthPortion, targetHealthPortion));
+        attacker.damage(SwordsModDamageTypes.getCurseDamage(attacker.getWorld()), attackerHealthPortion);
+        super.postDamageEntity(stack, target, attacker);
     }
 
     @Override

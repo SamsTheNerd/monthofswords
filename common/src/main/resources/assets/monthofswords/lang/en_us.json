@@ -18,5 +18,9 @@
   "item.monthofswords.divine_sword": "Divine Sword",
   "item.monthofswords.divine_sword.tooltip": "Blesses the wielder with a variety of effects when used. Has a 2 minute cooldown.",
 
-  "item.monthofswords.gummy_sword": "Sword Gummy"
+  "item.monthofswords.gummy_sword": "Sword Gummy",
+
+  "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
+  "death.attack.swordtembercurse": "%1$s let the curse take too much",
+  "death.attack.swordtembercurse.player": "%1$s fell to a curse from %3$s"
 }
