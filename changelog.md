@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.5.0
+
+### Added
+
+- Sword Gummies
+
+### Changed
+
+- Cursed Sword now has its own Curse damage type bypassing armor.
+- Cursed Sword now spawns in bastion treasure loot chests.
+
 ## 0.4.0 (Initial Release)
 
 ### Added 

@@ -10,11 +10,23 @@ architectury {
     fabric()
 }
 
+fabricApi {
+    configureDataGeneration()
+}
 
 loom {
     runs {
         client {
             programArgs(["--username", "samsthenerd", "--uuid", "6f07899c-2b26-4221-8033-1f53f7a0e111"])
+        }
+
+        datagen {
+//            inherit server
+            name "Data Generation"
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${project(':common').file('src/main/generated')}"
+            vmArg "-Dfabric-api.datagen.modid=${project.mod_id}"
+            runDir "build/datagen"
         }
     }
 }

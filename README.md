@@ -10,6 +10,7 @@ Check out the swords:
 - Floral Sword: A blade from the earth, it's healed by the sun.
 - Cursed Sword: Deals 5% of your target's health in exchange for 5% of your own.
 - Divine Sword: Blesses the wielder with a variety of effects when used. Has a 2 minute cooldown.
+- Sword Gummy: Silly sword snack, yum yum yum.
 
 and more to come !
 

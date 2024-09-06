@@ -19,6 +19,7 @@
   "item.monthofswords.divine_sword.tooltip": "Blesses the wielder with a variety of effects when used. Has a 2 minute cooldown.",
 
   "item.monthofswords.gummy_sword": "Sword Gummy",
+  "item.monthofswords.gummy_sword.tooltip": "Silly sword snack, yum yum yum.",
 
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",

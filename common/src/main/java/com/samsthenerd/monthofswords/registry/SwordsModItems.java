@@ -8,19 +8,28 @@ import com.samsthenerd.monthofswords.items.WingSwordItem;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 public class SwordsModItems {
     public static DeferredRegister<Item> ITEMS = DeferredRegister.create(SwordsMod.MOD_ID, RegistryKeys.ITEM);
     public static final DeferredRegister<ItemGroup> TABS = DeferredRegister.create(SwordsMod.MOD_ID, RegistryKeys.ITEM_GROUP);
+
+    public static final List<Identifier> ALL_SWORDS = new ArrayList<>();
 
     public static final RegistrySupplier<WingSwordItem> WING_SWORD = item("wing_sword",
             () -> new WingSwordItem(defaultSettings()));
@@ -42,7 +51,21 @@ public class SwordsModItems {
                             .alwaysEdible()
                             .snack()
                             .build()
-            )));
+            )){
+                @Override
+                public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+                    if(Screen.hasShiftDown()){
+                        MutableText infoText = Text.translatable(stack.getTranslationKey() + ".tooltip");
+                        infoText.setStyle(Style.EMPTY.withItalic(true).withColor(Formatting.AQUA));
+                        tooltip.add(infoText);
+                    } else {
+                        MutableText shiftMsg = Text.translatable("monthofswords.tooltip.shiftmsg");
+                        shiftMsg.setStyle(Style.EMPTY.withItalic(true).withColor(Formatting.AQUA));
+                        tooltip.add(shiftMsg);
+                    }
+                    super.appendTooltip(stack, context, tooltip, type);
+                }
+            });
 
 
     // make our creative tab.
@@ -54,8 +77,14 @@ public class SwordsModItems {
      * Helper function for registering an item.
      * register the item supplied with the id `monthofswords:name`
      */
+    public static <T extends Item> RegistrySupplier<T> item(String name, Supplier<T> item, boolean isSword) {
+        Identifier itemId = Identifier.of(SwordsMod.MOD_ID, name);
+        if(isSword) ALL_SWORDS.add(itemId);
+        return ITEMS.register(itemId, item);
+    }
+
     public static <T extends Item> RegistrySupplier<T> item(String name, Supplier<T> item) {
-        return ITEMS.register(Identifier.of(SwordsMod.MOD_ID, name), item);
+        return item(name, item, true);
     }
 
     // returns default item settings, here it just puts the item in rpi mod tab

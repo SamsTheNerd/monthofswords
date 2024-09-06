@@ -15,6 +15,9 @@
   "icon": "assets/monthofswords/icon.png",
   "environment": "*",
   "entrypoints": {
+    "fabric-datagen": [
+      "com.samsthenerd.monthofswords.fabric.datagen.SwordsFabricDatagen"
+    ],
     "main": [
       "com.samsthenerd.monthofswords.fabric.SwordsModFabric"
     ],
