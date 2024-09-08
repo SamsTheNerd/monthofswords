@@ -1,10 +1,7 @@
 package com.samsthenerd.monthofswords.registry;
 
 import com.samsthenerd.monthofswords.SwordsMod;
-import com.samsthenerd.monthofswords.items.CursedSwordItem;
-import com.samsthenerd.monthofswords.items.DivineSwordItem;
-import com.samsthenerd.monthofswords.items.FloralSwordItem;
-import com.samsthenerd.monthofswords.items.WingSwordItem;
+import com.samsthenerd.monthofswords.items.*;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -66,6 +63,9 @@ public class SwordsModItems {
                     super.appendTooltip(stack, context, tooltip, type);
                 }
             });
+
+    public static final RegistrySupplier<StealthSwordItem> STEALTH_SWORD = item("stealth_sword",
+            () -> new StealthSwordItem(defaultSettings()));
 
 
     // make our creative tab.

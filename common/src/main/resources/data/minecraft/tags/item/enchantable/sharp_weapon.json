@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "monthofswords:floral_sword"
+    "monthofswords:floral_sword",
+    "monthofswords:cursed_sword",
+    "monthofswords:divine_sword",
+    "monthofswords:stealth_sword"
   ]
 }
