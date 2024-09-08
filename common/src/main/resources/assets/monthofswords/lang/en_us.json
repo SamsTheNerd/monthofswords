@@ -27,7 +27,7 @@
   "item.monthofswords.stealth_sword.tooltip.3": "Right clicking the sword with a firework rocket in the inventory will consume the rocket and use its design for smoke bombs.",
 
   "item.monthofswords.moon_sword": "Moon Sword",
-  "item.monthofswords.moon_sword.tooltip": "Pretty!",
+  "item.monthofswords.moon_sword.tooltip": "Deals 1.5 more damage under the moon's light",
 
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",

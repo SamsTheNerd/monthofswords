@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.7.0
+
+### Added
+
+- Stealth Sword - throw smoke bombs and sneak attack your foes
+- Moon Sword - found in jungle temples
+
 ## 0.5.0
 
 ### Added

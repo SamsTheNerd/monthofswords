@@ -10,6 +10,7 @@ import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.MutableText;
@@ -66,6 +67,9 @@ public class SwordsModItems {
 
     public static final RegistrySupplier<StealthSwordItem> STEALTH_SWORD = item("stealth_sword",
             () -> new StealthSwordItem(defaultSettings()));
+
+    public static final RegistrySupplier<TimeBasedSwordItem> MOON_SWORD = item("moon_sword",
+            () -> new TimeBasedSwordItem(Items.IRON_INGOT, defaultSettings(), false));
 
 
     // make our creative tab.

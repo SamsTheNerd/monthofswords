@@ -11,6 +11,8 @@ Check out the swords:
 - Cursed Sword: Deals 5% of your target's health in exchange for 5% of your own.
 - Divine Sword: Blesses the wielder with a variety of effects when used. Has a 2 minute cooldown.
 - Sword Gummy: Silly sword snack, yum yum yum.
+- Stealth Sword: Throw smoke bombs and sneak attack your foes
+- Moon Sword: Deals 1.5 more damage under the moon's light
 
 and more to come !
 
