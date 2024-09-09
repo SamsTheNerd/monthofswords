@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.8.0
+
+### Added
+
+- Sun Sword - found in desert temples
+
+### Changed
+
+- Tweaked the wording on some descriptions
+
 ## 0.7.0
 
 ### Added

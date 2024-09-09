@@ -1,0 +1,6 @@
+{
+  "parent": "monthofswords:item/revsword",
+  "textures": {
+    "layer0": "monthofswords:item/sun"
+  }
+}

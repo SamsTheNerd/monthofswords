@@ -22,6 +22,12 @@ public class SwordsModLoot {
                                 .conditionally(RandomChanceLootCondition.builder(0.25f))
                 );
                 context.addPool(pool);
+            } else if(builtin && LootTables.DESERT_PYRAMID_CHEST.equals(key)) {
+                LootPool.Builder pool = LootPool.builder().with(
+                        ItemEntry.builder(SwordsModItems.SUN_SWORD.get())
+                                .conditionally(RandomChanceLootCondition.builder(0.2f))
+                );
+                context.addPool(pool);
             }
         });
     }

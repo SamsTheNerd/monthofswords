@@ -13,6 +13,7 @@ Check out the swords:
 - Sword Gummy: Silly sword snack, yum yum yum.
 - Stealth Sword: Throw smoke bombs and sneak attack your foes
 - Moon Sword: Deals 1.5 more damage under the moon's light
+- Sun Sword: Deals 1.5 more damage in the sun's light
 
 and more to come !
 

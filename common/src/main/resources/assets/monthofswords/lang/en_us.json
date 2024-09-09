@@ -22,12 +22,15 @@
   "item.monthofswords.gummy_sword.tooltip": "Silly sword snack, yum yum yum.",
 
   "item.monthofswords.stealth_sword": "Stealthy Sword",
-  "item.monthofswords.stealth_sword.tooltip": "Right clicking throws down a smoke bomb for quick get aways. Sneak right clicking foregoes the flashy colors.",
-  "item.monthofswords.stealth_sword.tooltip.2": "Sneak attacks can do up to 2.5 extra damage. Invisibility, crouching, and attacking from behind are some good ways to catch your opponent off guard.",
-  "item.monthofswords.stealth_sword.tooltip.3": "Right clicking the sword with a firework rocket in the inventory will consume the rocket and use its design for smoke bombs.",
+  "item.monthofswords.stealth_sword.tooltip": "Right-clicking throws down a smoke bomb for quick getaways. Sneak right-clicking foregoes the flashy colors.",
+  "item.monthofswords.stealth_sword.tooltip.2": "Sneak attacks can deal up to 2.5 extra damage. Invisibility, crouching, and attacking from behind are some good ways to catch your opponent off guard.",
+  "item.monthofswords.stealth_sword.tooltip.3": "Right-clicking the sword with a firework rocket in the inventory will consume the rocket and use its design for smoke bombs.",
 
   "item.monthofswords.moon_sword": "Moon Sword",
   "item.monthofswords.moon_sword.tooltip": "Deals 1.5 more damage under the moon's light",
+
+  "item.monthofswords.sun_sword": "Sun Sword",
+  "item.monthofswords.sun_sword.tooltip": "Deals 1.5 more damage in the sun's light",
 
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",
