@@ -1,6 +1,14 @@
 # Changelog
 
-## 0.8.0
+## 1.9.0
+
+### Added
+
+- Ocean Sword - found in shipwrecks. 
+
+(let's all just pretend that this came out weeks ago :3 )
+
+## 1.8.0
 
 ### Added
 
@@ -10,14 +18,14 @@
 
 - Tweaked the wording on some descriptions
 
-## 0.7.0
+## 1.7.0
 
 ### Added
 
 - Stealth Sword - throw smoke bombs and sneak attack your foes
 - Moon Sword - found in jungle temples
 
-## 0.5.0
+## 1.5.0
 
 ### Added
 
@@ -28,7 +36,7 @@
 - Cursed Sword now has its own Curse damage type bypassing armor.
 - Cursed Sword now spawns in bastion treasure loot chests.
 
-## 0.4.0 (Initial Release)
+## 1.4.0 (Initial Release)
 
 ### Added 
 

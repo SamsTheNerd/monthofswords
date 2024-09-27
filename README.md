@@ -14,6 +14,7 @@ Check out the swords:
 - Stealth Sword: Throw smoke bombs and sneak attack your foes
 - Moon Sword: Deals 1.5 more damage under the moon's light
 - Sun Sword: Deals 1.5 more damage in the sun's light
+- Ocean Sword: Deals 1.5 more damage in the water. Also easier water maneuvering.
 
 and more to come !
 
