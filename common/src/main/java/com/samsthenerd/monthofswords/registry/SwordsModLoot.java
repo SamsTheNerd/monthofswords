@@ -28,6 +28,12 @@ public class SwordsModLoot {
                                 .conditionally(RandomChanceLootCondition.builder(0.2f))
                 );
                 context.addPool(pool);
+            } else if(builtin && LootTables.SHIPWRECK_TREASURE_CHEST.equals(key)) {
+                LootPool.Builder pool = LootPool.builder().with(
+                        ItemEntry.builder(SwordsModItems.OCEAN_SWORD.get())
+                                .conditionally(RandomChanceLootCondition.builder(0.3f))
+                );
+                context.addPool(pool);
             }
         });
     }

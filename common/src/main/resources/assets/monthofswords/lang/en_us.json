@@ -32,6 +32,9 @@
   "item.monthofswords.sun_sword": "Sun Sword",
   "item.monthofswords.sun_sword.tooltip": "Deals 1.5 more damage in the sun's light",
 
+  "item.monthofswords.ocean_sword": "Ocean Sword",
+  "item.monthofswords.ocean_sword.tooltip": "Deals 1.5 more damage in the water.",
+
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",
   "death.attack.swordtembercurse.player": "%1$s fell to a curse from %3$s"

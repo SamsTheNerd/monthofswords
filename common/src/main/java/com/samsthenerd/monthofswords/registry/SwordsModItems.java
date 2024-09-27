@@ -74,6 +74,9 @@ public class SwordsModItems {
     public static final RegistrySupplier<TimeBasedSwordItem> SUN_SWORD = item("sun_sword",
             () -> new TimeBasedSwordItem(Items.GOLD_INGOT, defaultSettings(), true));
 
+    public static final RegistrySupplier<OceanSwordItem> OCEAN_SWORD = item("ocean_sword",
+            () -> new OceanSwordItem(defaultSettings()));
+
 
     // make our creative tab.
     public static final RegistrySupplier<ItemGroup> SWORDS_MOD_GROUP = TABS.register("monthofswords_tab", () ->
