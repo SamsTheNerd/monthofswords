@@ -77,6 +77,9 @@ public class SwordsModItems {
     public static final RegistrySupplier<OceanSwordItem> OCEAN_SWORD = item("ocean_sword",
             () -> new OceanSwordItem(defaultSettings()));
 
+    public static final RegistrySupplier<EnchantSwordItem> ENCHANTING_SWORD = item("enchanting_sword",
+            () -> new EnchantSwordItem(defaultSettings()));
+
 
     // make our creative tab.
     public static final RegistrySupplier<ItemGroup> SWORDS_MOD_GROUP = TABS.register("monthofswords_tab", () ->
