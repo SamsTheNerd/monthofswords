@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "  I",
+    "GI ",
+    "SG "
+  ],
+  "key": {
+    "I": [
+      { "item": "minecraft:iron_ingot" },
+      { "tag": "c:ingots/iron" }
+    ],
+    "G": [
+      { "item": "minecraft:gold_nugget" },
+      { "tag": "c:nuggets/gold" }
+    ],
+    "S": {
+      "item": "minecraft:shield"
+    }
+  },
+  "result": {
+    "id": "monthofswords:dueling_sword"
+  }
+}

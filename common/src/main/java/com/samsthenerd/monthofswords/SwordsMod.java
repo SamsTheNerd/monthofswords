@@ -1,11 +1,16 @@
 package com.samsthenerd.monthofswords;
 
 import com.google.common.base.Suppliers;
-import com.samsthenerd.monthofswords.registry.SwordsModItems;
-import com.samsthenerd.monthofswords.registry.SwordsModLoot;
-import com.samsthenerd.monthofswords.registry.SwordsModNetworking;
-import com.samsthenerd.monthofswords.registry.SwordsModStatusEffects;
+import com.samsthenerd.monthofswords.registry.*;
+import dev.architectury.event.EventResult;
+import dev.architectury.event.events.common.EntityEvent;
 import dev.architectury.registry.registries.RegistrarManager;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,5 +33,20 @@ public final class SwordsMod {
         SwordsModNetworking.commonInit();
         SwordsModLoot.init();
         SwordsModStatusEffects.init();
+        SwordsModComponents.register();
+
+        EntityEvent.LIVING_HURT.register((LivingEntity entity, DamageSource source, float amount) -> {
+            ItemStack victimStack = entity.getMainHandStack();
+            if(entity instanceof PlayerEntity player
+                && player.isUsingItem()
+                && victimStack.getItem().equals(SwordsModItems.DUELING_SWORD.get())
+                && !source.isIn(DamageTypeTags.BYPASSES_SHIELD)
+                && !player.getItemCooldownManager().isCoolingDown(victimStack.getItem())
+            ){
+                player.getItemCooldownManager().set(victimStack.getItem(), 15);
+                victimStack.damage(1, entity, EquipmentSlot.MAINHAND);
+            }
+            return EventResult.pass();
+        });
     }
 }

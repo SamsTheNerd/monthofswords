@@ -8,6 +8,8 @@
 
   "item.monthofswords.wing_sword": "Winged Sword",
   "item.monthofswords.wing_sword.tooltip": "Light as a feather, and soft as one too, but it's still got some force to it.",
+  "advancements.swordsmod.wing_sword.title": "Light as a Feather",
+  "advancements.swordsmod.wing_sword.description": "Craft a Winged Sword",
 
   "item.monthofswords.floral_sword": "Floral Sword",
   "item.monthofswords.floral_sword.tooltip": "A blade from the earth, it's healed by the sun.",
@@ -37,6 +39,9 @@
 
   "item.monthofswords.enchanting_sword": "Enchanting Sword",
   "item.monthofswords.enchanting_sword.tooltip": "As if powered by an out of control enchanting table, every attack has a new enchantment.",
+
+  "item.monthofswords.dueling_sword": "Dueling Sword",
+  "item.monthofswords.dueling_sword.tooltip": "Blocks like a shield, parry attacks deal 50% more damage.",
 
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",

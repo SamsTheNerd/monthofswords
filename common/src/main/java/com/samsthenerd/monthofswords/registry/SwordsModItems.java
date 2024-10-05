@@ -80,6 +80,9 @@ public class SwordsModItems {
     public static final RegistrySupplier<EnchantSwordItem> ENCHANTING_SWORD = item("enchanting_sword",
             () -> new EnchantSwordItem(defaultSettings()));
 
+    public static final RegistrySupplier<DuelingSwordItem> DUELING_SWORD = item("dueling_sword",
+            () -> new DuelingSwordItem(defaultSettings()));
+
 
     // make our creative tab.
     public static final RegistrySupplier<ItemGroup> SWORDS_MOD_GROUP = TABS.register("monthofswords_tab", () ->
