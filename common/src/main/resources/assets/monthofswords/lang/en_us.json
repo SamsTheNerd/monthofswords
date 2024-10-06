@@ -45,5 +45,9 @@
 
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",
-  "death.attack.swordtembercurse.player": "%1$s fell to a curse from %3$s"
+  "death.attack.swordtembercurse.player": "%1$s fell to a curse from %3$s",
+
+  "death.attack.swordtemberparrymiss.item": "%1$s missed the parry with %3$s",
+  "death.attack.swordtemberparrymiss": "%1$s missed the parry",
+  "death.attack.swordtemberparrymiss.player": "%1$s missed the parry with %3$s"
 }

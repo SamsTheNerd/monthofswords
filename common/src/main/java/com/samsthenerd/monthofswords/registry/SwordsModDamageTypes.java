@@ -13,6 +13,17 @@ public class SwordsModDamageTypes {
     public static final RegistryKey<DamageType> CURSE_DAMAGE = RegistryKey.of(RegistryKeys.DAMAGE_TYPE,
             Identifier.of(SwordsMod.MOD_ID, "curse"));
 
+    public static final RegistryKey<DamageType> PARRY_MISS_DAMAGE = RegistryKey.of(RegistryKeys.DAMAGE_TYPE,
+            Identifier.of(SwordsMod.MOD_ID, "parry_miss"));
+
+    public static DamageSource getParryMiss(LivingEntity attacker){
+        return new DamageSource(
+                attacker.getWorld().getRegistryManager()
+                        .get(RegistryKeys.DAMAGE_TYPE)
+                        .entryOf(PARRY_MISS_DAMAGE),
+                attacker);
+    }
+
     public static DamageSource getCurseDamage(LivingEntity attacker){
         return new DamageSource(
                 attacker.getWorld().getRegistryManager()

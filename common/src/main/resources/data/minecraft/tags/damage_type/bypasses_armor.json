@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "monthofswords:curse"
+    "monthofswords:curse",
+    "monthofswords:parry_miss"
   ]
 }
