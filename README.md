@@ -15,6 +15,8 @@ Check out the swords:
 - Moon Sword: Deals 1.5 more damage under the moon's light
 - Sun Sword: Deals 1.5 more damage in the sun's light
 - Ocean Sword: Deals 1.5 more damage in the water. Also easier water maneuvering.
+- Enchanting Sword: As if powered by an out of control enchanting table, every attack has a new enchantment.
+- Dueling Sword: Blocks like a shield, parry attacks deal 50% more damage.
 
 and more to come !
 

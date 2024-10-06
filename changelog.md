@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.11.0
+
+### Added
+
+- Enchanting Sword - new enchantments on each swipe
+- Dueling Sword - blocking and parrying !
+
 ## 1.9.0
 
 ### Added
