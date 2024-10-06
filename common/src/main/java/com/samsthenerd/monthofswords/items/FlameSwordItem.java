@@ -11,10 +11,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.SmallFireballEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.*;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.SoundCategory;
@@ -34,7 +31,7 @@ import java.util.function.UnaryOperator;
 public class FlameSwordItem extends SwordtemberItem implements SwordActionHaverServer{
 
     public static final ToolMaterial FLAME_MATERIAL = new ClassyToolMaterial(1500, 7f, 3f,
-            BlockTags.INCORRECT_FOR_IRON_TOOL, 14, () -> Ingredient.EMPTY);
+            BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 14, () -> Ingredient.ofItems(Items.BLAZE_POWDER));
 
     public FlameSwordItem(Item.Settings itemSettings) {
         super(FLAME_MATERIAL, itemSettings.attributeModifiers(
