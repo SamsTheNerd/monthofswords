@@ -83,6 +83,9 @@ public class SwordsModItems {
     public static final RegistrySupplier<DuelingSwordItem> DUELING_SWORD = item("dueling_sword",
             () -> new DuelingSwordItem(defaultSettings()));
 
+    public static final RegistrySupplier<FlameSwordItem> FLAME_SWORD = item("flame_sword",
+            () -> new FlameSwordItem(defaultSettings().fireproof()));
+
 
     // make our creative tab.
     public static final RegistrySupplier<ItemGroup> SWORDS_MOD_GROUP = TABS.register("monthofswords_tab", () ->

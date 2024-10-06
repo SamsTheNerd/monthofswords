@@ -27,7 +27,7 @@ public class SwordtemberItem extends SwordItem {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         if(Screen.hasShiftDown()){
-            MutableText infoText = Text.translatable(stack.getTranslationKey() + ".tooltip");
+            MutableText infoText = Text.translatable(stack.getTranslationKey() + ".tooltip", Text.keybind("key.swordsmod.action"));
             infoText.setStyle(getSwordTooltipStyleModifier().apply(Style.EMPTY.withItalic(true)));
             tooltip.add(infoText);
         } else {
