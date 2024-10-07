@@ -55,6 +55,9 @@
   "item.monthofswords.potion_sword": "Potion Sword",
   "item.monthofswords.potion_sword.tooltip": "Can be filled by using the sword with a potion in your offhand. Attacking gives a lesser effect to the target.",
 
+  "item.monthofswords.bone_sword": "Bone Sword",
+  "item.monthofswords.bone_sword.tooltip": "It's got bones. Bit better than a stone sword.",
+
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",
   "death.attack.swordtembercurse.player": "%1$s fell to a curse from %3$s"
