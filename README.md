@@ -17,6 +17,8 @@ Check out the swords:
 - Ocean Sword: Deals 1.5 more damage in the water. Also easier water maneuvering.
 - Enchanting Sword: As if powered by an out of control enchanting table, every attack has a new enchantment.
 - Dueling Sword: Blocks like a shield, parry attacks deal 50% more damage.
+- Flame Sword: Deals 1 more damage to burning targets. Shoots a fireball on use or a Big fireball with [ Sword Action Key ]
+- Ice Sword: Deals 1 more damage to frozen targets. Shoots a freezing snowball on use or summons a small blizzard with [ Sword Action Key ]
 
 and more to come !
 

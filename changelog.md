@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.14.0
+
+### Added
+
+- Flame Sword
+- Ice Sword
+
 ## 1.11.0
 
 ### Added

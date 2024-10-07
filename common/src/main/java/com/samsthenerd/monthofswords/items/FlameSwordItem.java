@@ -108,7 +108,7 @@ public class FlameSwordItem extends SwordtemberItem implements SwordActionHaverS
 
 
         Random random = world.getRandom();
-        player.getItemCooldownManager().set(this, 100);
+        player.getItemCooldownManager().set(this, 200);
         world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 1.0f, (random.nextFloat() - random.nextFloat()) * 0.2f + 1.0f);
         swordStack.damage(15, player, player.getMainHandStack() == swordStack ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
         return true;
