@@ -1,0 +1,44 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "monthofswords:item/potion"
+  },
+  "overrides": [
+    {
+      "model": "monthofswords:item/potion_sword",
+      "predicate": {
+        "monthofswords:potionlevel": 0.0
+      }
+    },
+    {
+      "model": "monthofswords:item/potion/0",
+      "predicate": {
+        "monthofswords:potionlevel": 0.2
+      }
+    },
+    {
+      "model": "monthofswords:item/potion/1",
+      "predicate": {
+        "monthofswords:potionlevel": 0.4
+      }
+    },
+    {
+      "model": "monthofswords:item/potion/2",
+      "predicate": {
+        "monthofswords:potionlevel": 0.6
+      }
+    },
+    {
+      "model": "monthofswords:item/potion/3",
+      "predicate": {
+        "monthofswords:potionlevel": 0.8
+      }
+    },
+    {
+      "model": "monthofswords:item/potion/4",
+      "predicate": {
+        "monthofswords:potionlevel": 1.0
+      }
+    }
+  ]
+}

@@ -52,6 +52,9 @@
   "item.monthofswords.poison_dagger": "Poison Dagger",
   "item.monthofswords.poison_dagger.tooltip": "Poisons the target.",
 
+  "item.monthofswords.potion_sword": "Potion Sword",
+  "item.monthofswords.potion_sword.tooltip": "Can be filled by using the sword with a potion in your offhand. Attacking gives a lesser effect to the target.",
+
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",
   "death.attack.swordtembercurse.player": "%1$s fell to a curse from %3$s"
