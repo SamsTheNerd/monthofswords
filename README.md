@@ -19,6 +19,7 @@ Check out the swords:
 - Dueling Sword: Blocks like a shield, parry attacks deal 50% more damage.
 - Flame Sword: Deals 1 more damage to burning targets. Shoots a fireball on use or a Big fireball with [ Sword Action Key ]
 - Ice Sword: Deals 1 more damage to frozen targets. Shoots a freezing snowball on use or summons a small blizzard with [ Sword Action Key ]
+- Poison Dagger: Poisons the target.
 
 and more to come !
 

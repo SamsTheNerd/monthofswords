@@ -49,6 +49,9 @@
   "item.monthofswords.ice_sword": "Ice Sword",
   "item.monthofswords.ice_sword.tooltip": "Deals 1 more damage to frozen targets. Shoots a freezing snowball on use or summons a small blizzard with [ %1$s ]",
 
+  "item.monthofswords.poison_dagger": "Poison Dagger",
+  "item.monthofswords.poison_dagger.tooltip": "Poisons the target.",
+
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",
   "death.attack.swordtembercurse.player": "%1$s fell to a curse from %3$s"

@@ -34,6 +34,13 @@ public class SwordsModLoot {
                                 .conditionally(RandomChanceLootCondition.builder(0.3f))
                 );
                 context.addPool(pool);
+            } else if(builtin && (LootTables.SIMPLE_DUNGEON_CHEST.equals(key)
+            || LootTables.PILLAGER_OUTPOST_CHEST.equals(key))) {
+                LootPool.Builder pool = LootPool.builder().with(
+                    ItemEntry.builder(SwordsModItems.POISON_DAGGER.get())
+                        .conditionally(RandomChanceLootCondition.builder(0.35f))
+                );
+                context.addPool(pool);
             }
         });
     }

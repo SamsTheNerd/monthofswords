@@ -89,6 +89,9 @@ public class SwordsModItems {
     public static final RegistrySupplier<IceSwordItem> ICE_SWORD = item("ice_sword",
         () -> new IceSwordItem(defaultSettings()));
 
+    public static final RegistrySupplier<PoisonDaggerItem> POISON_DAGGER = item("poison_dagger",
+        () -> new PoisonDaggerItem(defaultSettings()));
+
 
     // make our creative tab.
     public static final RegistrySupplier<ItemGroup> SWORDS_MOD_GROUP = TABS.register("monthofswords_tab", () ->

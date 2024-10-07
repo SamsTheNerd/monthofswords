@@ -6,6 +6,7 @@
 
 - Flame Sword
 - Ice Sword
+- Poison Dagger
 
 ## 1.11.0
 
