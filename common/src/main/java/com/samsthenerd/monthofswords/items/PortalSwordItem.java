@@ -71,7 +71,7 @@ public class PortalSwordItem extends SwordtemberItem implements SwordActionHaver
                 if(baseState.shouldSuffocate(otherWorld, scaledPos)
                     && otherWorld.canPlayerModifyAt(player, scaledPos)
                     && baseState.getBlock().getHardness() > 0){
-                    otherWorld.breakBlock(scaledPos, !player.getAbilities().creativeMode, player);
+                    otherWorld.breakBlock(scaledPos, true, player);
                 }
                 // if you're scaled up that's on you.
                 BlockPos headPos = scaledPos.offset(Direction.UP);
@@ -79,7 +79,7 @@ public class PortalSwordItem extends SwordtemberItem implements SwordActionHaver
                 if(headState.shouldSuffocate(otherWorld, headPos)
                     && otherWorld.canPlayerModifyAt(player, headPos)
                     && headState.getBlock().getHardness() > 0){
-                    otherWorld.breakBlock(headPos, !player.getAbilities().creativeMode, player);
+                    otherWorld.breakBlock(headPos, true, player);
                 }
                 // place a block under you if needed.
                 BlockPos underPos = scaledPos.offset(Direction.DOWN);

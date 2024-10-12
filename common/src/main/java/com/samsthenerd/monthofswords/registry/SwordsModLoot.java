@@ -10,6 +10,7 @@ import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.util.Identifier;
 
 import java.util.function.Supplier;
 
@@ -25,18 +26,18 @@ public class SwordsModLoot {
         addLoot(SwordsModItems.PORTAL_SWORD, 0.02f, LootTables.RUINED_PORTAL_CHEST);
 
         LootEvent.MODIFY_LOOT_TABLE.register((key, context, builtin) -> {
-            for(LootEvent.ModifyLootTable modifier : LOOT_MODIFIERS.get(key)){
+            for(LootEvent.ModifyLootTable modifier : LOOT_MODIFIERS.get(key.getValue())){
                 modifier.modifyLootTable(key, context, builtin);
             }
         });
     }
 
-    private static final Multimap<RegistryKey<LootTable>, LootEvent.ModifyLootTable> LOOT_MODIFIERS = MultimapBuilder.hashKeys().linkedHashSetValues().build();
+    private static final Multimap<Identifier, LootEvent.ModifyLootTable> LOOT_MODIFIERS = MultimapBuilder.hashKeys().linkedHashSetValues().build();
 
     @SafeVarargs
     private static void addLoot(Supplier<? extends Item> itemSupplier, float chance, RegistryKey<LootTable>... tables){
         for(RegistryKey<LootTable> table : tables){
-            LOOT_MODIFIERS.put(table, (key, context, builtin) -> {
+            LOOT_MODIFIERS.put(table.getValue(), (key, context, builtin) -> {
                 LootPool.Builder pool = LootPool.builder().with(
                     ItemEntry.builder(itemSupplier.get())
                         .conditionally(RandomChanceLootCondition.builder(chance))
