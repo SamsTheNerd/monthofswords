@@ -1,47 +1,49 @@
 package com.samsthenerd.monthofswords.registry;
 
+import com.google.common.collect.Multimap;
+import com.google.common.collect.MultimapBuilder;
 import dev.architectury.event.events.common.LootEvent;
+import net.minecraft.item.Item;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.registry.RegistryKey;
+
+import java.util.function.Supplier;
 
 public class SwordsModLoot {
+
     public static void init() {
+        addLoot(SwordsModItems.CURSED_SWORD, 0.2f, LootTables.BASTION_TREASURE_CHEST);
+        addLoot(SwordsModItems.MOON_SWORD, 0.25f, LootTables.JUNGLE_TEMPLE_CHEST);
+        addLoot(SwordsModItems.SUN_SWORD, 0.2f, LootTables.DESERT_PYRAMID_CHEST);
+        addLoot(SwordsModItems.OCEAN_SWORD, 0.3f, LootTables.SHIPWRECK_TREASURE_CHEST);
+        addLoot(SwordsModItems.POISON_DAGGER, 0.35f, LootTables.SIMPLE_DUNGEON_CHEST, LootTables.PILLAGER_OUTPOST_CHEST);
+        addLoot(SwordsModItems.PORTAL_SWORD, 0.2f, LootTables.NETHER_BRIDGE_CHEST);
+        addLoot(SwordsModItems.PORTAL_SWORD, 0.02f, LootTables.RUINED_PORTAL_CHEST);
+
         LootEvent.MODIFY_LOOT_TABLE.register((key, context, builtin) -> {
-            if (builtin && LootTables.BASTION_TREASURE_CHEST.equals(key)) {
-                LootPool.Builder pool = LootPool.builder().with(
-                        ItemEntry.builder(SwordsModItems.CURSED_SWORD.get())
-                                .conditionally(RandomChanceLootCondition.builder(0.2f))
-                );
-                context.addPool(pool);
-            } else if(builtin && LootTables.JUNGLE_TEMPLE_CHEST.equals(key)) {
-                LootPool.Builder pool = LootPool.builder().with(
-                        ItemEntry.builder(SwordsModItems.MOON_SWORD.get())
-                                // 2 chests per jungle temple + they aren't too rare so i think this is fine, most people encounter a jungle temple or two will find it but it's not guaranteed
-                                .conditionally(RandomChanceLootCondition.builder(0.25f))
-                );
-                context.addPool(pool);
-            } else if(builtin && LootTables.DESERT_PYRAMID_CHEST.equals(key)) {
-                LootPool.Builder pool = LootPool.builder().with(
-                        ItemEntry.builder(SwordsModItems.SUN_SWORD.get())
-                                .conditionally(RandomChanceLootCondition.builder(0.2f))
-                );
-                context.addPool(pool);
-            } else if(builtin && LootTables.SHIPWRECK_TREASURE_CHEST.equals(key)) {
-                LootPool.Builder pool = LootPool.builder().with(
-                        ItemEntry.builder(SwordsModItems.OCEAN_SWORD.get())
-                                .conditionally(RandomChanceLootCondition.builder(0.3f))
-                );
-                context.addPool(pool);
-            } else if(builtin && (LootTables.SIMPLE_DUNGEON_CHEST.equals(key)
-            || LootTables.PILLAGER_OUTPOST_CHEST.equals(key))) {
-                LootPool.Builder pool = LootPool.builder().with(
-                    ItemEntry.builder(SwordsModItems.POISON_DAGGER.get())
-                        .conditionally(RandomChanceLootCondition.builder(0.35f))
-                );
-                context.addPool(pool);
+            for(LootEvent.ModifyLootTable modifier : LOOT_MODIFIERS.get(key)){
+                modifier.modifyLootTable(key, context, builtin);
             }
         });
     }
+
+    private static final Multimap<RegistryKey<LootTable>, LootEvent.ModifyLootTable> LOOT_MODIFIERS = MultimapBuilder.hashKeys().linkedHashSetValues().build();
+
+    @SafeVarargs
+    private static void addLoot(Supplier<? extends Item> itemSupplier, float chance, RegistryKey<LootTable>... tables){
+        for(RegistryKey<LootTable> table : tables){
+            LOOT_MODIFIERS.put(table, (key, context, builtin) -> {
+                LootPool.Builder pool = LootPool.builder().with(
+                    ItemEntry.builder(itemSupplier.get())
+                        .conditionally(RandomChanceLootCondition.builder(chance))
+                );
+                context.addPool(pool);
+            });
+        }
+    }
+
 }

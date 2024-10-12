@@ -98,6 +98,9 @@ public class SwordsModItems {
     public static final RegistrySupplier<BoneSwordItem> BONE_SWORD = item("bone_sword",
         () -> new BoneSwordItem(defaultSettings()));
 
+    public static final RegistrySupplier<PortalSwordItem> PORTAL_SWORD = item("portal_sword",
+        () -> new PortalSwordItem(defaultSettings()));
+
 
     // make our creative tab.
     public static final RegistrySupplier<ItemGroup> SWORDS_MOD_GROUP = TABS.register("monthofswords_tab", () ->

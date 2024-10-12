@@ -58,6 +58,9 @@
   "item.monthofswords.bone_sword": "Bone Sword",
   "item.monthofswords.bone_sword.tooltip": "It's got bones. Bit better than a stone sword.",
 
+  "item.monthofswords.portal_sword": "Portal Sword",
+  "item.monthofswords.portal_sword.tooltip": "Jump between dimensions with [ %1$s ]",
+
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",
   "death.attack.swordtembercurse.player": "%1$s fell to a curse from %3$s"
