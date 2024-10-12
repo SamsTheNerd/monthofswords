@@ -20,6 +20,9 @@ Check out the swords:
 - Flame Sword: Deals 1 more damage to burning targets. Shoots a fireball on use or a Big fireball with [ Sword Action Key ]
 - Ice Sword: Deals 1 more damage to frozen targets. Shoots a freezing snowball on use or summons a small blizzard with [ Sword Action Key ]
 - Poison Dagger: Poisons the target.
+- Potion Sword: Can be filled by using the sword with a potion in your offhand. Attacking gives a lesser effect to the target.
+- Bone Sword: It's got bones. Bit better than a stone sword.
+- Portal Sword: Jump between dimensions with [ Sword Action Key ]
 
 and more to come !
 

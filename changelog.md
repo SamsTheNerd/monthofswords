@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.17.0
+
+### Added
+
+- Potion Sword
+- Bone Sword
+- Portal Sword
+
 ## 1.14.0
 
 ### Added
