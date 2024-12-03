@@ -101,6 +101,9 @@ public class SwordsModItems {
     public static final RegistrySupplier<PortalSwordItem> PORTAL_SWORD = item("portal_sword",
         () -> new PortalSwordItem(defaultSettings()));
 
+    public static final RegistrySupplier<LuckySwordItem> LUCKY_SWORD = item("lucky_sword",
+        () -> new LuckySwordItem(defaultSettings()));
+
 
     // make our creative tab.
     public static final RegistrySupplier<ItemGroup> SWORDS_MOD_GROUP = TABS.register("monthofswords_tab", () ->

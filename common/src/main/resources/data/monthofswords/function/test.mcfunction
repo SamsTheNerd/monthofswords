@@ -1,0 +1,1 @@
+summon item ~ ~10 ~ {Item:{id:"minecraft:diamond",Count:1}}

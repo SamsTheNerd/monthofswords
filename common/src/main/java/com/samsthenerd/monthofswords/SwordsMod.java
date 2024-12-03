@@ -1,6 +1,7 @@
 package com.samsthenerd.monthofswords;
 
 import com.google.common.base.Suppliers;
+import com.samsthenerd.monthofswords.lucky.LuckyFunctions;
 import com.samsthenerd.monthofswords.registry.*;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.EntityEvent;
@@ -34,6 +35,8 @@ public final class SwordsMod {
         SwordsModLoot.init();
         SwordsModStatusEffects.init();
         SwordsModComponents.register();
+        SwordsModDataLoaders.init();
+        LuckyFunctions.register();
 
         EntityEvent.LIVING_HURT.register((LivingEntity entity, DamageSource source, float amount) -> {
             ItemStack victimStack = entity.getMainHandStack();
