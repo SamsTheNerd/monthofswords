@@ -103,6 +103,15 @@ public class SwordsModItems {
     public static final RegistrySupplier<LuckySwordItem> LUCKY_SWORD = item("lucky_sword",
         () -> new LuckySwordItem(defaultSettings()));
 
+    public static final List<String> UNIMPLEMENTED_SWORDS = List.of("forest", "echo", "eye", "mechanical", "summoned",
+        "jeweled", "woven", "shock", "crystal", "necro", "glow");
+
+    static {
+        for(String sword : UNIMPLEMENTED_SWORDS){
+            item(sword + "_sword", () -> new UnimplementedSwordItem(defaultSettings()));
+        }
+    }
+
 
     // make our creative tab.
     public static final RegistrySupplier<ItemGroup> SWORDS_MOD_GROUP = TABS.register("monthofswords_tab", () ->

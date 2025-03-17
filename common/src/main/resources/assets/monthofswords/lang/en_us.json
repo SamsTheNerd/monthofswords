@@ -5,6 +5,7 @@
   "category.swordsmod.swordscat": "Month of Swords",
 
   "monthofswords.tooltip.shiftmsg": "[Shift]",
+  "monthofswords.tooltip.unimplementedmsg": "Unfinished/WIP !!",
 
   "item.monthofswords.wing_sword": "Winged Sword",
   "item.monthofswords.wing_sword.tooltip": "Light as a feather, and soft as one too, but it's still got some force to it.",
@@ -63,6 +64,42 @@
 
   "item.monthofswords.lucky_sword": "Lucky Sword",
   "item.monthofswords.lucky_sword.tooltip": "Take a swing, take a roll, who knows what it'll do!",
+
+  "item.monthofswords.forest_sword": "Forest Sword",
+  "item.monthofswords.forest_sword.tooltip": "TODO",
+
+  "item.monthofswords.echo_sword": "Echo Sword",
+  "item.monthofswords.echo_sword.tooltip": "TODO",
+
+  "item.monthofswords.eye_sword": "Eye Sword",
+  "item.monthofswords.eye_sword.tooltip": "TODO",
+
+  "item.monthofswords.mechanical_sword": "Mechanical Sword",
+  "item.monthofswords.mechanical_sword.tooltip": "Someone ping me when create fabric 1.21 :p",
+
+  "item.monthofswords.summoned_sword": "Summoned Sword",
+  "item.monthofswords.summoned_sword.tooltip": "TODO",
+
+  "item.monthofswords.jeweled_sword": "Jeweled Sword",
+  "item.monthofswords.jeweled_sword.tooltip": "TODO",
+
+  "item.monthofswords.woven_sword": "Woven Sword",
+  "item.monthofswords.woven_sword.tooltip": "TODO",
+
+  "item.monthofswords.shock_sword": "Shock Sword",
+  "item.monthofswords.shock_sword.tooltip": "TODO",
+
+  "item.monthofswords.silverfish_sword": "Infestation Sword",
+  "item.monthofswords.silverfish_sword.tooltip": "TODO",
+
+  "item.monthofswords.crystal_sword": "Crystal Sword",
+  "item.monthofswords.crystal_sword.tooltip": "TODO",
+
+  "item.monthofswords.necro_sword": "Necromancer's Blade",
+  "item.monthofswords.necro_sword.tooltip": "TODO",
+
+  "item.monthofswords.glow_sword": "Glow Sword",
+  "item.monthofswords.glow_sword.tooltip": "TODO",
 
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",
