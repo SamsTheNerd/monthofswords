@@ -2,6 +2,7 @@ package com.samsthenerd.monthofswords.items;
 
 import com.samsthenerd.monthofswords.utils.LivingEntDuck;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -10,6 +11,8 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Style;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -33,10 +36,19 @@ public class WovenSwordItem extends SwordtemberItem {
     }
 
     @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        attacker.getWorld().playSound(null, attacker.getBlockPos(), SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME,
+            SoundCategory.PLAYERS, 100f, attacker.getRandom().nextFloat() * 0.4f + 0.8f);
+        return super.postHit(stack, target, attacker);
+    }
+
+    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
         if(user.getItemCooldownManager().isCoolingDown(this)) return TypedActionResult.pass(stack);
         if(user instanceof ServerPlayerEntity sPlayer){
+            world.playSound(null, sPlayer.getBlockPos(), SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME,
+                SoundCategory.PLAYERS, 100f, user.getRandom().nextFloat() * 0.4f + 0.8f);
             Vec3d vel = user.getRotationVector();
             user.addVelocity(vel);
             user.velocityModified = true;

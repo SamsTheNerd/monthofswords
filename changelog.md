@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.21.0
+
+- Woven Sword (dashes!)
+- Lucky Sword (configurable random effects!)
+- Jeweled Sword (looting and fancy!)
+- Glow Sword (effects related to glowing)
+
 ## 1.17.0
 
 ### Added

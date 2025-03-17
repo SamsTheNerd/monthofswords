@@ -25,6 +25,8 @@ public class SwordsModLoot {
         addLoot(SwordsModItems.PORTAL_SWORD, 0.2f, LootTables.NETHER_BRIDGE_CHEST);
         addLoot(SwordsModItems.PORTAL_SWORD, 0.02f, LootTables.RUINED_PORTAL_CHEST);
         addLoot(SwordsModItems.LUCKY_SWORD, 0.05f, LootTables.BASTION_BRIDGE_CHEST);
+        addLoot(SwordsModItems.JEWELED_SWORD, 0.01f, LootTables.PILLAGER_OUTPOST_CHEST);
+        addLoot(SwordsModItems.JEWELED_SWORD, 0.05f, LootTables.WOODLAND_MANSION_CHEST);
 
         LootEvent.MODIFY_LOOT_TABLE.register((key, context, builtin) -> {
             for(LootEvent.ModifyLootTable modifier : LOOT_MODIFIERS.get(key.getValue())){
