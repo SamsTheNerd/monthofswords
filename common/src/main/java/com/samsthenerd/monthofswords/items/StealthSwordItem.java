@@ -3,7 +3,6 @@ package com.samsthenerd.monthofswords.items;
 import com.samsthenerd.monthofswords.SwordsMod;
 import com.samsthenerd.monthofswords.registry.SwordsModStatusEffects;
 import it.unimi.dsi.fastutil.ints.IntList;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.FireworkExplosionComponent;
@@ -142,7 +141,7 @@ public class StealthSwordItem extends SwordItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        if(Screen.hasShiftDown()){
+        if(SwordtemberItem.hasShiftSafe()){
             MutableText infoText = Text.translatable(stack.getTranslationKey() + ".tooltip");
             infoText.setStyle(getSwordTooltipStyleModifier().apply(Style.EMPTY.withItalic(true)));
             MutableText infoText2 = Text.translatable(stack.getTranslationKey() + ".tooltip.2");

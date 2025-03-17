@@ -1,5 +1,7 @@
 package com.samsthenerd.monthofswords.items;
 
+import dev.architectury.platform.Platform;
+import dev.architectury.utils.Env;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -26,7 +28,7 @@ public class SwordtemberItem extends SwordItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        if(Screen.hasShiftDown()){
+        if(SwordtemberItem.hasShiftSafe()){
             MutableText infoText = Text.translatable(stack.getTranslationKey() + ".tooltip", Text.keybind("key.swordsmod.action"));
             infoText.setStyle(getSwordTooltipStyleModifier().apply(Style.EMPTY.withItalic(true)));
             tooltip.add(infoText);
@@ -36,5 +38,11 @@ public class SwordtemberItem extends SwordItem {
             tooltip.add(shiftMsg);
         }
         super.appendTooltip(stack, context, tooltip, type);
+    }
+
+    // returns true if shift is down or if it's on the server
+    // meant to be used for tooltips to not break polydex
+    public static boolean hasShiftSafe(){
+        return Platform.getEnvironment() == Env.SERVER || Screen.hasShiftDown();
     }
 }

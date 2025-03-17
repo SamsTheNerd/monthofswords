@@ -5,7 +5,6 @@ import com.samsthenerd.monthofswords.items.*;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -52,7 +51,7 @@ public class SwordsModItems {
             )){
                 @Override
                 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-                    if(Screen.hasShiftDown()){
+                    if(SwordtemberItem.hasShiftSafe()){
                         MutableText infoText = Text.translatable(stack.getTranslationKey() + ".tooltip");
                         infoText.setStyle(Style.EMPTY.withItalic(true).withColor(Formatting.AQUA));
                         tooltip.add(infoText);
