@@ -1,0 +1,5 @@
+{
+  "injected_interfaces": {
+    "net/minecraft/entity/LivingEntity": ["com/samsthenerd/monthofswords/utils/LivingEntDuck"]
+  }
+}

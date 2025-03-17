@@ -103,8 +103,11 @@ public class SwordsModItems {
     public static final RegistrySupplier<LuckySwordItem> LUCKY_SWORD = item("lucky_sword",
         () -> new LuckySwordItem(defaultSettings()));
 
+    public static final RegistrySupplier<WovenSwordItem> WOVEN_SWORD = item("woven_sword",
+        () -> new WovenSwordItem(defaultSettings()));
+
     public static final List<String> UNIMPLEMENTED_SWORDS = List.of("forest", "echo", "eye", "mechanical", "summoned",
-        "jeweled", "woven", "shock", "crystal", "necro", "glow");
+        "jeweled", "shock", "crystal", "necro", "glow");
 
     static {
         for(String sword : UNIMPLEMENTED_SWORDS){

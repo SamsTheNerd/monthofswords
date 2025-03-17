@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "  D",
+    " BL",
+    "E P"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "L": {
+      "item": "minecraft:light_blue_carpet"
+    },
+    "P": {
+      "item": "minecraft:pink_carpet"
+    },
+    "E": {
+      "item": "minecraft:breeze_rod"
+    },
+    "B": {
+      "item": "minecraft:dragons_breath"
+    }
+  },
+  "result": {
+    "id": "monthofswords:woven_sword"
+  }
+}
