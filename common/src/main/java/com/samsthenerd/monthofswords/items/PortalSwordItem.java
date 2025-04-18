@@ -1,5 +1,6 @@
 package com.samsthenerd.monthofswords.items;
 
+import com.samsthenerd.monthofswords.SwordsMod;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
@@ -38,7 +39,8 @@ public class PortalSwordItem extends SwordtemberItem implements SwordActionHaver
 
     @Override
     public boolean doSwordAction(PlayerEntity player, ItemStack swordStack){
-        if(!(player.getWorld() instanceof ServerWorld sWorld)) return false;
+        if(!(player.getWorld() instanceof ServerWorld sWorld)
+        || !SwordsMod.canBeDestructive(player, null)) return false;
         TeleportTarget teleportTarget = createTeleportTarget(sWorld, player, player.getBlockPos());
         if (teleportTarget != null) {
             ServerWorld otherWorld = teleportTarget.world();

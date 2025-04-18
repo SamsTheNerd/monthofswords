@@ -28,6 +28,7 @@ public class SwordtemberItem extends SwordItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        // TODO: rewrite this to grab multi-lines, only show shift msg when needed, and show alt descriptions for adventure mode
         if(SwordtemberItem.hasShiftSafe()){
             MutableText infoText = Text.translatable(stack.getTranslationKey() + ".tooltip", Text.keybind("key.swordsmod.action"));
             infoText.setStyle(getSwordTooltipStyleModifier().apply(Style.EMPTY.withItalic(true)));

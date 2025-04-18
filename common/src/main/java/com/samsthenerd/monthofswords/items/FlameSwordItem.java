@@ -1,7 +1,9 @@
 package com.samsthenerd.monthofswords.items;
 
+import com.samsthenerd.monthofswords.SwordsMod;
 import com.samsthenerd.monthofswords.utils.BFSHelper;
 import net.minecraft.block.AbstractFireBlock;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
@@ -19,12 +21,15 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Style;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.Map;
 import java.util.function.UnaryOperator;
 
@@ -56,39 +61,57 @@ public class FlameSwordItem extends SwordtemberItem implements SwordActionHaverS
         return super.postHit(stack, target, attacker);
     }
 
-    @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        ItemStack stack = player.getStackInHand(hand);
-        if(!player.getItemCooldownManager().isCoolingDown(this)){
-            SmallFireballEntity fireball = new SmallFireballEntity(player.getWorld(), player, player.getRotationVector().multiply(3));
-            Vec3d lookVec = player.getRotationVector();
-            fireball.setPosition(player.getPos().add(lookVec.x, 1.4, lookVec.z));
-            player.getWorld().spawnEntity(fireball);
-            player.getItemCooldownManager().set(this, 50);
-            stack.damage(1, player, hand == Hand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
-            Random random = world.getRandom();
-            world.playSound(null, player.getBlockPos(), SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1.0f, (random.nextFloat() - random.nextFloat()) * 0.2f + 1.0f);
-            return TypedActionResult.success(stack);
-        }
-        return TypedActionResult.pass(stack);
+    private static SmallFireballEntity makeSafeFireball(PlayerEntity player, Vec3d vel){
+        return new SmallFireballEntity(player.getWorld(), player, vel){
+            @Override
+            protected void onBlockHit(BlockHitResult bhs){
+                if(SwordsMod.canBeDestructive(player, bhs.getBlockPos())){
+                    super.onBlockHit(bhs);
+                } else {
+                    BlockState blockState = this.getWorld().getBlockState(bhs.getBlockPos());
+                    blockState.onProjectileHit(this.getWorld(), blockState, bhs, this);
+                    List<Entity> nearbyEnts = player.getWorld().getOtherEntities(player, new Box(bhs.getBlockPos()).expand(2));
+                    for(Entity target : nearbyEnts){
+                        target.setOnFireForTicks(100);
+                    }
+                }
+            }
+        };
     }
 
     @Override
-    public boolean doSwordAction(PlayerEntity player, ItemStack swordStack){
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+        ItemStack stack = player.getStackInHand(hand);
+        if(player.getItemCooldownManager().isCoolingDown(this)) return TypedActionResult.pass(stack);
 
-        if(player.getItemCooldownManager().isCoolingDown(this)) return false;
+        SmallFireballEntity fireball = makeSafeFireball(player, player.getRotationVector().multiply(3));
+        Vec3d lookVec = player.getRotationVector();
+        fireball.setPosition(player.getPos().add(lookVec.x, 1.4, lookVec.z));
+        player.getWorld().spawnEntity(fireball);
+        player.getItemCooldownManager().set(this, 50);
+        stack.damage(1, player, hand == Hand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
+        Random random = world.getRandom();
+        world.playSound(null, player.getBlockPos(), SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1.0f, (random.nextFloat() - random.nextFloat()) * 0.2f + 1.0f);
+        return TypedActionResult.success(stack);
+
+    }
+
+    @Override
+    public boolean doSwordAction(PlayerEntity player, ItemStack swordStack) {
+
+        if (player.getItemCooldownManager().isCoolingDown(this)) return false;
 
         World world = player.getWorld();
         Vec3d lookVec = player.getRotationVector();
 
-        Vec3d sideVec = lookVec.crossProduct(new Vec3d(0,1,0)).normalize().multiply(0.1f);
-        Vec3d[] sideVels = {sideVec, new Vec3d(0,0,0), sideVec.multiply(-1)};
-        Vec3d[] verVels = {new Vec3d(0, 0.1f,0), new Vec3d(0,0,0), new Vec3d(0, -0.1f,0)};
+        Vec3d sideVec = lookVec.crossProduct(new Vec3d(0, 1, 0)).normalize().multiply(0.1f);
+        Vec3d[] sideVels = {sideVec, new Vec3d(0, 0, 0), sideVec.multiply(-1)};
+        Vec3d[] verVels = {new Vec3d(0, 0.1f, 0), new Vec3d(0, 0, 0), new Vec3d(0, -0.1f, 0)};
 
-        for(Vec3d vVel : verVels){
-            for(Vec3d hVel : sideVels){
-                SmallFireballEntity fireballCenter = new SmallFireballEntity(player.getWorld(), player,
-                        player.getRotationVector().add(vVel).add(hVel).multiply(3));
+        for (Vec3d vVel : verVels) {
+            for (Vec3d hVel : sideVels) {
+                SmallFireballEntity fireballCenter = makeSafeFireball(player,
+                    player.getRotationVector().add(vVel).add(hVel).multiply(3));
                 fireballCenter.setPosition(player.getPos().add(lookVec.x, 1.4, lookVec.z));
                 player.getWorld().spawnEntity(fireballCenter);
             }
@@ -96,16 +119,22 @@ public class FlameSwordItem extends SwordtemberItem implements SwordActionHaverS
 
         player.setStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 400), player);
 
-        Map<BlockPos, Integer> fireZone = BFSHelper.runBFS(world, player.getBlockPos(),
+        if (SwordsMod.canBeDestructive(player, null)) {
+            Map<BlockPos, Integer> fireZone = BFSHelper.runBFS(world, player.getBlockPos(),
                 (worldArg, pos, dist) -> true, 3, false);
 
-        for(BlockPos fPos : fireZone.keySet()){
-            if(world.getBlockState(fPos).getBlock() == Blocks.AIR
-            && world.getBlockState(fPos.offset(Direction.DOWN)).getBlock() != Blocks.AIR){
-                world.setBlockState(fPos, AbstractFireBlock.getState(world, fPos));
+            for (BlockPos fPos : fireZone.keySet()) {
+                if (world.getBlockState(fPos).getBlock() == Blocks.AIR
+                    && world.getBlockState(fPos.offset(Direction.DOWN)).getBlock() != Blocks.AIR) {
+                    world.setBlockState(fPos, AbstractFireBlock.getState(world, fPos));
+                }
+            }
+        } else {
+            List<Entity> nearbyEnts = world.getOtherEntities(player, new Box(player.getBlockPos()).expand(3));
+            for(Entity target : nearbyEnts){
+                target.setOnFireForTicks(100);
             }
         }
-
 
         Random random = world.getRandom();
         player.getItemCooldownManager().set(this, 200);

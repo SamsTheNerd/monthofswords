@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.21.1
+
+### Added
+
+- Safety checks on all block destruction
+  - based on adventure mode/player ability by default
+  - currently affects flame, ice, and portal swords
+- Gamerule `monthOfSwordsDestructiveAdventureMode` allows destructive effects in adventure mode
+- Gamerule `monthOfSwordsNoDestructionEVER` disables destructive effects for everyone
+
 ## 1.21.0
 
 - Woven Sword (dashes!)

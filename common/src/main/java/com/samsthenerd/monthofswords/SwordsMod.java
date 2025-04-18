@@ -13,6 +13,12 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.GameRules;
+import net.minecraft.world.GameRules.BooleanRule;
+import net.minecraft.world.GameRules.Category;
+import net.minecraft.world.GameRules.Key;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,5 +57,20 @@ public final class SwordsMod {
             }
             return EventResult.pass();
         });
+    }
+
+    public static Key<BooleanRule> DESTRUCTIVE_ADVENTURE_SWORDS = GameRules.register(
+      "monthOfSwordsDestructiveAdventureMode", Category.PLAYER, BooleanRule.create(false)
+    );
+
+    public static Key<BooleanRule> SUPER_SUPER_SAFE_SWORDS = GameRules.register(
+      "monthOfSwordsNoDestructionEVER", Category.PLAYER, BooleanRule.create(false)
+    );
+
+    public static boolean canBeDestructive(PlayerEntity player, @Nullable BlockPos pos){
+        if(player.getWorld().getGameRules().getBoolean(SUPER_SUPER_SAFE_SWORDS)) return false;
+        if(player.getWorld().getGameRules().getBoolean(DESTRUCTIVE_ADVENTURE_SWORDS)) return true;
+        if(pos != null && !player.canModifyAt(player.getWorld(), pos)) return false;
+        return player.canModifyBlocks();
     }
 }

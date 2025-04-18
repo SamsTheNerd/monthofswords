@@ -119,6 +119,8 @@ public class IceSwordItem extends SwordtemberItem implements SwordActionHaverSer
 
         if(player.getItemCooldownManager().isCoolingDown(this)) return false;
 
+        boolean canBeDestructive = SwordsMod.canBeDestructive(player, null);
+
         World world = player.getWorld();
         Vec3d lookVec = player.getRotationVector();
 
@@ -131,21 +133,25 @@ public class IceSwordItem extends SwordtemberItem implements SwordActionHaverSer
             world.playSound(null, player.getBlockPos(), SoundEvents.ITEM_BUCKET_EMPTY_POWDER_SNOW, SoundCategory.PLAYERS, 2.0f, (random.nextFloat() - random.nextFloat()) * 0.2f + 1.0f);
         }
 
-        Map<BlockPos, Integer> iceZone = BFSHelper.runBFS(world, player.getBlockPos(),
-            (worldArg, pos, dist) -> {
-                Block block = worldArg.getBlockState(pos).getBlock();
-                return dist < 2 || FREEZE_MAP.containsKey(block);
-            }, 4, true);
+        int numFrozen = 0;
+        if(canBeDestructive) {
+            Map<BlockPos, Integer> iceZone = BFSHelper.runBFS(world, player.getBlockPos(),
+                (worldArg, pos, dist) -> {
+                    Block block = worldArg.getBlockState(pos).getBlock();
+                    return dist < 2 || FREEZE_MAP.containsKey(block);
+                }, 4, true);
 
-        for(BlockPos fPos : iceZone.keySet()){
-            Block fBlock = world.getBlockState(fPos).getBlock();
-            BlockState newState = FREEZE_MAP.get(fBlock);
-            if(newState != null){
-                world.setBlockState(fPos, newState);
+            numFrozen = iceZone.keySet().size();
+            for (BlockPos fPos : iceZone.keySet()) {
+                Block fBlock = world.getBlockState(fPos).getBlock();
+                BlockState newState = FREEZE_MAP.get(fBlock);
+                if (newState != null) {
+                    world.setBlockState(fPos, newState);
+                }
             }
         }
 
-        player.getItemCooldownManager().set(this, 50 + Math.min(nearbyEnts.size() * 20, 300));
+        player.getItemCooldownManager().set(this, Math.min(numFrozen, 80) + Math.min(nearbyEnts.size() * 20, 300));
         world.playSound(null, player.getBlockPos(), SoundEvents.BLOCK_POWDER_SNOW_HIT, SoundCategory.PLAYERS, 1.0f, (random.nextFloat() - random.nextFloat()) * 0.2f + 1.0f);
         swordStack.damage(3 + Math.min(nearbyEnts.size() * 2, 12), player, player.getMainHandStack() == swordStack ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
         return true;
