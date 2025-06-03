@@ -89,8 +89,8 @@
   "item.monthofswords.shock_sword": "Shock Sword",
   "item.monthofswords.shock_sword.tooltip": "Does 2 extra damage in thunderstorms. Right click summons a lightning bolt.",
 
-  "item.monthofswords.silverfish_sword": "Infestation Sword",
-  "item.monthofswords.silverfish_sword.tooltip": "TODO",
+  "item.monthofswords.infestation_sword": "Infestation Sword",
+  "item.monthofswords.infestation_sword.tooltip": "TODO",
 
   "item.monthofswords.crystal_sword": "Crystal Sword",
   "item.monthofswords.crystal_sword.tooltip": "TODO",
@@ -103,5 +103,13 @@
 
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",
-  "death.attack.swordtembercurse.player": "%1$s fell to a curse from %3$s"
+  "death.attack.swordtembercurse.player": "%1$s fell to a curse from %3$s",
+
+  "effect.monthofswords.smoke_bombed": "Smoke Bombed",
+  "effect.monthofswords.smoke_bombed.desc": "Prevents affected mobs from finding new attack targets.",
+  "effect.monthofswords.friend_of_bugs": "Friend of Bugs",
+  "effect.monthofswords.friend_of_bugs.desc": "Bugs won't attack their friends.",
+  "effect.monthofswords.necromancer": "Necromancer",
+  "effect.monthofswords.necromancer.desc": "The undead will not harm a necromancer."
+
 }

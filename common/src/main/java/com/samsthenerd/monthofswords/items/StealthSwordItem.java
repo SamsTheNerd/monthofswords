@@ -85,7 +85,8 @@ public class StealthSwordItem extends SwordItem {
                         liveEnt.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 20 * 3)); // give them blindness for 3 seconds
                     }
                     if(nearbyEnt instanceof MobEntity nearbyMob){
-                        nearbyMob.addStatusEffect(new StatusEffectInstance(SwordsModStatusEffects.SMOKE_BOMBED, 20 * 5));
+
+                        nearbyMob.addStatusEffect(new StatusEffectInstance(SwordsModStatusEffects.getEffect(SwordsModStatusEffects.SMOKE_BOMBED), 20 * 5));
                     }
                 }
                 handStack.damage(2, user, EquipmentSlot.MAINHAND);

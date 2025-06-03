@@ -1,11 +1,14 @@
 package com.samsthenerd.monthofswords.mixins;
 
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.samsthenerd.monthofswords.items.WovenSwordItem;
 import com.samsthenerd.monthofswords.registry.SwordsModItems;
+import com.samsthenerd.monthofswords.registry.SwordsModStatusEffects.FriendOfEntityStatusEffect;
 import com.samsthenerd.monthofswords.utils.LivingEntDuck;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -96,5 +99,23 @@ public abstract class MixinLivEntJump extends Entity implements LivingEntDuck {
     public void makeDashTransgenderly(){
         LivingEntity self = (LivingEntity) (Object) this;
         startedWovenDash = self.getWorld().getTime();
+    }
+
+
+    @ModifyReturnValue(
+        method="Lnet/minecraft/entity/LivingEntity;canTarget(Lnet/minecraft/entity/LivingEntity;)Z",
+        at = @At("RETURN")
+    )
+    public boolean monthOfSwords$becomeUntargetable(boolean original, LivingEntity target){
+        if(original){
+            for(StatusEffectInstance effInst : target.getStatusEffects()){
+                if(effInst.getEffectType().value() instanceof FriendOfEntityStatusEffect friendEff
+                && friendEff.friendPredicate.test(this)){
+                    return false;
+                }
+            }
+
+        }
+        return original;
     }
 }
