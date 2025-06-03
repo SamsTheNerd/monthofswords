@@ -14,6 +14,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.EntityTypeTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.ColorHelper.Argb;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,7 +34,8 @@ public class SwordsModStatusEffects {
             }.addAttributeModifier(EntityAttributes.GENERIC_FOLLOW_RANGE, SwordsMod.id("effect.smoke_bombed"), -32, EntityAttributeModifier.Operation.ADD_VALUE));
 
     public static final Identifier FRIEND_OF_BUGS = register(SwordsMod.id("friend_of_bugs"),
-        new FriendOfEntityStatusEffect(ent -> ent.getType().isIn(EntityTypeTags.ARTHROPOD), 0));
+        new FriendOfEntityStatusEffect(ent -> ent.getType().isIn(EntityTypeTags.ARTHROPOD), 0,
+            EntityEffectParticleEffect.create(ParticleTypes.ENTITY_EFFECT, Argb.withAlpha(0, 0))));
 
     public static final Identifier NECROMANCER = register(SwordsMod.id("necromancer"),
         new FriendOfEntityStatusEffect(ent -> ent.getType().isIn(EntityTypeTags.UNDEAD), 0));
@@ -54,10 +56,11 @@ public class SwordsModStatusEffects {
         public static final List<FriendOfEntityStatusEffect> ALL_FRIEND_EFFECTS = new ArrayList<>();
 
         public FriendOfEntityStatusEffect(Predicate<Entity> friendPredicate, int color, ParticleEffect particle){
-            super(StatusEffectCategory.BENEFICIAL, color);
+            super(StatusEffectCategory.BENEFICIAL, color, particle);
             this.friendPredicate = friendPredicate;
             ALL_FRIEND_EFFECTS.add(this);
         }
+
 
         public FriendOfEntityStatusEffect(Predicate<Entity> friendPredicate, int color){
             this(friendPredicate, color, EntityEffectParticleEffect.create(ParticleTypes.ENTITY_EFFECT, 0));

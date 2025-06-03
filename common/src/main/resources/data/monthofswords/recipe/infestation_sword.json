@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "minecraft:netherite_sword"
+  },
+  "addition": {
+    "item": "minecraft:stone"
+  },
+  "template": {
+    "item": "monthofswords:silverfish_shell"
+  },
+  "result": {
+    "id": "monthofswords:infestation_sword"
+  }
+}

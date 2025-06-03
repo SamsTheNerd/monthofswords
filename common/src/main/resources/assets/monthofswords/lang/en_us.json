@@ -90,7 +90,7 @@
   "item.monthofswords.shock_sword.tooltip": "Does 2 extra damage in thunderstorms. Right click summons a lightning bolt.",
 
   "item.monthofswords.infestation_sword": "Infestation Sword",
-  "item.monthofswords.infestation_sword.tooltip": "TODO",
+  "item.monthofswords.infestation_sword.tooltip": "Arthropods will fight for you. Holding right click summons silverfish.",
 
   "item.monthofswords.crystal_sword": "Crystal Sword",
   "item.monthofswords.crystal_sword.tooltip": "TODO",
@@ -100,6 +100,8 @@
 
   "item.monthofswords.glow_sword": "Glow Sword",
   "item.monthofswords.glow_sword.tooltip": "Does 2 more damage to glowing targets. Right click highlights nearby mobs. [ %1$s ] highlights and does 5 damage to mobs in a wider range.",
+
+  "item.monthofswords.silverfish_shell": "Silverfish Shell",
 
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",

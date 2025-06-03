@@ -17,6 +17,7 @@ import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,6 +128,9 @@ public class SwordsModItems {
             item(sword + "_sword", () -> new UnimplementedSwordItem(defaultSettings()));
         }
     }
+
+    public static final RegistrySupplier<Item> SILVERFISH_SHELL = item("silverfish_shell",
+        () -> new Item(defaultSettings().rarity(Rarity.RARE)));
 
 
     // make our creative tab.

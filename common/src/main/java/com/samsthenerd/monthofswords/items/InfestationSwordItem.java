@@ -47,7 +47,8 @@ public class InfestationSwordItem extends SwordtemberItem {
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if(selected && entity instanceof LivingEntity livEnt && !world.isClient()){
-            livEnt.addStatusEffect(new StatusEffectInstance(SwordsModStatusEffects.getEffect(SwordsModStatusEffects.FRIEND_OF_BUGS), 20*10));
+            livEnt.addStatusEffect(new StatusEffectInstance(SwordsModStatusEffects.getEffect(SwordsModStatusEffects.FRIEND_OF_BUGS),
+                20*15));
         }
     }
 
