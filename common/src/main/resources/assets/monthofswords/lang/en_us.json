@@ -102,6 +102,7 @@
   "item.monthofswords.glow_sword.tooltip": "Does 2 more damage to glowing targets. Right click highlights nearby mobs. [ %1$s ] highlights and does 5 damage to mobs in a wider range.",
 
   "item.monthofswords.silverfish_shell": "Silverfish Shell",
+  "item.monthofswords.forest_petals": "Forest Petals",
 
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",

@@ -104,6 +104,12 @@ public class SwordsModItems {
     public static final RegistrySupplier<LuckySwordItem> LUCKY_SWORD = item("lucky_sword",
         () -> new LuckySwordItem(defaultSettings()));
 
+    public static final RegistrySupplier<ForestSwordItem> FOREST_SWORD = item("forest_sword",
+        () -> new ForestSwordItem(defaultSettings()));
+
+    public static final RegistrySupplier<MechanicalSwordItem> MECHANICAL_SWORD = item("mechanical_sword",
+        () -> new MechanicalSwordItem(defaultSettings()));
+
     public static final RegistrySupplier<JeweledSwordItem> JEWELED_SWORD = item("jeweled_sword",
         () -> new JeweledSwordItem(defaultSettings()
         ));
@@ -120,7 +126,7 @@ public class SwordsModItems {
     public static final RegistrySupplier<GlowSwordItem> GLOW_SWORD = item("glow_sword",
         () -> new GlowSwordItem(defaultSettings()));
 
-    public static final List<String> UNIMPLEMENTED_SWORDS = List.of("forest", "echo", "eye", "mechanical", "summoned",
+    public static final List<String> UNIMPLEMENTED_SWORDS = List.of("echo", "eye", "summoned",
         "crystal", "necro");
 
     static {
@@ -130,8 +136,7 @@ public class SwordsModItems {
     }
 
     public static final RegistrySupplier<Item> SILVERFISH_SHELL = item("silverfish_shell",
-        () -> new Item(defaultSettings().rarity(Rarity.RARE)));
-
+        () -> new Item(defaultSettings().rarity(Rarity.RARE)), false);
 
     // make our creative tab.
     public static final RegistrySupplier<ItemGroup> SWORDS_MOD_GROUP = TABS.register("monthofswords_tab", () ->

@@ -1,21 +1,30 @@
 package com.samsthenerd.monthofswords;
 
-import com.samsthenerd.monthofswords.registry.SwordsModComponents;
-import com.samsthenerd.monthofswords.registry.SwordsModItems;
-import com.samsthenerd.monthofswords.registry.SwordsModKeybinds;
+import com.samsthenerd.monthofswords.registry.*;
+import dev.architectury.event.events.common.InteractionEvent;
+import dev.architectury.networking.NetworkManager;
+import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.client.rendering.ColorHandlerRegistry;
 import dev.architectury.registry.item.ItemPropertiesRegistry;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Hand;
 
 public class SwordsModClient {
     public static void init(){
         setupModelPreds();
         setupColorProviders();
         SwordsModKeybinds.init();
+        registerEntityRenderers();
+
+        InteractionEvent.CLIENT_LEFT_CLICK_AIR.register((PlayerEntity player, Hand hand) -> {
+            NetworkManager.sendToServer(new SwordsModNetworking.SwordLeftClickPayload(hand == Hand.MAIN_HAND));
+        });
     }
 
     private static void setupModelPreds(){
@@ -38,5 +47,9 @@ public class SwordsModClient {
             }
             return 0xFF_FFFFFF;
         }, SwordsModItems.POTION_SWORD);
+    }
+
+    private static void registerEntityRenderers(){
+        EntityRendererRegistry.register(SwordsModEntities.LEAF_ATTACK, FlyingItemEntityRenderer::new);
     }
 }

@@ -37,6 +37,7 @@ public final class SwordsMod {
 
     public static void init() {
         SwordsModItems.register();
+        SwordsModEntities.register();
         SwordsModNetworking.commonInit();
         SwordsModLoot.init();
         SwordsModStatusEffects.init();
