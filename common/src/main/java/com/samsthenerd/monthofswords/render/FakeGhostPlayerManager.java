@@ -1,12 +1,15 @@
 package com.samsthenerd.monthofswords.render;
 
 import com.mojang.authlib.GameProfile;
+import com.samsthenerd.monthofswords.mixins.MixinLivingEntAccessor;
+import com.samsthenerd.monthofswords.utils.LivingEntDuck;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.OtherClientPlayerEntity;
 import net.minecraft.client.util.SkinTextures;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityPose;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerModelPart;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.Vec3d;
@@ -20,9 +23,9 @@ public class FakeGhostPlayerManager {
 
     private static final Map<GameProfile, GhostlyPlayerEntity> GHOST_PLAYERS = new HashMap<>();
 
-    public static void makeFakePlayer(GameProfile profile){
+    public static void makeFakePlayer(GameProfile profile, PlayerEntity player){
         ClientWorld cWorld =  MinecraftClient.getInstance().world;
-        var ghost = new GhostlyPlayerEntity(cWorld, MinecraftClient.getInstance().getGameProfile());
+        var ghost = new GhostlyPlayerEntity(cWorld, MinecraftClient.getInstance().getGameProfile(), player);
         ghost.setUuid(UUID.randomUUID());
         ghost.noClip = true;
         cWorld.addEntity(ghost);
@@ -45,7 +48,7 @@ public class FakeGhostPlayerManager {
     }
 
     public static void makeFakePlayer(){
-        makeFakePlayer(MinecraftClient.getInstance().getGameProfile());
+        makeFakePlayer(MinecraftClient.getInstance().getGameProfile(), MinecraftClient.getInstance().player);
     }
 
     public static void removePlayer(){
@@ -62,8 +65,11 @@ public class FakeGhostPlayerManager {
 
     public static class GhostlyPlayerEntity extends OtherClientPlayerEntity{
 
-        public GhostlyPlayerEntity(ClientWorld clientWorld, GameProfile gameProfile) {
+        public PlayerEntity playerBody;
+
+        public GhostlyPlayerEntity(ClientWorld clientWorld, GameProfile gameProfile, PlayerEntity playerBody){
             super(clientWorld, gameProfile);
+            this.playerBody = playerBody;
         }
 
         @Override
@@ -97,7 +103,18 @@ public class FakeGhostPlayerManager {
         }
 
         @Override
+        public boolean isGlowing() {
+            return !playerBody.canSee(this);
+//            return super.isGlowing();
+        }
+
+        @Override
         public void tick() {
+            if(((LivingEntDuck)playerBody).getLastEchoUsage() == -1){
+                this.discard();
+                removePlayer(getGameProfile());
+                return;
+            }
             getWorld().addParticle(
                 ParticleTypes.TRIAL_SPAWNER_DETECTION_OMINOUS,
                 getX()+getRandom().nextDouble()-0.5,
@@ -106,17 +123,41 @@ public class FakeGhostPlayerManager {
                 0, 0, 0
             );
             super.tick();
+            if(this.isInSwimmingPose()){
+                ((MixinLivingEntAccessor)this).mos$setLeaningPitch(1);
+                ((MixinLivingEntAccessor)this).mos$setLastLeaningPitch(1);
+            } else {
+                ((MixinLivingEntAccessor)this).mos$setLeaningPitch(0);
+                ((MixinLivingEntAccessor)this).mos$setLastLeaningPitch(0);
+            }
         }
 
         @Override
         public void updatePose() {
 //            SwordsMod.LOGGER.info("boop");
-            if (!this.canChangeIntoPose(EntityPose.SWIMMING)) {
-                return;
+            if (this.canChangeIntoPose(EntityPose.SWIMMING)) {
+                EntityPose entityPose = this.isFallFlying() ? EntityPose.FALL_FLYING : (this.isSleeping() ? EntityPose.SLEEPING : (this.isSwimming() ? EntityPose.SWIMMING : (this.isUsingRiptide() ? EntityPose.SPIN_ATTACK : (this.isSneaking() && !this.getAbilities().flying ? EntityPose.CROUCHING : EntityPose.STANDING))));
+                EntityPose entityPose2 = this.isSpectator() || this.hasVehicle() || this.canChangeIntoPose(entityPose) ? entityPose : (this.canChangeIntoPose(EntityPose.CROUCHING) ? EntityPose.CROUCHING : EntityPose.SWIMMING);
+                this.setPose(entityPose2);
             }
-            EntityPose entityPose = this.isFallFlying() ? EntityPose.FALL_FLYING : (this.isSleeping() ? EntityPose.SLEEPING : (this.isSwimming() ? EntityPose.SWIMMING : (this.isUsingRiptide() ? EntityPose.SPIN_ATTACK : (this.isSneaking() && !this.getAbilities().flying ? EntityPose.CROUCHING : EntityPose.STANDING))));
-            EntityPose entityPose2 = this.isSpectator() || this.hasVehicle() || this.canChangeIntoPose(entityPose) ? entityPose : (this.canChangeIntoPose(EntityPose.CROUCHING) ? EntityPose.CROUCHING : EntityPose.SWIMMING);
-            this.setPose(entityPose2);
+            if(this.canChangeIntoPose(playerBody.getPose())){
+                this.setPose(playerBody.getPose());
+            }
+        }
+
+        @Override
+        public boolean canChangeIntoPose(EntityPose pose) {
+            return super.canChangeIntoPose(pose);
+        }
+
+        @Override
+        protected void tickCramming() {
+//            super.tickCramming();
+        }
+
+        @Override
+        public void pushOutOfBlocks(double x, double y, double z) {
+            super.pushOutOfBlocks(x, y, z);
         }
     }
 

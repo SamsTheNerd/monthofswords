@@ -10,6 +10,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -101,6 +102,62 @@ public abstract class MixinLivEntJump extends Entity implements LivingEntDuck {
         startedWovenDash = self.getWorld().getTime();
     }
 
+    @Unique
+    private long mos$lastEchoUsage = -1;
+
+    @Override
+    public void setLastEchoUsage(long t) {
+
+        Entity entThis = (Entity) this;
+        Vec3d originalVelocity = entThis.getVelocity();
+        // only cancel velocity at start
+        boolean onGround = entThis.isOnGround();
+        if(!onGround && entThis.isDescending()){
+            entThis.setVelocity(0, 0, 0);
+        }
+        mos$lastEchoUsage = t;
+    }
+
+    @Override
+    public long getLastEchoUsage() {
+        return mos$lastEchoUsage;
+    }
+
+
+    @Inject(
+        method="tick",
+        at=@At("HEAD")
+    )
+    public void mos$checkEchoUsageInTick(CallbackInfo ci){
+        if(mos$lastEchoUsage != -1 && ((LivingEntity)(Object)this).age - mos$lastEchoUsage > 5){
+            mos$lastEchoUsage = -1;
+        }
+    }
+
+//    @ModifyReturnValue(
+//        method="getVelocityMultiplier",
+//        at=@At("RETURN")
+//    )
+//    public float mos$noVelocityWhenEchoing(float original){
+//        if(mos$lastEchoUsage != -1){
+//            return 0;
+//        } else {
+//            return original;
+//        }
+//    }
+
+
+    @ModifyReturnValue(
+        method="getGravity", at=@At("RETURN")
+    )
+    public double mos$slowFallWhileEchoSword(double originalGravity){
+        Entity entThis = (Entity) this;
+        if(mos$lastEchoUsage != -1 && entThis.getVelocity().y <= 0
+            && entThis.isDescending() && !entThis.isOnGround()){
+            return originalGravity * 0;
+        }
+        return originalGravity;
+    }
 
     @ModifyReturnValue(
         method="Lnet/minecraft/entity/LivingEntity;canTarget(Lnet/minecraft/entity/LivingEntity;)Z",

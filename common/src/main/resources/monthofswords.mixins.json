@@ -10,7 +10,8 @@
     "MixinTurnOffLabel"
   ],
   "mixins": [
-    "MixinLivEntJump"
+    "MixinLivEntJump",
+    "MixinLivingEntAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
