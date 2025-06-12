@@ -107,6 +107,9 @@ public class SwordsModItems {
     public static final RegistrySupplier<ForestSwordItem> FOREST_SWORD = item("forest_sword",
         () -> new ForestSwordItem(defaultSettings()));
 
+    public static final RegistrySupplier<EchoSwordItem> ECHO_SWORD = item("echo_sword",
+        () -> new EchoSwordItem(defaultSettings()));
+
     public static final RegistrySupplier<MechanicalSwordItem> MECHANICAL_SWORD = item("mechanical_sword",
         () -> new MechanicalSwordItem(defaultSettings()));
 
@@ -126,7 +129,7 @@ public class SwordsModItems {
     public static final RegistrySupplier<GlowSwordItem> GLOW_SWORD = item("glow_sword",
         () -> new GlowSwordItem(defaultSettings()));
 
-    public static final List<String> UNIMPLEMENTED_SWORDS = List.of("echo", "eye", "summoned",
+    public static final List<String> UNIMPLEMENTED_SWORDS = List.of("eye", "summoned",
         "crystal", "necro");
 
     static {

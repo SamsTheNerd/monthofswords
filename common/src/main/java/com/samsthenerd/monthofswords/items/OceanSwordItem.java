@@ -10,7 +10,6 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterials;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.text.Style;
@@ -29,7 +28,7 @@ public class OceanSwordItem extends SwordtemberItem{
 
     public OceanSwordItem(Item.Settings itemSettings) {
         super(OCEAN_MATERIAL, itemSettings.attributeModifiers(
-                SwordItem.createAttributeModifiers(ToolMaterials.IRON, 3, -2.4f)
+                SwordItem.createAttributeModifiers(OCEAN_MATERIAL, 3, -2.4f)
                         .with(
                                 EntityAttributes.GENERIC_WATER_MOVEMENT_EFFICIENCY,
                                 new EntityAttributeModifier(OCEAN_MOVEMENT_MOD, 0.5, EntityAttributeModifier.Operation.ADD_VALUE),

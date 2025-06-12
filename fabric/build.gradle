@@ -19,7 +19,11 @@ loom {
         client {
             programArgs(["--username", "samsthenerd", "--uuid", "6f07899c-2b26-4221-8033-1f53f7a0e111"])
         }
+    }
+}
 
+loom {
+    runs{
         datagen {
 //            inherit server
             name "Data Generation"

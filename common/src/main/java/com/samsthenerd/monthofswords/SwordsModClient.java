@@ -1,8 +1,10 @@
 package com.samsthenerd.monthofswords;
 
 import com.samsthenerd.monthofswords.registry.*;
+import com.samsthenerd.monthofswords.render.GhostifyTexture;
 import dev.architectury.event.events.common.InteractionEvent;
 import dev.architectury.networking.NetworkManager;
+import dev.architectury.registry.ReloadListenerRegistry;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.client.rendering.ColorHandlerRegistry;
 import dev.architectury.registry.item.ItemPropertiesRegistry;
@@ -13,6 +15,8 @@ import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.resource.ResourceType;
+import net.minecraft.resource.SynchronousResourceReloader;
 import net.minecraft.util.Hand;
 
 public class SwordsModClient {
@@ -25,6 +29,8 @@ public class SwordsModClient {
         InteractionEvent.CLIENT_LEFT_CLICK_AIR.register((PlayerEntity player, Hand hand) -> {
             NetworkManager.sendToServer(new SwordsModNetworking.SwordLeftClickPayload(hand == Hand.MAIN_HAND));
         });
+
+        ReloadListenerRegistry.register(ResourceType.CLIENT_RESOURCES, (SynchronousResourceReloader) GhostifyTexture::clearTextures);
     }
 
     private static void setupModelPreds(){
