@@ -175,4 +175,16 @@ public abstract class MixinLivEntJump extends Entity implements LivingEntDuck {
         }
         return original;
     }
+
+//    @Inject(
+//        method="teleport",
+//        at=@At("HEAD"), cancellable = true
+//    )
+//    public void monthOfSwords$cancelLivEntTeleport(double x, double y, double z, boolean particleEffects, CallbackInfoReturnable<Boolean> cir){
+//        LivingEntity livEntThis = (LivingEntity)(Object)this;
+//        if(livEntThis.hasStatusEffect(SwordsModStatusEffects.getEffect(SwordsModStatusEffects.DISPLACED))){
+//            cir.setReturnValue(false);
+//        }
+//    }
+
 }

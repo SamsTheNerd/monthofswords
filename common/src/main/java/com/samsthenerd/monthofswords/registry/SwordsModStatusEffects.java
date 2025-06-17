@@ -40,6 +40,9 @@ public class SwordsModStatusEffects {
     public static final Identifier NECROMANCER = register(SwordsMod.id("necromancer"),
         new FriendOfEntityStatusEffect(ent -> ent.getType().isIn(EntityTypeTags.UNDEAD), 0));
 
+//    public static final Identifier DISPLACED = register(SwordsMod.id("displaced"),
+//        new StatusEffect(StatusEffectCategory.HARMFUL, 0){});
+
     public static RegistryEntry<StatusEffect> getEffect(Identifier id){
         return STATUS_EFFECTS.getRegistrar().getHolder(id);
     }

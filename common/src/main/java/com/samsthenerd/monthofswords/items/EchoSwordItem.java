@@ -32,7 +32,7 @@ import java.util.Set;
 public class EchoSwordItem extends SwordtemberItem {
 
     public static final ToolMaterial ECHO_MATERIAL = new ClassyToolMaterial(2500, 5f, 4f,
-        BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 18, () -> Ingredient.ofItems(Items.ECHO_SHARD));
+        BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 18, () -> Ingredient.ofItems(Items.ECHO_SHARD));
 
 
     public EchoSwordItem(Item.Settings itemSettings) {
@@ -41,6 +41,15 @@ public class EchoSwordItem extends SwordtemberItem {
             )
         );
     }
+
+//    @Override
+//    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+////        target.addStatusEffect(new StatusEffectInstance(
+////            SwordsModStatusEffects.getEffect(SwordsModStatusEffects.DISPLACED),
+////            20*5
+////        ));
+//        return super.postHit(stack, target, attacker);
+//    }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
@@ -66,11 +75,6 @@ public class EchoSwordItem extends SwordtemberItem {
                 if(ghost.canChangeIntoPose(user.getPose())){
                     ghost.setPose(user.getPose());
                 }
-//                if(ghost.isInsideWall()){
-//                    ghost.setOnFire(true);
-//                } else {
-//                    ghost.setOnFire(false);
-//                }
             });
         }
         ((LivingEntDuck)user).setLastEchoUsage(user.age);
@@ -99,6 +103,12 @@ public class EchoSwordItem extends SwordtemberItem {
             }
 
             user.teleport(sWorld, tpPos.x, tpPos.y, tpPos.z, Set.of(), user.getYaw(), user.getPitch());
+
+            // should attack nearby ents? idk
+//            var nearEnts = sWorld.getOtherEntities(user, user.getBoundingBox());
+//            for(Entity ent : nearEnts){
+//                ent.damage(DamageSources)
+//            }
 
             world.playSound(null, user.getBlockPos(), SoundEvents.BLOCK_SCULK_CHARGE,
                 SoundCategory.PLAYERS, 100f,
