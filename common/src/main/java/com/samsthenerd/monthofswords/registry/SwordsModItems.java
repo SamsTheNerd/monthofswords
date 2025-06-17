@@ -6,10 +6,7 @@ import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.MutableText;
@@ -110,6 +107,9 @@ public class SwordsModItems {
     public static final RegistrySupplier<EchoSwordItem> ECHO_SWORD = item("echo_sword",
         () -> new EchoSwordItem(defaultSettings()));
 
+    public static final RegistrySupplier<EyeSwordItem> EYE_SWORD = item("eye_sword",
+        () -> new EyeSwordItem(defaultSettings()));
+
     public static final RegistrySupplier<MechanicalSwordItem> MECHANICAL_SWORD = item("mechanical_sword",
         () -> new MechanicalSwordItem(defaultSettings()));
 
@@ -129,7 +129,7 @@ public class SwordsModItems {
     public static final RegistrySupplier<GlowSwordItem> GLOW_SWORD = item("glow_sword",
         () -> new GlowSwordItem(defaultSettings()));
 
-    public static final List<String> UNIMPLEMENTED_SWORDS = List.of("eye", "summoned",
+    public static final List<String> UNIMPLEMENTED_SWORDS = List.of("summoned",
         "crystal", "necro");
 
     static {

@@ -10,6 +10,7 @@
     "MixinTurnOffLabel"
   ],
   "mixins": [
+    "MixinEndermanStaring",
     "MixinEnt",
     "MixinLivEntJump",
     "MixinLivingEntAccessor"

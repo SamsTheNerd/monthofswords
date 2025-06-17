@@ -2,12 +2,14 @@ package com.samsthenerd.monthofswords.mixins;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.samsthenerd.monthofswords.items.WovenSwordItem;
+import com.samsthenerd.monthofswords.registry.SwordsModAttributes;
 import com.samsthenerd.monthofswords.registry.SwordsModItems;
 import com.samsthenerd.monthofswords.registry.SwordsModStatusEffects.FriendOfEntityStatusEffect;
 import com.samsthenerd.monthofswords.utils.LivingEntDuck;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.Vec3d;
@@ -174,6 +176,14 @@ public abstract class MixinLivEntJump extends Entity implements LivingEntDuck {
 
         }
         return original;
+    }
+
+    @ModifyReturnValue(
+        method="createLivingAttributes", at=@At("RETURN")
+    )
+    private static DefaultAttributeContainer.Builder monthOfSwords$addDefaultLivingAttributes(DefaultAttributeContainer.Builder builder){
+        SwordsModAttributes.init();
+        return builder.add(SwordsModAttributes.ENDERMAN_FRIENDLY, 0);
     }
 
 //    @Inject(

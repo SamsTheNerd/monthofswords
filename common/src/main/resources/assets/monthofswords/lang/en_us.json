@@ -113,6 +113,8 @@
   "effect.monthofswords.friend_of_bugs": "Friend of Bugs",
   "effect.monthofswords.friend_of_bugs.desc": "Bugs won't attack their friends.",
   "effect.monthofswords.necromancer": "Necromancer",
-  "effect.monthofswords.necromancer.desc": "The undead will not harm a necromancer."
+  "effect.monthofswords.necromancer.desc": "The undead will not harm a necromancer.",
+
+  "attribute.name.monthofswords.enderman_friendly": "Enderman Eye Protection"
 
 }
