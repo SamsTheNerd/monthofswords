@@ -6,7 +6,10 @@ import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.MutableText;
@@ -113,6 +116,10 @@ public class SwordsModItems {
     public static final RegistrySupplier<MechanicalSwordItem> MECHANICAL_SWORD = item("mechanical_sword",
         () -> new MechanicalSwordItem(defaultSettings()));
 
+    public static final RegistrySupplier<SummonableSwordItem> SUMMONED_SWORD = item("summoned_sword",
+        () -> new SummonableSwordItem(defaultSettings()
+        ));
+
     public static final RegistrySupplier<JeweledSwordItem> JEWELED_SWORD = item("jeweled_sword",
         () -> new JeweledSwordItem(defaultSettings()
         ));
@@ -129,8 +136,7 @@ public class SwordsModItems {
     public static final RegistrySupplier<GlowSwordItem> GLOW_SWORD = item("glow_sword",
         () -> new GlowSwordItem(defaultSettings()));
 
-    public static final List<String> UNIMPLEMENTED_SWORDS = List.of("summoned",
-        "crystal", "necro");
+    public static final List<String> UNIMPLEMENTED_SWORDS = List.of("crystal", "necro");
 
     static {
         for(String sword : UNIMPLEMENTED_SWORDS){
@@ -140,6 +146,16 @@ public class SwordsModItems {
 
     public static final RegistrySupplier<Item> SILVERFISH_SHELL = item("silverfish_shell",
         () -> new Item(defaultSettings().rarity(Rarity.RARE)), false);
+
+    public static final RegistrySupplier<Item> SUMMON_FRUIT = item("summon_fruit",
+        () -> new SummonFruitItem(defaultSettings().rarity(Rarity.RARE)
+            .food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).alwaysEdible().build()), true)
+        , false);
+
+    public static final RegistrySupplier<Item> BANISH_FRUIT = item("banish_fruit",
+        () -> new SummonFruitItem(defaultSettings().rarity(Rarity.RARE)
+            .food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).alwaysEdible().build()), false)
+        , false);
 
     // make our creative tab.
     public static final RegistrySupplier<ItemGroup> SWORDS_MOD_GROUP = TABS.register("monthofswords_tab", () ->

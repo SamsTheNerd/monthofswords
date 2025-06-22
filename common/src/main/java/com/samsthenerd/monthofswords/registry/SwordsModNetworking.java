@@ -1,6 +1,7 @@
 package com.samsthenerd.monthofswords.registry;
 
 import com.samsthenerd.monthofswords.SwordsMod;
+import com.samsthenerd.monthofswords.items.SummonableSwordItem;
 import com.samsthenerd.monthofswords.items.SwordActionHaverServer;
 import com.samsthenerd.monthofswords.items.SwordLeftClickHaverServer;
 import dev.architectury.networking.NetworkManager;
@@ -23,10 +24,11 @@ public class SwordsModNetworking {
                     for(ItemStack handItem : player.getHandItems()){
                         if(handItem.getItem() instanceof SwordActionHaverServer serverActionHaver){
                             if(serverActionHaver.doSwordAction(player, handItem)){
-                                break;
+                                return;
                             }
                         }
                     }
+                    SummonableSwordItem.trySummonSword(player);
                 });
 
         NetworkManager.registerReceiver(NetworkManager.Side.C2S, SwordLeftClickPayload.ID, SwordLeftClickPayload.CODEC,

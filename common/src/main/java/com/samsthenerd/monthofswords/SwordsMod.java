@@ -3,6 +3,7 @@ package com.samsthenerd.monthofswords;
 import com.google.common.base.Suppliers;
 import com.samsthenerd.monthofswords.lucky.LuckyFunctions;
 import com.samsthenerd.monthofswords.registry.*;
+import com.samsthenerd.monthofswords.xplat.SwordsModXPlat;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.EntityEvent;
 import dev.architectury.registry.registries.RegistrarManager;
@@ -34,6 +35,8 @@ public final class SwordsMod {
     public static final Supplier<RegistrarManager> MANAGER = Suppliers.memoize(() -> RegistrarManager.get(MOD_ID));
 
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+    public static SwordsModXPlat XPLAT_INSTANCE = null;
 
     public static void init() {
         SwordsModAttributes.init();

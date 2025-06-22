@@ -2,6 +2,7 @@ package com.samsthenerd.monthofswords.registry;
 
 import com.mojang.serialization.Codec;
 import com.samsthenerd.monthofswords.SwordsMod;
+import com.samsthenerd.monthofswords.items.SummonableSwordItem.SummonSwordComponentData;
 import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.component.ComponentType;
 import net.minecraft.network.codec.PacketCodecs;
@@ -13,6 +14,9 @@ public class SwordsModComponents {
     private static DeferredRegister<ComponentType<?>> COMPONENT_TYPES = DeferredRegister.create(SwordsMod.MOD_ID, RegistryKeys.DATA_COMPONENT_TYPE);
 
     public static ComponentType<Integer> POTION_HITS = component("potionhits", builder -> builder.codec(Codec.INT).packetCodec(PacketCodecs.INTEGER));
+
+    public static ComponentType<SummonSwordComponentData> SUMMON_SWORD_DATA = component("summon_sword_data", builder ->
+        builder.codec(SummonSwordComponentData.CODEC).packetCodec(SummonSwordComponentData.PACKET_CODEC));
 
     private static <T> ComponentType<T> component(String id, UnaryOperator<ComponentType.Builder<T>> builderOperator){
         ComponentType<T> comp = builderOperator.apply(ComponentType.builder()).build();
