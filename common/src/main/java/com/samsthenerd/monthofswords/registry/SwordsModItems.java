@@ -130,19 +130,17 @@ public class SwordsModItems {
     public static final RegistrySupplier<ShockSwordItem> SHOCK_SWORD = item("shock_sword",
         () -> new ShockSwordItem(defaultSettings()));
 
+    public static final RegistrySupplier<CrystalSwordItem> CRYSTAL_SWORD = item("crystal_sword",
+        () -> new CrystalSwordItem(defaultSettings()));
+
     public static final RegistrySupplier<InfestationSwordItem> INFESTATION_SWORD = item("infestation_sword",
         () -> new InfestationSwordItem(defaultSettings()));
 
     public static final RegistrySupplier<GlowSwordItem> GLOW_SWORD = item("glow_sword",
         () -> new GlowSwordItem(defaultSettings()));
 
-    public static final List<String> UNIMPLEMENTED_SWORDS = List.of("crystal", "necro");
-
-    static {
-        for(String sword : UNIMPLEMENTED_SWORDS){
-            item(sword + "_sword", () -> new UnimplementedSwordItem(defaultSettings()));
-        }
-    }
+    public static final RegistrySupplier<NecromancerSwordItem> NECROMANCERS_SWORD = item("necro_sword",
+        () -> new NecromancerSwordItem(defaultSettings()));
 
     public static final RegistrySupplier<Item> SILVERFISH_SHELL = item("silverfish_shell",
         () -> new Item(defaultSettings().rarity(Rarity.RARE)), false);
