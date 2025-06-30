@@ -130,17 +130,17 @@ public class SwordsModItems {
     public static final RegistrySupplier<ShockSwordItem> SHOCK_SWORD = item("shock_sword",
         () -> new ShockSwordItem(defaultSettings()));
 
-    public static final RegistrySupplier<CrystalSwordItem> CRYSTAL_SWORD = item("crystal_sword",
-        () -> new CrystalSwordItem(defaultSettings()));
-
     public static final RegistrySupplier<InfestationSwordItem> INFESTATION_SWORD = item("infestation_sword",
         () -> new InfestationSwordItem(defaultSettings()));
 
-    public static final RegistrySupplier<GlowSwordItem> GLOW_SWORD = item("glow_sword",
-        () -> new GlowSwordItem(defaultSettings()));
+    public static final RegistrySupplier<CrystalSwordItem> CRYSTAL_SWORD = item("crystal_sword",
+        () -> new CrystalSwordItem(defaultSettings()));
 
     public static final RegistrySupplier<NecromancerSwordItem> NECROMANCERS_SWORD = item("necro_sword",
         () -> new NecromancerSwordItem(defaultSettings()));
+
+    public static final RegistrySupplier<GlowSwordItem> GLOW_SWORD = item("glow_sword",
+        () -> new GlowSwordItem(defaultSettings()));
 
     public static final RegistrySupplier<Item> SILVERFISH_SHELL = item("silverfish_shell",
         () -> new Item(defaultSettings().rarity(Rarity.RARE)), false);
@@ -154,6 +154,9 @@ public class SwordsModItems {
         () -> new SummonFruitItem(defaultSettings().rarity(Rarity.RARE)
             .food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.3f).alwaysEdible().build()), false)
         , false);
+
+    public static final RegistrySupplier<Item> CALENDAR_ITEM = item("calendar",
+        () -> new CalendarItem(defaultSettings()), false);
 
     // make our creative tab.
     public static final RegistrySupplier<ItemGroup> SWORDS_MOD_GROUP = TABS.register("monthofswords_tab", () ->

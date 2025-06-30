@@ -34,10 +34,11 @@ public class FloralSwordItem extends SwordtemberItem {
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         int skyLight = world.getLightingProvider().get(LightType.SKY).getLightLevel(entity.getBlockPos());
-        boolean probSaysYes = random.nextInt(100) < 5; // once a second?
+//        boolean probSaysYes = random.nextInt(100) < 5; // once a second?
+        boolean probSaysYes = entity.age % 100 == 0; // 2 damage a second?
         if(world instanceof ServerWorld sWorld && stack.getDamage() > 0 && slot >= 0 && slot < 9
                 && skyLight > 7 && sWorld.isDay() &&  probSaysYes){
-            stack.setDamage(Math.max(stack.getDamage()-1, 0));
+            stack.setDamage(Math.max(stack.getDamage()-10, 0));
         }
     }
 }

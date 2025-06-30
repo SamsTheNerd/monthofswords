@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 import java.util.function.UnaryOperator;
 
-public class DivineSwordItem extends SwordtemberItem{
+public class DivineSwordItem extends SwordtemberItem implements SwordActionHaverServer{
     public DivineSwordItem(Item.Settings itemSettings){
         super(ToolMaterials.NETHERITE, itemSettings.attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 3, -2.4f)));
     }
@@ -34,6 +34,19 @@ public class DivineSwordItem extends SwordtemberItem{
             return TypedActionResult.success(handStack);
         }
         return ready ? TypedActionResult.success(handStack) : TypedActionResult.pass(handStack);
+    }
+
+    @Override
+    public boolean doSwordAction(PlayerEntity user, ItemStack swordStack) {
+        boolean ready = !user.getItemCooldownManager().isCoolingDown(this);
+        if(ready){
+            // TODO: make this apply to players around them too maybe?
+            user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20 * 15, 2));
+            user.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION,   20 * 15, 5));
+            user.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH,     20 * 15, 3));
+            user.getItemCooldownManager().set(this, 20 * 60 * 1); // 1 minute cooldown?
+        }
+        return ready;
     }
 
     @Override

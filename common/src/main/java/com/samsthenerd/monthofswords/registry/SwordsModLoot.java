@@ -3,6 +3,7 @@ package com.samsthenerd.monthofswords.registry;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.MultimapBuilder;
 import dev.architectury.event.events.common.LootEvent;
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.item.Item;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
@@ -11,8 +12,7 @@ import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
-
-import java.util.function.Supplier;
+import net.minecraft.util.Pair;
 
 public class SwordsModLoot {
 
@@ -41,10 +41,12 @@ public class SwordsModLoot {
     }
 
     private static final Multimap<Identifier, LootEvent.ModifyLootTable> LOOT_MODIFIERS = MultimapBuilder.hashKeys().linkedHashSetValues().build();
+    public static final Multimap<Identifier, Pair<RegistryKey<LootTable>, Float>> LOOT_LISTS = MultimapBuilder.hashKeys().linkedListValues().build();
 
     @SafeVarargs
-    private static void addLoot(Supplier<? extends Item> itemSupplier, float chance, RegistryKey<LootTable>... tables){
+    private static void addLoot(RegistrySupplier<? extends Item> itemSupplier, float chance, RegistryKey<LootTable>... tables){
         for(RegistryKey<LootTable> table : tables){
+            LOOT_LISTS.put(itemSupplier.getId(), new Pair<>(table, chance));
             LOOT_MODIFIERS.put(table.getValue(), (key, context, builtin) -> {
                 LootPool.Builder pool = LootPool.builder().with(
                     ItemEntry.builder(itemSupplier.get())

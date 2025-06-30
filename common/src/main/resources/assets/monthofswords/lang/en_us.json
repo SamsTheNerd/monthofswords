@@ -5,65 +5,112 @@
   "category.swordsmod.swordscat": "Month of Swords",
 
   "monthofswords.tooltip.shiftmsg": "[Shift]",
+  "monthofswords.tooltip.shiftpowers": "[ Shift for ability details ]",
   "monthofswords.tooltip.unimplementedmsg": "Unfinished/WIP !!",
 
   "item.monthofswords.wing_sword": "Winged Sword",
-  "item.monthofswords.wing_sword.tooltip": "Light as a feather, and soft as one too, but it's still got some force to it.",
+  "item.monthofswords.wing_sword.brief": "Light as a feather, but it's still got some push to it.",
   "advancements.swordsmod.wing_sword.title": "Light as a Feather",
   "advancements.swordsmod.wing_sword.description": "Craft a Winged Sword",
 
   "item.monthofswords.floral_sword": "Floral Sword",
-  "item.monthofswords.floral_sword.tooltip": "A blade from the earth, it's healed by the sun.",
+  "item.monthofswords.floral_sword.brief": "A blade from the earth, it's healed by the sun.",
+  "item.monthofswords.floral_sword.power.photosynthesis": "Photosynthesis",
+  "item.monthofswords.floral_sword.power.photosynthesis.desc": "Recovers 2 durability every second in the sun.",
 
   "item.monthofswords.cursed_sword": "Cursed Sword",
-  "item.monthofswords.cursed_sword.tooltip": "Deals 5% of your target's health in exchange for 5% of your own.",
+  "item.monthofswords.cursed_sword.power.curse": "Curse",
+  "item.monthofswords.cursed_sword.power.curse.desc": "Deals 5% of your target's health in exchange for 5% of your own.",
 
   "item.monthofswords.divine_sword": "Divine Sword",
-  "item.monthofswords.divine_sword.tooltip": "Blesses the wielder with a variety of effects when used. Has a 2 minute cooldown.",
+  "item.monthofswords.divine_sword.power.divinity": "Divinity",
+  "item.monthofswords.divine_sword.power.divinity.desc": "Applies 15sec of regen II, absorption V, & strength III",
 
   "item.monthofswords.gummy_sword": "Sword Gummy",
   "item.monthofswords.gummy_sword.tooltip": "Silly sword snack, yum yum yum.",
 
   "item.monthofswords.stealth_sword": "Stealthy Sword",
-  "item.monthofswords.stealth_sword.tooltip": "Right-clicking throws down a smoke bomb for quick getaways. Sneak right-clicking foregoes the flashy colors.",
-  "item.monthofswords.stealth_sword.tooltip.2": "Sneak attacks can deal up to 2.5 extra damage. Invisibility, crouching, and attacking from behind are some good ways to catch your opponent off guard.",
-  "item.monthofswords.stealth_sword.tooltip.3": "Right-clicking the sword with a firework rocket in the inventory will consume the rocket and use its design for smoke bombs.",
+  "item.monthofswords.stealth_sword.power.smoke_bomb": "Smoke Bomb",
+  "item.monthofswords.stealth_sword.power.smoke_bomb.desc.0": "Launches a smoke bomb that gives blindness and prevents mob-tracking for 5sec",
+  "item.monthofswords.stealth_sword.power.smoke_bomb.desc.1": "Applies 30sec Invis and 15sec Speed II and Jump Boost II",
+  "item.monthofswords.stealth_sword.power.smoke_bomb.desc.2": "Sneaking applies the stealth buffs without throwing a smoke bomb",
+  "item.monthofswords.stealth_sword.power.sneak_attack": "Sneak Attack",
+  "item.monthofswords.stealth_sword.power.sneak_attack.desc.0": "+0.5 attack while invisible. Lose invisibility with attack.",
+  "item.monthofswords.stealth_sword.power.sneak_attack.desc.1": "+0.75 attack while invisible due to Smoke Bomb.",
+  "item.monthofswords.stealth_sword.power.sneak_attack.desc.2": "+0.25 attack while sneaking.",
+  "item.monthofswords.stealth_sword.power.sneak_attack.desc.3": "+1 attack when attacking from behind.",
+  "item.monthofswords.stealth_sword.power.set_firework": "Decorate Smoke",
+  "item.monthofswords.stealth_sword.power.set_firework.desc.0": "Right-click the sword with a firework rocket in the inventory.",
+  "item.monthofswords.stealth_sword.power.set_firework.desc.1": "Consumes the rocket and uses its design for smoke bombs.",
 
   "item.monthofswords.moon_sword": "Moon Sword",
-  "item.monthofswords.moon_sword.tooltip": "Deals 1.5 more damage under the moon's light",
+  "item.monthofswords.moon_sword.power.moonlit": "Moonlit",
+  "item.monthofswords.moon_sword.power.moonlit.desc": "Deals 1.5 more damage under the moon's light",
 
   "item.monthofswords.sun_sword": "Sun Sword",
-  "item.monthofswords.sun_sword.tooltip": "Deals 1.5 more damage in the sun's light",
+  "item.monthofswords.sun_sword.power.sunlit": "Sunlit",
+  "item.monthofswords.sun_sword.power.sunlit.desc": "Deals 1.5 more damage in the sun's light",
 
   "item.monthofswords.ocean_sword": "Ocean Sword",
-  "item.monthofswords.ocean_sword.tooltip": "Deals 1.5 more damage in the water.",
+  "item.monthofswords.ocean_sword.power.oceanic": "Oceanic",
+  "item.monthofswords.ocean_sword.power.oceanic.desc": "Deals 1.5 more damage in the water.",
 
   "item.monthofswords.enchanting_sword": "Enchanting Sword",
-  "item.monthofswords.enchanting_sword.tooltip": "As if powered by an out of control enchanting table, every attack has a new enchantment.",
+  "item.monthofswords.enchanting_sword.power.reroll": "Reroll",
+  "item.monthofswords.enchanting_sword.power.reroll.desc": "Every attack has a new set of enchantments.",
 
   "item.monthofswords.dueling_sword": "Dueling Sword",
-  "item.monthofswords.dueling_sword.tooltip": "Blocks like a shield, parry attacks deal 50% more damage.",
+  "item.monthofswords.dueling_sword.power.block": "Block",
+  "item.monthofswords.dueling_sword.power.block.desc": "Blocks like a shield",
+  "item.monthofswords.dueling_sword.power.parry": "Parry",
+  "item.monthofswords.dueling_sword.power.parry.desc": "Attacking immediately after blocking does 50% more damage",
 
   "item.monthofswords.flame_sword": "Flaming Sword",
-  "item.monthofswords.flame_sword.tooltip": "Deals 1 more damage to burning targets. Shoots a fireball on use or a Big fireball with [ %1$s ]",
+  "item.monthofswords.flame_sword.power.flame_lick": "Flame Lick",
+  "item.monthofswords.flame_sword.power.flame_lick.desc": "+1 damage to burning targets",
+  "item.monthofswords.flame_sword.power.scorch": "Scorch",
+  "item.monthofswords.flame_sword.power.scorch.desc": "Sets targets on fire for 5sec",
+  "item.monthofswords.flame_sword.power.fireball": "Fireball",
+  "item.monthofswords.flame_sword.power.fireball.desc": "Launches a fireball",
+  "item.monthofswords.flame_sword.power.inferno": "Inferno",
+  "item.monthofswords.flame_sword.power.inferno.desc.0": "Launches 9 fireballs in the direction you're looking",
+  "item.monthofswords.flame_sword.power.inferno.desc.1": "Lights a large fire with a radius of about 3 blocks.",
+  "item.monthofswords.flame_sword.power.inferno.desc.2": "Applies 20sec fire resistance",
 
   "item.monthofswords.ice_sword": "Ice Sword",
-  "item.monthofswords.ice_sword.tooltip": "Deals 1 more damage to frozen targets. Shoots a freezing snowball on use or summons a small blizzard with [ %1$s ]",
+  "item.monthofswords.ice_sword.power.frostbite": "Frostbite",
+  "item.monthofswords.ice_sword.power.frostbite.desc": "+1 damage to frozen targets",
+  "item.monthofswords.ice_sword.power.freezing": "Frostbite",
+  "item.monthofswords.ice_sword.power.freezing.desc": "Freezes the target for 19sec",
+  "item.monthofswords.ice_sword.power.snowball": "Snowball",
+  "item.monthofswords.ice_sword.power.snowball.desc": "Throws a freezing snowball",
+  "item.monthofswords.ice_sword.power.blizzard": "Blizzard",
+  "item.monthofswords.ice_sword.power.blizzard.desc.0": "Freezes entities in a 6 block radius for 23 seconds",
+  "item.monthofswords.ice_sword.power.blizzard.desc.1": "Freezes reachable blocks in a 4 block radius",
+  "item.monthofswords.ice_sword.power.blizzard.desc.2": "1sec cooldown per 20 blocks frozen, up to 4sec",
+  "item.monthofswords.ice_sword.power.blizzard.desc.3": "1sec cooldown per enemy frozen, up to 15sec",
+
 
   "item.monthofswords.poison_dagger": "Poison Dagger",
-  "item.monthofswords.poison_dagger.tooltip": "Poisons the target.",
+  "item.monthofswords.poison_dagger.power.venom": "Venom",
+  "item.monthofswords.poison_dagger.power.venom.desc": "Inflicts 20sec Poison III",
 
   "item.monthofswords.potion_sword": "Potion Sword",
-  "item.monthofswords.potion_sword.tooltip": "Can be filled by using the sword with a potion in your offhand. Attacking gives a lesser effect to the target.",
+  "item.monthofswords.potion_sword.power.brew": "Brew",
+  "item.monthofswords.potion_sword.power.brew.desc": "Fills the sword with the potion in your other hand",
+  "item.monthofswords.potion_sword.power.inject": "Coating",
+  "item.monthofswords.potion_sword.power.inject.desc": "Inflicts 1/5 of the stored potion effect.",
 
   "item.monthofswords.bone_sword": "Bone Sword",
   "item.monthofswords.bone_sword.tooltip": "It's got bones. Bit better than a stone sword.",
 
   "item.monthofswords.portal_sword": "Portal Sword",
-  "item.monthofswords.portal_sword.tooltip": "Jump between dimensions with [ %1$s ]",
+  "item.monthofswords.portal_sword.power.dimension_hop": "Dimension Hop",
+  "item.monthofswords.portal_sword.power.dimension_hop.desc": "Jump between the Overworld and Nether",
 
   "item.monthofswords.lucky_sword": "Lucky Sword",
-  "item.monthofswords.lucky_sword.tooltip": "Take a swing, take a roll, who knows what it'll do!",
+  "item.monthofswords.lucky_sword.power.lucky_dice": "Lucky Dice",
+  "item.monthofswords.lucky_sword.power.lucky_dice.desc": "Take a swing, take a roll, who knows what it'll do!",
 
   "item.monthofswords.forest_sword": "Forest Sword",
   "item.monthofswords.forest_sword.tooltip": "TODO",
@@ -101,10 +148,13 @@
   "item.monthofswords.glow_sword": "Glow Sword",
   "item.monthofswords.glow_sword.tooltip": "Does 2 more damage to glowing targets. Right click highlights nearby mobs. [ %1$s ] highlights and does 5 damage to mobs in a wider range.",
 
+
   "item.monthofswords.silverfish_shell": "Silverfish Shell",
   "item.monthofswords.summon_fruit": "Fruit of Summoning",
   "item.monthofswords.banish_fruit": "Fruit of Banishing",
   "item.monthofswords.forest_petals": "Forest Petals",
+
+
 
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",
@@ -117,6 +167,28 @@
   "effect.monthofswords.necromancer": "Necromancer",
   "effect.monthofswords.necromancer.desc": "The undead will not harm a necromancer.",
 
-  "attribute.name.monthofswords.enderman_friendly": "Enderman Eye Protection"
+  "attribute.name.monthofswords.enderman_friendly": "Enderman Eye Protection",
+
+  "monthofswords.descriptionutil.acq.title.loot": "Found as loot in:",
+  "monthofswords.descriptionutil.acq.loot": "%1$s% chance in %2$s",
+
+  "monthofswords.descriptionutil.powertype.passivepower": "Passive",
+  "monthofswords.descriptionutil.powertype.hitpower": "On Hit",
+  "monthofswords.descriptionutil.powertype.usepower": "On Use",
+  "monthofswords.descriptionutil.powertype.chargeusepower": "On Release",
+  "monthofswords.descriptionutil.powertype.holdusepower": "Hold Use",
+  "monthofswords.descriptionutil.powertype.actionpower": "Action [ %1$s ]",
+  "monthofswords.descriptionutil.powertype.swingpower": "On Swing",
+  "monthofswords.descriptionutil.powertype.invusepower": "Inventory Click",
+
+  "monthofswords.descriptionutil.timelabel.day": "%1$dday",
+  "monthofswords.descriptionutil.timelabel.hour": "%1$dhr",
+  "monthofswords.descriptionutil.timelabel.min": "%1$dmin",
+  "monthofswords.descriptionutil.timelabel.sec": "%1$dsec",
+
+  "monthofswords.descriptionutil.powercooldown": "%1$s Cooldown",
+
+  "monthofswords.descriptionutil.powertitleformat": "%1$s ( %2$s )"
+
 
 }

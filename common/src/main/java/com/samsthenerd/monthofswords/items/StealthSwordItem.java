@@ -20,12 +20,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FireworkRocketEntity;
 import net.minecraft.inventory.StackReference;
 import net.minecraft.item.*;
-import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.MutableText;
 import net.minecraft.text.Style;
-import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
@@ -34,7 +31,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.function.UnaryOperator;
 
-public class StealthSwordItem extends SwordItem {
+public class StealthSwordItem extends SwordtemberItem {
 
     private static final Identifier STEALTH_SWORD_SNEAK_MODIFIER = Identifier.of(SwordsMod.MOD_ID, "stealthswordsneak");
     private static final Identifier STEALTH_SWORD_FALL_MODIFIER = Identifier.of(SwordsMod.MOD_ID, "stealthswordfall");
@@ -82,14 +79,14 @@ public class StealthSwordItem extends SwordItem {
                 // let the user escape by making all nearby mobs untarget them and all players have brief blindness
                 for(Entity nearbyEnt : world.getOtherEntities(user, new Box(user.getEyePos(), user.getPos()).expand(user.getEntityInteractionRange()*2))){
                     if(nearbyEnt instanceof LivingEntity liveEnt){
-                        liveEnt.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 20 * 3)); // give them blindness for 3 seconds
+                        liveEnt.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 20 * 5)); // give them blindness for 3 seconds
                     }
                     if(nearbyEnt instanceof MobEntity nearbyMob){
 
                         nearbyMob.addStatusEffect(new StatusEffectInstance(SwordsModStatusEffects.getEffect(SwordsModStatusEffects.SMOKE_BOMBED), 20 * 5));
                     }
                 }
-                handStack.damage(2, user, EquipmentSlot.MAINHAND);
+                handStack.damage(2, user, hand == Hand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
             }
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 30 * 20));
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 15 * 20, 2));
@@ -121,7 +118,7 @@ public class StealthSwordItem extends SwordItem {
             extraDamage += 1f;
             if(wasSuperSneakAttack && target instanceof LivingEntity liveTarget){
                 // TODO: make this give an achievement for sneak attacking ?
-                liveTarget.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 20 * 2)); // give them blindness for 2 seconds
+                liveTarget.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 20 * 5)); // give them blindness for 5 seconds
             }
         }
         if(attacker.isSneaking()){
@@ -139,28 +136,28 @@ public class StealthSwordItem extends SwordItem {
         }
         return false;
     }
-
-    @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        if(SwordtemberItem.hasShiftSafe()){
-            MutableText infoText = Text.translatable(stack.getTranslationKey() + ".tooltip");
-            infoText.setStyle(getSwordTooltipStyleModifier().apply(Style.EMPTY.withItalic(true)));
-            MutableText infoText2 = Text.translatable(stack.getTranslationKey() + ".tooltip.2");
-            infoText2.setStyle(getSwordTooltipStyleModifier().apply(Style.EMPTY.withItalic(true)));
-            MutableText infoText3 = Text.translatable(stack.getTranslationKey() + ".tooltip.3");
-            infoText3.setStyle(getSwordTooltipStyleModifier().apply(Style.EMPTY.withItalic(true)));
-            tooltip.add(infoText);
-            tooltip.add(Text.literal(""));
-            tooltip.add(infoText2);
-            tooltip.add(Text.literal(""));
-            tooltip.add(infoText3);
-        } else {
-            MutableText shiftMsg = Text.translatable("monthofswords.tooltip.shiftmsg");
-            shiftMsg.setStyle(getSwordTooltipStyleModifier().apply(Style.EMPTY.withItalic(true)));
-            tooltip.add(shiftMsg);
-        }
-        super.appendTooltip(stack, context, tooltip, type);
-    }
+//
+//    @Override
+//    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+//        if(SwordtemberItem.hasShiftSafe()){
+//            MutableText infoText = Text.translatable(stack.getTranslationKey() + ".tooltip");
+//            infoText.setStyle(getSwordTooltipStyleModifier().apply(Style.EMPTY.withItalic(true)));
+//            MutableText infoText2 = Text.translatable(stack.getTranslationKey() + ".tooltip.2");
+//            infoText2.setStyle(getSwordTooltipStyleModifier().apply(Style.EMPTY.withItalic(true)));
+//            MutableText infoText3 = Text.translatable(stack.getTranslationKey() + ".tooltip.3");
+//            infoText3.setStyle(getSwordTooltipStyleModifier().apply(Style.EMPTY.withItalic(true)));
+//            tooltip.add(infoText);
+//            tooltip.add(Text.literal(""));
+//            tooltip.add(infoText2);
+//            tooltip.add(Text.literal(""));
+//            tooltip.add(infoText3);
+//        } else {
+//            MutableText shiftMsg = Text.translatable("monthofswords.tooltip.shiftmsg");
+//            shiftMsg.setStyle(getSwordTooltipStyleModifier().apply(Style.EMPTY.withItalic(true)));
+//            tooltip.add(shiftMsg);
+//        }
+//        super.appendTooltip(stack, context, tooltip, type);
+//    }
 
     public UnaryOperator<Style> getSwordTooltipStyleModifier() {
         return (style) -> style.withColor(Formatting.DARK_RED);
