@@ -1,23 +1,37 @@
 package com.samsthenerd.monthofswords.utils;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.samsthenerd.monthofswords.registry.SwordsModComponents;
 import com.samsthenerd.monthofswords.registry.SwordsModLoot;
+import com.samsthenerd.monthofswords.tooltips.RecipeTooltipData;
+import com.samsthenerd.monthofswords.utils.Description.AcquisitionDesc.CraftingDesc;
 import com.samsthenerd.monthofswords.utils.Description.AcquisitionDesc.LootDropDesc;
+import com.samsthenerd.monthofswords.utils.Description.AcquisitionDesc.SpecificText;
+import dev.architectury.platform.Platform;
 import dev.architectury.registry.registries.RegistrySupplier;
+import dev.architectury.utils.Env;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.TooltipContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.loot.LootTable;
+import net.minecraft.network.RegistryByteBuf;
+import net.minecraft.network.codec.PacketCodec;
+import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 // for now just assume this stuff is only called on the client ig?
 public record Description(RegistrySupplier<? extends Item> item, List<SwordPower> powers, List<AcquisitionDesc> acqDescs,
@@ -25,18 +39,14 @@ public record Description(RegistrySupplier<? extends Item> item, List<SwordPower
 
 
     public List<Text> getSummaryTooltip(){
-        var briefTexts = getContinuousText(makeLangPatternProvider(item.get().getTranslationKey() + ".brief", List.of()))
-            .stream().map(t -> applyColor(t).formatted(Formatting.ITALIC)).toList();
-        var powerTexts = getPowerTooltip();
-//        List<Text> resTT = new ArrayList<>(briefTexts);
+//        var briefTexts = getContinuousText(makeLangPatternProvider(item.get().getTranslationKey() + ".brief", List.of()))
+//            .stream().map(t -> applyColor(t).formatted(Formatting.ITALIC)).toList();
         List<Text> resTT = new ArrayList<>();
-//        if(powerTexts.size() > 3){
             resTT.addAll(powers.stream().map(p -> p.getPowerTitle(this)).toList());
-            resTT.add(Text.literal(""));
-            resTT.add(applyColor(Text.translatable("monthofswords.tooltip.shiftpowers")).formatted(Formatting.ITALIC));
-//        } else {
-//            resTT.addAll(powerTexts);
-//        }
+            if(!resTT.isEmpty()){
+                resTT.add(Text.literal(""));
+                resTT.add(applyColor(Text.translatable("monthofswords.tooltip.shiftpowers")).formatted(Formatting.ITALIC));
+            }
         return resTT;
     }
 
@@ -52,14 +62,42 @@ public record Description(RegistrySupplier<? extends Item> item, List<SwordPower
     public List<Text> getAcquisitionTooltip(){
         List<Text> acqTTs = new ArrayList<>();
         for(var acqd : acqDescs){
-            acqTTs.addAll(acqd.getAcqTooltip());
+            acqTTs.addAll(acqd.getAcqTooltip().stream().map(this::applyColor).toList());
             acqTTs.add(Text.literal(""));
         }
         return acqTTs;
     }
 
+    public List<Text> getTooltipFull(ItemStack stack, TooltipContext context, TooltipType type){
+        var descData = stack.get(SwordsModComponents.ITEM_DESCRIPTION_DATA);
+        if(descData == null){
+            // normal !
+            if (hasShiftSafe()) {
+                return getPowerTooltip();
+            } else {
+                return getSummaryTooltip();
+            }
+        } else {
+            // in calendar
+            List<Text> tt = new ArrayList<>();
+            if(descData.hintMode){
+                tt.addAll(getAcquisitionTooltip());
+                tt.add(applyColor(Text.translatable("monthofswords.descriptionutil.switchtopower")).formatted(Formatting.ITALIC));
+            } else {
+                if (hasShiftSafe()) {
+                    tt.addAll(getPowerTooltip());
+                } else {
+                    tt.addAll(getSummaryTooltip());
+                }
+                tt.add(Text.literal(""));
+                tt.add(applyColor(Text.translatable("monthofswords.descriptionutil.switchtohint")).formatted(Formatting.ITALIC));
+            }
+            return tt;
+        }
+    }
+
     public static Description forItem(RegistrySupplier<? extends Item> item){
-        return new Description(item, new ArrayList<>(), null, 0xFFFFFF);
+        return new Description(item, new ArrayList<>(), new ArrayList<>(), 0xFFFFFF);
     }
 
     public Description withPower(SwordPower... power){
@@ -78,6 +116,14 @@ public record Description(RegistrySupplier<? extends Item> item, List<SwordPower
         return withAcquisitionDesc(new LootDropDesc(SwordsModLoot.LOOT_LISTS.get(item.getId()).stream().toList()));
     }
 
+    public Description withMatchingRecipe(){
+        return withAcquisitionDesc(new CraftingDesc(item.getId()));
+    }
+
+    public Description withSpecificAcqDesc(){
+        return withAcquisitionDesc(new SpecificText(item.getId().toTranslationKey()));
+    }
+
     public Description withTextColor(int color){
         return new Description(item, powers, acqDescs, color);
     }
@@ -89,6 +135,11 @@ public record Description(RegistrySupplier<? extends Item> item, List<SwordPower
     public Description finalize(Consumer<Description> consumer){
         consumer.accept(this);
         return this;
+    }
+
+    // most condensed way to make it show only when create is installed lol
+    public Description conditionally(UnaryOperator<Description> op, boolean condition){
+        return condition ? op.apply(this) : this;
     }
 
     public MutableText applyColor(Text t){
@@ -196,12 +247,49 @@ public record Description(RegistrySupplier<? extends Item> item, List<SwordPower
                 tt.add(Text.translatable("monthofswords.descriptionutil.acq.title.loot"));
                 for(var tc : tableChances){
                     MutableText t = Text.literal(" ");
-                    String lootId = tc.getLeft().getValue().toString();
-                    Text tableText = Text.literal(lootId);
-                    t.append(Text.translatable("monthofswords.descriptionutil.acq.loot", tc.getRight(), tableText));
+                    Text tableText = getLootTableName(tc.getLeft());
+                    float roundedVal = Math.round(tc.getRight()*10000)/100f;
+                    t.append(Text.translatable("monthofswords.descriptionutil.acq.loot", roundedVal, tableText));
                     tt.add(t);
                 }
                 return tt;
+            }
+
+            // idk why EMI loot has their stuff prefixed like this
+            public static Map<String, String> EMI_LOOT_TYPE_LOOKUP = new HashMap<>(Map.of(
+                "chests", "chest",
+                "spawners", "chest",
+                "dispensers", "chest"
+            ));
+
+            public static Text getLootTableName(RegistryKey<LootTable> lootTableKey){
+                Identifier lootId = lootTableKey.getValue();
+                String sensibleKey = "loot." + lootId.getNamespace() + "." + lootId.getPath();
+                // descriptions could be just sensibleKey with .desc or .description suffix ?
+                if(I18n.hasTranslation(sensibleKey)){
+                    return Text.translatable(sensibleKey);
+                }
+                String lootType = lootId.getPath().split("/")[0];
+                String lootTypeEMI = EMI_LOOT_TYPE_LOOKUP.getOrDefault(lootType, lootType);
+                String emiKey = "emi_loot." + lootTypeEMI + "." + lootId;
+                if(I18n.hasTranslation(emiKey)){
+                    return Text.translatable(emiKey);
+                }
+                return Text.literal(lootId.toString());
+            }
+        }
+
+        record CraftingDesc(Identifier recId) implements AcquisitionDesc{
+            @Override
+            public List<Text> getAcqTooltip() {
+                return List.of();
+            }
+        }
+
+        record SpecificText(String baseItemKey) implements AcquisitionDesc{
+            @Override
+            public List<Text> getAcqTooltip() {
+                return getContinuousText(makeLangPatternProvider( baseItemKey + ".acquisition", List.of()));
             }
         }
     }
@@ -230,5 +318,26 @@ public record Description(RegistrySupplier<? extends Item> item, List<SwordPower
             timeText.append(Text.translatable("monthofswords.descriptionutil.timelabel.sec", secs));
         }
         return timeText;
+    }
+
+    public record DescriptionItemComponent(boolean hintMode, Optional<RecipeTooltipData> ttData){
+        public static final Codec<DescriptionItemComponent> CODEC = RecordCodecBuilder.create(instance ->
+            instance.group(
+                Codec.BOOL.fieldOf("hintMode").forGetter(DescriptionItemComponent::hintMode),
+                RecipeTooltipData.CODEC.optionalFieldOf("ttData").forGetter(DescriptionItemComponent::ttData)
+            ).apply(instance, DescriptionItemComponent::new)
+        );
+
+        public static final PacketCodec<RegistryByteBuf, DescriptionItemComponent> PACKET_CODEC = PacketCodec.tuple(
+            PacketCodecs.BOOL, DescriptionItemComponent::hintMode,
+            RecipeTooltipData.PACKET_CODEC.collect(PacketCodecs::optional), DescriptionItemComponent::ttData,
+            DescriptionItemComponent::new
+        );
+    }
+
+    // returns true if shift is down or if it's on the server
+    // meant to be used for tooltips to not break polydex
+    public static boolean hasShiftSafe(){
+        return Platform.getEnvironment() == Env.SERVER || Screen.hasShiftDown();
     }
 }

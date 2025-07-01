@@ -2,9 +2,13 @@ package com.samsthenerd.monthofswords.registry;
 
 import com.samsthenerd.monthofswords.SwordsMod;
 import com.samsthenerd.monthofswords.items.*;
+import com.samsthenerd.monthofswords.utils.Description;
+import com.samsthenerd.monthofswords.utils.ItemDescriptions;
+import dev.architectury.platform.Platform;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import dev.architectury.utils.Env;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -12,15 +16,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class SwordsModItems {
@@ -52,14 +54,13 @@ public class SwordsModItems {
             )){
                 @Override
                 public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-                    if(SwordtemberItem.hasShiftSafe()){
-                        MutableText infoText = Text.translatable(stack.getTranslationKey() + ".tooltip");
-                        infoText.setStyle(Style.EMPTY.withItalic(true).withColor(Formatting.AQUA));
-                        tooltip.add(infoText);
-                    } else {
-                        MutableText shiftMsg = Text.translatable("monthofswords.tooltip.shiftmsg");
-                        shiftMsg.setStyle(Style.EMPTY.withItalic(true).withColor(Formatting.AQUA));
-                        tooltip.add(shiftMsg);
+                    Optional<Description> descOpt;
+                    if (Platform.getEnvironment() == Env.SERVER) {
+                        // idk
+                    } else if ((descOpt = ItemDescriptions.getItemDescription(stack.getItem())).isPresent()){
+                        // client!
+                        var desc = descOpt.get();
+                        tooltip.addAll(desc.getTooltipFull(stack, context, type));
                     }
                     super.appendTooltip(stack, context, tooltip, type);
                 }

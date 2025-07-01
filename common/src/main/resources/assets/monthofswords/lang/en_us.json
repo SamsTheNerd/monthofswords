@@ -113,31 +113,53 @@
   "item.monthofswords.lucky_sword.power.lucky_dice.desc": "Take a swing, take a roll, who knows what it'll do!",
 
   "item.monthofswords.forest_sword": "Forest Sword",
-  "item.monthofswords.forest_sword.tooltip": "TODO",
+  "item.monthofswords.forest_sword.power.leaf_attack": "Leaf Attack",
+  "item.monthofswords.forest_sword.power.leaf_attack.desc": "Shoots a sharp leaf",
+
 
   "item.monthofswords.echo_sword": "Echo Sword",
-  "item.monthofswords.echo_sword.tooltip": "TODO",
+  "item.monthofswords.echo_sword.power.displace": "Displace",
+  "item.monthofswords.echo_sword.power.displace.desc.0": "On release, teleports to where you're looking.",
+  "item.monthofswords.echo_sword.power.displace.desc.1": "Sneaking in the air freezes your movement.",
 
   "item.monthofswords.eye_sword": "Eye Sword",
-  "item.monthofswords.eye_sword.tooltip": "TODO",
+  "item.monthofswords.eye_sword.power.void_taste": "Taste for Void",
+  "item.monthofswords.eye_sword.power.void_taste.desc.0": "+0.5 damage in the end",
+  "item.monthofswords.eye_sword.power.void_taste.desc.1": "+1 damage to creatures of the end",
+  "item.monthofswords.eye_sword.power.enderman_eye_protection": "Ender Eye Protection",
+  "item.monthofswords.eye_sword.power.enderman_eye_protection.desc": "Allows staring at endermen",
 
   "item.monthofswords.mechanical_sword": "Mechanical Sword",
-  "item.monthofswords.mechanical_sword.tooltip": "Someone ping me when create fabric 1.21 :p",
 
   "item.monthofswords.summoned_sword": "Summoned Sword",
-  "item.monthofswords.summoned_sword.tooltip": "TODO",
+  "item.monthofswords.summoned_sword.power.summon": "Summon",
+  "item.monthofswords.summoned_sword.power.summon.desc": "Summon to your hand at any point.",
+  "item.monthofswords.summoned_sword.power.banish": "Banish",
+  "item.monthofswords.summoned_sword.power.banish.desc.0": "Banishes the summoned sword you're holding.",
+  "item.monthofswords.summoned_sword.power.banish.desc.1": "This saves any modifications made to the sword (enchanting, naming, etc)",
+  "item.monthofswords.summoned_sword.acquisition": "Consume a Fruit of Summoning to be able to summon the sword.",
 
   "item.monthofswords.jeweled_sword": "Jeweled Sword",
-  "item.monthofswords.jeweled_sword.tooltip": "Prosperous strikes!",
 
   "item.monthofswords.woven_sword": "Woven Sword",
+  "item.monthofswords.woven_sword.power.dash": "Celestial Dash",
+  "item.monthofswords.woven_sword.power.dash.desc.0": "Dashes in the direction you're looking",
+  "item.monthofswords.woven_sword.power.dash.desc.1": "+4 damage while dashing",
   "item.monthofswords.woven_sword.tooltip": "Dashes on use. Dash attacks do 4 extra damage.",
 
   "item.monthofswords.shock_sword": "Shock Sword",
-  "item.monthofswords.shock_sword.tooltip": "Does 2 extra damage in thunderstorms. Right click summons a lightning bolt.",
+  "item.monthofswords.shock_sword.power.summon_lightning": "Summon Lightning",
+  "item.monthofswords.shock_sword.power.summon_lightning.desc": "Summons a lightning bolt where you're looking",
+  "item.monthofswords.shock_sword.power.storm_damage": "Storm Damage",
+  "item.monthofswords.shock_sword.power.storm_damage.desc": "+2 damage in thunderstorms",
 
   "item.monthofswords.infestation_sword": "Infestation Sword",
-  "item.monthofswords.infestation_sword.tooltip": "Arthropods will fight for you. Holding right click summons silverfish.",
+  "item.monthofswords.infestation_sword.power.friend_of_bugs": "Friend of Bugs",
+  "item.monthofswords.infestation_sword.power.friend_of_bugs.desc": "Nearby arthropods will fight for you.",
+  "item.monthofswords.infestation_sword.power.bugbait": "Bugbait",
+  "item.monthofswords.infestation_sword.power.bugbait.desc.0": "Summons a silverfish to fight for you for each quarter second charged, up to 6.",
+  "item.monthofswords.infestation_sword.power.bugbait.desc.1": "These silverfish fight slightly better than wild ones, but will disappear after combat.",
+  "item.monthofswords.infestation_sword.power.bugbait.desc.2": "3sec cooldown per silverfish",
 
   "item.monthofswords.crystal_sword": "Crystal Sword",
   "item.monthofswords.crystal_sword.tooltip": "TODO",
@@ -152,9 +174,8 @@
   "item.monthofswords.silverfish_shell": "Silverfish Shell",
   "item.monthofswords.summon_fruit": "Fruit of Summoning",
   "item.monthofswords.banish_fruit": "Fruit of Banishing",
+  "item.monthofswords.calendar": "Calendar",
   "item.monthofswords.forest_petals": "Forest Petals",
-
-
 
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
   "death.attack.swordtembercurse": "%1$s let the curse take too much",
@@ -169,8 +190,13 @@
 
   "attribute.name.monthofswords.enderman_friendly": "Enderman Eye Protection",
 
+  "tag.item.monthofswords.gearsprobfromcreate": "Cogwheel-ish",
+
   "monthofswords.descriptionutil.acq.title.loot": "Found as loot in:",
-  "monthofswords.descriptionutil.acq.loot": "%1$s% chance in %2$s",
+  "monthofswords.descriptionutil.acq.loot": "%1$d%% chance in %2$s",
+
+  "monthofswords.descriptionutil.switchtohint": "Press H to view Acquisition Hint",
+  "monthofswords.descriptionutil.switchtopower": "Press H to view Sword Powers & Stats",
 
   "monthofswords.descriptionutil.powertype.passivepower": "Passive",
   "monthofswords.descriptionutil.powertype.hitpower": "On Hit",

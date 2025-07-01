@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.samsthenerd.monthofswords.SwordsMod;
 import com.samsthenerd.monthofswords.items.CrystalSwordItem.ResonatingComponent;
 import com.samsthenerd.monthofswords.items.SummonableSwordItem.SummonSwordComponentData;
+import com.samsthenerd.monthofswords.utils.Description.DescriptionItemComponent;
 import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.component.ComponentType;
 import net.minecraft.network.codec.PacketCodecs;
@@ -21,6 +22,9 @@ public class SwordsModComponents {
 
     public static ComponentType<ResonatingComponent> RESONANCE_DATA = component("crystal_resonance_data", builder ->
         builder.codec(ResonatingComponent.CODEC).packetCodec(ResonatingComponent.PACKET_CODEC));
+
+    public static ComponentType<DescriptionItemComponent> ITEM_DESCRIPTION_DATA = component("item_description_data", builder ->
+        builder.codec(DescriptionItemComponent.CODEC).packetCodec(DescriptionItemComponent.PACKET_CODEC));
 
     private static <T> ComponentType<T> component(String id, UnaryOperator<ComponentType.Builder<T>> builderOperator){
         ComponentType<T> comp = builderOperator.apply(ComponentType.builder()).build();

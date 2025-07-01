@@ -1,16 +1,27 @@
 package com.samsthenerd.monthofswords.screen;
 
 import com.samsthenerd.monthofswords.SwordsMod;
+import com.samsthenerd.monthofswords.registry.SwordsModComponents;
 import com.samsthenerd.monthofswords.registry.SwordsModItems;
+import com.samsthenerd.monthofswords.tooltips.RecipeTooltipData;
+import com.samsthenerd.monthofswords.utils.Description;
+import com.samsthenerd.monthofswords.utils.Description.AcquisitionDesc.CraftingDesc;
+import com.samsthenerd.monthofswords.utils.Description.DescriptionItemComponent;
+import com.samsthenerd.monthofswords.utils.ItemDescriptions;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 import org.lwjgl.glfw.GLFW;
+
+import java.util.Collection;
+import java.util.Optional;
 
 public class SwordCalendarScreen extends Screen {
     public SwordCalendarScreen() {
@@ -22,6 +33,8 @@ public class SwordCalendarScreen extends Screen {
 
     public static final int CALENDAR_WIDTH = 256;
     public static final int CALENDAR_HEIGHT = 208;
+
+    public boolean hintMode = true;
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
@@ -44,8 +57,24 @@ public class SwordCalendarScreen extends Screen {
         if(hoverSwordIdx != -1){
             Identifier swordId = SwordsModItems.ALL_SWORDS.get(hoverSwordIdx);
             Item swordItem = Registries.ITEM.get(swordId);
-            context.drawItemTooltip(MinecraftClient.getInstance().textRenderer, swordItem.getDefaultStack(), mouseX, mouseY);
-//            context.drawTooltip(MinecraftClient.getInstance().textRenderer, swordItem.getName(), mouseX, mouseY);
+            ItemStack swordStack = swordItem.getDefaultStack();
+            if(hintMode){
+                for(var comp : swordStack.getComponents()){
+                    swordStack.remove(comp.type());
+                }
+            }
+            Optional<RecipeTooltipData> optRecData = Optional.empty();
+            var recTTOpt = ItemDescriptions.getItemDescription(swordItem)
+                .map(Description::acqDescs)
+                .stream()
+                .flatMap(Collection::stream)
+                .flatMap(ad -> ((Optional<CraftingDesc>)(ad instanceof CraftingDesc cd ? Optional.of(cd) : Optional.empty())).stream())
+                .findFirst()
+                .flatMap(craftDesc -> MinecraftClient.getInstance().world.getRecipeManager().get(craftDesc.recId()))
+                .map(RecipeEntry::value).map(RecipeTooltipData::new);
+
+            swordStack.set(SwordsModComponents.ITEM_DESCRIPTION_DATA, new DescriptionItemComponent(hintMode, recTTOpt));
+            context.drawItemTooltip(MinecraftClient.getInstance().textRenderer, swordStack, mouseX, mouseY);
         }
     }
 
@@ -53,6 +82,10 @@ public class SwordCalendarScreen extends Screen {
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if(keyCode == GLFW.GLFW_KEY_E){
             this.close();
+            return true;
+        }
+        if(keyCode == GLFW.GLFW_KEY_H){
+            hintMode = !hintMode;
             return true;
         }
         return super.keyPressed(keyCode, scanCode, modifiers);

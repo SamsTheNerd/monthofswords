@@ -32,6 +32,8 @@ public class SwordsModLoot {
         addLoot(SwordsModItems.SHOCK_SWORD, 0.2f, LootTables.TRIAL_CHAMBERS_REWARD_OMINOUS_CHEST);
         addLoot(SwordsModItems.SHOCK_SWORD, 0.3f, LootTables.TRIAL_CHAMBERS_REWARD_OMINOUS_RARE_CHEST);
         addLoot(SwordsModItems.SILVERFISH_SHELL, 0.05f, LootTables.STRONGHOLD_CORRIDOR_CHEST);
+        addLoot(SwordsModItems.MECHANICAL_SWORD, 0.1f, LootTables.VILLAGE_TOOLSMITH_CHEST);
+        addLoot(SwordsModItems.MECHANICAL_SWORD, 0.1f, LootTables.VILLAGE_WEAPONSMITH_CHEST);
 
         LootEvent.MODIFY_LOOT_TABLE.register((key, context, builtin) -> {
             for(LootEvent.ModifyLootTable modifier : LOOT_MODIFIERS.get(key.getValue())){

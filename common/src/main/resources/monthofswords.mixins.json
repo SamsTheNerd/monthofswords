@@ -13,7 +13,8 @@
     "MixinEndermanStaring",
     "MixinEnt",
     "MixinLivEntJump",
-    "MixinLivingEntAccessor"
+    "MixinLivingEntAccessor",
+    "MixinSmithingTransformRecipeAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
