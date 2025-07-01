@@ -2,19 +2,14 @@ package com.samsthenerd.monthofswords.registry;
 
 import com.samsthenerd.monthofswords.SwordsMod;
 import com.samsthenerd.monthofswords.items.*;
-import com.samsthenerd.monthofswords.utils.Description;
-import com.samsthenerd.monthofswords.utils.ItemDescriptions;
-import dev.architectury.platform.Platform;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import dev.architectury.utils.Env;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -22,7 +17,6 @@ import net.minecraft.util.Rarity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Supplier;
 
 public class SwordsModItems {
@@ -44,27 +38,14 @@ public class SwordsModItems {
             () -> new DivineSwordItem(defaultSettings()));
 
     public static final RegistrySupplier<Item> GUMMY_SWORD = item("gummy_sword",
-            () -> new Item(defaultSettings().food(
+            () -> new DescriptableItem(defaultSettings().food(
                     new FoodComponent.Builder()
                             .nutrition(4)
                             .saturationModifier(0.1f)
                             .alwaysEdible()
                             .snack()
                             .build()
-            )){
-                @Override
-                public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-                    Optional<Description> descOpt;
-                    if (Platform.getEnvironment() == Env.SERVER) {
-                        // idk
-                    } else if ((descOpt = ItemDescriptions.getItemDescription(stack.getItem())).isPresent()){
-                        // client!
-                        var desc = descOpt.get();
-                        tooltip.addAll(desc.getTooltipFull(stack, context, type));
-                    }
-                    super.appendTooltip(stack, context, tooltip, type);
-                }
-            });
+            )));
 
     public static final RegistrySupplier<StealthSwordItem> STEALTH_SWORD = item("stealth_sword",
             () -> new StealthSwordItem(defaultSettings()));
@@ -144,7 +125,7 @@ public class SwordsModItems {
         () -> new GlowSwordItem(defaultSettings()));
 
     public static final RegistrySupplier<Item> SILVERFISH_SHELL = item("silverfish_shell",
-        () -> new Item(defaultSettings().rarity(Rarity.RARE)), false);
+        () -> new DescriptableItem(defaultSettings().rarity(Rarity.RARE)), false);
 
     public static final RegistrySupplier<Item> SUMMON_FRUIT = item("summon_fruit",
         () -> new SummonFruitItem(defaultSettings().rarity(Rarity.RARE)

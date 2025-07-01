@@ -8,7 +8,7 @@
   ],
   "key": {
     "S": [
-      { "tag": "minecraft:nether_star" }
+      { "item": "minecraft:nether_star" }
     ],
     "G": [
       { "tag": "c:ingots/gold" },

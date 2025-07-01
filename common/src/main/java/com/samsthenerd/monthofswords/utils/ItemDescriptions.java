@@ -48,6 +48,12 @@ public class ItemDescriptions {
         .withMatchingRecipe()
         .finalize(ItemDescriptions::addDescription);
 
+
+    public static final Description GUMMY_DESC = Description.forItem(SwordsModItems.GUMMY_SWORD)
+        .withTextColor(Formatting.AQUA)
+        .withMatchingRecipe()
+        .finalize(ItemDescriptions::addDescription);
+
     public static final Description STEALTH_DESC = Description.forItem(SwordsModItems.STEALTH_SWORD)
         .withPower(new SwordPower("smoke_bomb", Description.USE_POWER, Optional.of(20*30)))
         .withPower(new SwordPower("sneak_attack", Description.HIT_POWER, Optional.empty()))
@@ -190,6 +196,28 @@ public class ItemDescriptions {
         .withPower(new SwordPower("friend_of_bugs", Description.PASSIVE_POWER, Optional.empty()))
         .withPower(new SwordPower("bugbait", Description.CHARGE_USE_POWER, Optional.empty()))
         .withTextColor(0x8c9b8c)
+        .withMatchingRecipe()
+        .finalize(ItemDescriptions::addDescription);
+
+    public static final Description CRYSTAL_DESC = Description.forItem(SwordsModItems.CRYSTAL_SWORD)
+        .withPower(new SwordPower("resonance", Description.HIT_POWER, Optional.empty()))
+        .withTextColor(0xcfa0f3)
+        .withMatchingRecipe()
+        .finalize(ItemDescriptions::addDescription);
+
+    public static final Description NECROMANCER_DESC = Description.forItem(SwordsModItems.NECROMANCERS_SWORD)
+        .withPower(new SwordPower("necromancer", Description.PASSIVE_POWER, Optional.empty()))
+        .withPower(new SwordPower("raise_the_dead", Description.CHARGE_USE_POWER, Optional.empty()))
+        .withTextColor(0xff637b)
+//        .withMatchingRecipe()
+        .finalize(ItemDescriptions::addDescription);
+
+    public static final Description GLOW_DESC = Description.forItem(SwordsModItems.GLOW_SWORD)
+        .withPower(new SwordPower("piercing_eyes", Description.PASSIVE_POWER, Optional.empty()))
+        .withPower(new SwordPower("illuminance", Description.HIT_POWER, Optional.empty()))
+        .withPower(new SwordPower("dark_vision", Description.USE_POWER, Optional.of(20*15)))
+        .withPower(new SwordPower("radiance", Description.ACTION_POWER, Optional.of(20*45)))
+        .withTextColor(0x90f0d0)
         .withMatchingRecipe()
         .finalize(ItemDescriptions::addDescription);
 }

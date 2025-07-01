@@ -27,7 +27,6 @@
   "item.monthofswords.divine_sword.power.divinity.desc": "Applies 15sec of regen II, absorption V, & strength III",
 
   "item.monthofswords.gummy_sword": "Sword Gummy",
-  "item.monthofswords.gummy_sword.tooltip": "Silly sword snack, yum yum yum.",
 
   "item.monthofswords.stealth_sword": "Stealthy Sword",
   "item.monthofswords.stealth_sword.power.smoke_bomb": "Smoke Bomb",
@@ -80,7 +79,7 @@
   "item.monthofswords.ice_sword": "Ice Sword",
   "item.monthofswords.ice_sword.power.frostbite": "Frostbite",
   "item.monthofswords.ice_sword.power.frostbite.desc": "+1 damage to frozen targets",
-  "item.monthofswords.ice_sword.power.freezing": "Frostbite",
+  "item.monthofswords.ice_sword.power.freezing": "Freezing",
   "item.monthofswords.ice_sword.power.freezing.desc": "Freezes the target for 19sec",
   "item.monthofswords.ice_sword.power.snowball": "Snowball",
   "item.monthofswords.ice_sword.power.snowball.desc": "Throws a freezing snowball",
@@ -162,13 +161,29 @@
   "item.monthofswords.infestation_sword.power.bugbait.desc.2": "3sec cooldown per silverfish",
 
   "item.monthofswords.crystal_sword": "Crystal Sword",
-  "item.monthofswords.crystal_sword.tooltip": "TODO",
+  "item.monthofswords.crystal_sword.power.resonance": "Resonance",
+  "item.monthofswords.crystal_sword.power.resonance.desc.0": "Consecutive attacks against targets of the same type build up more damage.",
+  "item.monthofswords.crystal_sword.power.resonance.desc.1": "+0.05 damage per attack on the same target",
+  "item.monthofswords.crystal_sword.power.resonance.desc.2": "+0.5 damage per attack on a different target of the same type",
+  "item.monthofswords.crystal_sword.power.resonance.desc.3": "Attacks against targets of a different type reset the bonus damage.",
 
   "item.monthofswords.necro_sword": "Necromancer's Blade",
-  "item.monthofswords.necro_sword.tooltip": "TODO",
+  "item.monthofswords.necro_sword.power.necromancer": "Necromancer",
+  "item.monthofswords.necro_sword.power.necromancer.desc": "Nearby undead will fight for you.",
+  "item.monthofswords.necro_sword.power.raise_the_dead": "Raise The Dead",
+  "item.monthofswords.necro_sword.power.raise_the_dead.desc.0": "Summons a zombie or skeleton to fight for you for each quarter second charged, up to 6.",
+  "item.monthofswords.necro_sword.power.raise_the_dead.desc.1": "These undead fight slightly better than wild ones, but will disappear after combat.",
+  "item.monthofswords.necro_sword.power.raise_the_dead.desc.2": "3sec cooldown per undead",
 
   "item.monthofswords.glow_sword": "Glow Sword",
-  "item.monthofswords.glow_sword.tooltip": "Does 2 more damage to glowing targets. Right click highlights nearby mobs. [ %1$s ] highlights and does 5 damage to mobs in a wider range.",
+  "item.monthofswords.glow_sword.power.piercing_eyes": "Piercing Eyes",
+  "item.monthofswords.glow_sword.power.piercing_eyes.desc": "+2 damage to glowing targets",
+  "item.monthofswords.glow_sword.power.illuminance": "Illuminance",
+  "item.monthofswords.glow_sword.power.illuminance.desc": "Inflicts 45sec glowing",
+  "item.monthofswords.glow_sword.power.dark_vision": "Dark Vision",
+  "item.monthofswords.glow_sword.power.dark_vision.desc": "Give all entities in an 8 block radius 60sec glowing",
+  "item.monthofswords.glow_sword.power.radiance": "Radiance",
+  "item.monthofswords.glow_sword.power.radiance.desc": "Give all entities in a 32 block radius 60sec glowing and do 5 damage",
 
 
   "item.monthofswords.silverfish_shell": "Silverfish Shell",

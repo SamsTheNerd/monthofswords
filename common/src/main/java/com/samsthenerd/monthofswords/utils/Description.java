@@ -121,7 +121,7 @@ public record Description(RegistrySupplier<? extends Item> item, List<SwordPower
     }
 
     public Description withSpecificAcqDesc(){
-        return withAcquisitionDesc(new SpecificText(item.getId().toTranslationKey()));
+        return withAcquisitionDesc(new SpecificText(item.get().getTranslationKey()));
     }
 
     public Description withTextColor(int color){
