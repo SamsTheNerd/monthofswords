@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:infestation_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#8C9B8C",
+      "translate": "advancements.swordsmod.infestation_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:infestation_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#8C9B8C",
+      "translate": "advancements.swordsmod.infestation_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

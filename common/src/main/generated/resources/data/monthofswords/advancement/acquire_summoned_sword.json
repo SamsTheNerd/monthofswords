@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:summoned_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#7CD8F7",
+      "translate": "advancements.swordsmod.summoned_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:summoned_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#7CD8F7",
+      "translate": "advancements.swordsmod.summoned_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

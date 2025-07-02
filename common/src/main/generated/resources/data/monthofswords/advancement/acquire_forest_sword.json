@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:forest_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#F7B9DC",
+      "translate": "advancements.swordsmod.forest_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:forest_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#F7B9DC",
+      "translate": "advancements.swordsmod.forest_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

@@ -1,7 +1,6 @@
 package com.samsthenerd.monthofswords.items;
 
-import com.samsthenerd.monthofswords.screen.SwordCalendarScreen;
-import net.minecraft.client.MinecraftClient;
+import com.samsthenerd.monthofswords.screen.ScreenLaunderer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
@@ -16,7 +15,7 @@ public class CalendarItem extends DescriptableItem {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(world.isClient()){
-            MinecraftClient.getInstance().setScreen(new SwordCalendarScreen());
+            ScreenLaunderer.openCalendarScreen();
         }
         return TypedActionResult.success(user.getStackInHand(hand), true);
     }

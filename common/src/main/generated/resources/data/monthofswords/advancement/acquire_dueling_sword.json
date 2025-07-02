@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:dueling_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#FFAA00",
+      "translate": "advancements.swordsmod.dueling_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:dueling_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#FFAA00",
+      "translate": "advancements.swordsmod.dueling_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

@@ -94,8 +94,8 @@ public class CrystalSwordItem extends SwordtemberItem {
         public Optional<Text> getDamageStateText(){
             return Registries.ENTITY_TYPE.getOrEmpty(entityType).map(
                 entType -> entType.getName().copy().append(": " + (extraDamage == 0 ? "" : "+") + extraDamage)
-                    .append(" ").append(Text.translatable("attribute.name.attack_damage"))
-                    .formatted(Formatting.GREEN, Formatting.ITALIC));
+                    .append(" ").append(Text.translatable("attribute.name.generic.attack_damage"))
+                    .formatted(Formatting.DARK_GREEN, Formatting.ITALIC));
         }
     }
 }

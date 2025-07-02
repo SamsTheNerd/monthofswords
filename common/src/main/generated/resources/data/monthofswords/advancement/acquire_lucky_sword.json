@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:lucky_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#FFAA00",
+      "translate": "advancements.swordsmod.lucky_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:lucky_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#FFAA00",
+      "translate": "advancements.swordsmod.lucky_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

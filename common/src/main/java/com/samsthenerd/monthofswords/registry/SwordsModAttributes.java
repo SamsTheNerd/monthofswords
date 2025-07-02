@@ -18,7 +18,7 @@ public class SwordsModAttributes {
         () -> new ClampedEntityAttribute(
             "attribute.name.monthofswords.enderman_friendly",
             0, 0, 1
-        ).setCategory(Category.POSITIVE).setTracked(true)
+        ).setCategory(Category.POSITIVE).setTracked(false)
     );
 
     public static RegistryEntry<EntityAttribute> register(String id, Supplier<EntityAttribute> attribute) {

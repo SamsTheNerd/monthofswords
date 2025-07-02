@@ -9,26 +9,36 @@
   "monthofswords.tooltip.unimplementedmsg": "Unfinished/WIP !!",
 
   "item.monthofswords.wing_sword": "Winged Sword",
-  "item.monthofswords.wing_sword.brief": "Light as a feather, but it's still got some push to it.",
   "advancements.swordsmod.wing_sword.title": "Light as a Feather",
-  "advancements.swordsmod.wing_sword.description": "Craft a Winged Sword",
+  "advancements.swordsmod.wing_sword.description": "Acquire a Winged Sword",
+  "item.monthofswords.wing_sword.brief": "Light as a feather, but it's still got some push to it.",
 
   "item.monthofswords.floral_sword": "Floral Sword",
+  "advancements.swordsmod.floral_sword.title": "Spring into Action",
+  "advancements.swordsmod.floral_sword.description": "Acquire a Floral Sword",
   "item.monthofswords.floral_sword.brief": "A blade from the earth, it's healed by the sun.",
   "item.monthofswords.floral_sword.power.photosynthesis": "Photosynthesis",
   "item.monthofswords.floral_sword.power.photosynthesis.desc": "Recovers 2 durability every second in the sun.",
 
   "item.monthofswords.cursed_sword": "Cursed Sword",
+  "advancements.swordsmod.cursed_sword.title": "5 for 5",
+  "advancements.swordsmod.cursed_sword.description": "Acquire a Cursed Sword",
   "item.monthofswords.cursed_sword.power.curse": "Curse",
   "item.monthofswords.cursed_sword.power.curse.desc": "Deals 5% of your target's health in exchange for 5% of your own.",
 
   "item.monthofswords.divine_sword": "Divine Sword",
+  "advancements.swordsmod.divine_sword.title": "Bless You!",
+  "advancements.swordsmod.divine_sword.description": "Acquire a Divine Sword",
   "item.monthofswords.divine_sword.power.divinity": "Divinity",
   "item.monthofswords.divine_sword.power.divinity.desc": "Applies 15sec of regen II, absorption V, & strength III",
 
   "item.monthofswords.gummy_sword": "Sword Gummy",
+  "advancements.swordsmod.gummy_sword.title": "Pectin Based Weaponry",
+  "advancements.swordsmod.gummy_sword.description": "Acquire a Gummy Sword",
 
   "item.monthofswords.stealth_sword": "Stealthy Sword",
+  "advancements.swordsmod.stealth_sword.title": "Whisper Ways",
+  "advancements.swordsmod.stealth_sword.description": "Acquire a Stealthy Sword",
   "item.monthofswords.stealth_sword.power.smoke_bomb": "Smoke Bomb",
   "item.monthofswords.stealth_sword.power.smoke_bomb.desc.0": "Launches a smoke bomb that gives blindness and prevents mob-tracking for 5sec",
   "item.monthofswords.stealth_sword.power.smoke_bomb.desc.1": "Applies 30sec Invis and 15sec Speed II and Jump Boost II",
@@ -43,28 +53,40 @@
   "item.monthofswords.stealth_sword.power.set_firework.desc.1": "Consumes the rocket and uses its design for smoke bombs.",
 
   "item.monthofswords.moon_sword": "Moon Sword",
+  "advancements.swordsmod.moon_sword.title": "That's Rough Buddy",
+  "advancements.swordsmod.moon_sword.description": "Acquire a Moon Sword",
   "item.monthofswords.moon_sword.power.moonlit": "Moonlit",
   "item.monthofswords.moon_sword.power.moonlit.desc": "Deals 1.5 more damage under the moon's light",
 
   "item.monthofswords.sun_sword": "Sun Sword",
+  "advancements.swordsmod.sun_sword.title": "Wear Sunscreen!",
+  "advancements.swordsmod.sun_sword.description": "Acquire a Sun Sword",
   "item.monthofswords.sun_sword.power.sunlit": "Sunlit",
   "item.monthofswords.sun_sword.power.sunlit.desc": "Deals 1.5 more damage in the sun's light",
 
   "item.monthofswords.ocean_sword": "Ocean Sword",
+  "advancements.swordsmod.ocean_sword.title": "Aquatic Action",
+  "advancements.swordsmod.ocean_sword.description": "Acquire an Ocean Sword",
   "item.monthofswords.ocean_sword.power.oceanic": "Oceanic",
   "item.monthofswords.ocean_sword.power.oceanic.desc": "Deals 1.5 more damage in the water.",
 
   "item.monthofswords.enchanting_sword": "Enchanting Sword",
+  "advancements.swordsmod.enchanting_sword.title": "Second Enchance",
+  "advancements.swordsmod.enchanting_sword.description": "Acquire an Enchanting Sword",
   "item.monthofswords.enchanting_sword.power.reroll": "Reroll",
   "item.monthofswords.enchanting_sword.power.reroll.desc": "Every attack has a new set of enchantments.",
 
   "item.monthofswords.dueling_sword": "Dueling Sword",
+  "advancements.swordsmod.dueling_sword.title": "Parry the Swordypus??",
+  "advancements.swordsmod.dueling_sword.description": "Acquire a Dueling Sword",
   "item.monthofswords.dueling_sword.power.block": "Block",
   "item.monthofswords.dueling_sword.power.block.desc": "Blocks like a shield",
   "item.monthofswords.dueling_sword.power.parry": "Parry",
   "item.monthofswords.dueling_sword.power.parry.desc": "Attacking immediately after blocking does 50% more damage",
 
   "item.monthofswords.flame_sword": "Flaming Sword",
+  "advancements.swordsmod.flame_sword.title": "Flameo Hotman",
+  "advancements.swordsmod.flame_sword.description": "Acquire a Flaming Sword",
   "item.monthofswords.flame_sword.power.flame_lick": "Flame Lick",
   "item.monthofswords.flame_sword.power.flame_lick.desc": "+1 damage to burning targets",
   "item.monthofswords.flame_sword.power.scorch": "Scorch",
@@ -77,6 +99,8 @@
   "item.monthofswords.flame_sword.power.inferno.desc.2": "Applies 20sec fire resistance",
 
   "item.monthofswords.ice_sword": "Ice Sword",
+  "advancements.swordsmod.ice_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.ice_sword.description": "Acquire an Ice Sword",
   "item.monthofswords.ice_sword.power.frostbite": "Frostbite",
   "item.monthofswords.ice_sword.power.frostbite.desc": "+1 damage to frozen targets",
   "item.monthofswords.ice_sword.power.freezing": "Freezing",
@@ -91,37 +115,53 @@
 
 
   "item.monthofswords.poison_dagger": "Poison Dagger",
+  "advancements.swordsmod.poison_dagger.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.poison_dagger.description": "Acquire a Poison Sword",
   "item.monthofswords.poison_dagger.power.venom": "Venom",
   "item.monthofswords.poison_dagger.power.venom.desc": "Inflicts 20sec Poison III",
 
   "item.monthofswords.potion_sword": "Potion Sword",
+  "advancements.swordsmod.potion_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.potion_sword.description": "Acquire a Potion Sword",
   "item.monthofswords.potion_sword.power.brew": "Brew",
   "item.monthofswords.potion_sword.power.brew.desc": "Fills the sword with the potion in your other hand",
   "item.monthofswords.potion_sword.power.inject": "Coating",
   "item.monthofswords.potion_sword.power.inject.desc": "Inflicts 1/5 of the stored potion effect.",
 
   "item.monthofswords.bone_sword": "Bone Sword",
+  "advancements.swordsmod.bone_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.bone_sword.description": "Acquire a Bone Sword",
   "item.monthofswords.bone_sword.tooltip": "It's got bones. Bit better than a stone sword.",
 
   "item.monthofswords.portal_sword": "Portal Sword",
+  "advancements.swordsmod.portal_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.portal_sword.description": "Acquire a Portal Sword",
   "item.monthofswords.portal_sword.power.dimension_hop": "Dimension Hop",
   "item.monthofswords.portal_sword.power.dimension_hop.desc": "Jump between the Overworld and Nether",
 
   "item.monthofswords.lucky_sword": "Lucky Sword",
+  "advancements.swordsmod.lucky_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.lucky_sword.description": "Acquire a Lucky Sword",
   "item.monthofswords.lucky_sword.power.lucky_dice": "Lucky Dice",
   "item.monthofswords.lucky_sword.power.lucky_dice.desc": "Take a swing, take a roll, who knows what it'll do!",
 
   "item.monthofswords.forest_sword": "Forest Sword",
+  "advancements.swordsmod.forest_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.forest_sword.description": "Acquire a Forest Sword",
   "item.monthofswords.forest_sword.power.leaf_attack": "Leaf Attack",
   "item.monthofswords.forest_sword.power.leaf_attack.desc": "Shoots a sharp leaf",
 
 
   "item.monthofswords.echo_sword": "Echo Sword",
+  "advancements.swordsmod.echo_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.echo_sword.description": "Acquire an Echo Sword",
   "item.monthofswords.echo_sword.power.displace": "Displace",
   "item.monthofswords.echo_sword.power.displace.desc.0": "On release, teleports to where you're looking.",
   "item.monthofswords.echo_sword.power.displace.desc.1": "Sneaking in the air freezes your movement.",
 
   "item.monthofswords.eye_sword": "Eye Sword",
+  "advancements.swordsmod.eye_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.eye_sword.description": "Acquire an Eye Sword",
   "item.monthofswords.eye_sword.power.void_taste": "Taste for Void",
   "item.monthofswords.eye_sword.power.void_taste.desc.0": "+0.5 damage in the end",
   "item.monthofswords.eye_sword.power.void_taste.desc.1": "+1 damage to creatures of the end",
@@ -129,8 +169,12 @@
   "item.monthofswords.eye_sword.power.enderman_eye_protection.desc": "Allows staring at endermen",
 
   "item.monthofswords.mechanical_sword": "Mechanical Sword",
+  "advancements.swordsmod.mechanical_sword.title": "Technically a Create Addon?",
+  "advancements.swordsmod.mechanical_sword.description": "Acquire a Mechanical Sword",
 
   "item.monthofswords.summoned_sword": "Summoned Sword",
+  "advancements.swordsmod.summoned_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.summoned_sword.description": "Acquire a Summoned Sword",
   "item.monthofswords.summoned_sword.power.summon": "Summon",
   "item.monthofswords.summoned_sword.power.summon.desc": "Summon to your hand at any point.",
   "item.monthofswords.summoned_sword.power.banish": "Banish",
@@ -139,20 +183,28 @@
   "item.monthofswords.summoned_sword.acquisition": "Consume a Fruit of Summoning to be able to summon the sword.",
 
   "item.monthofswords.jeweled_sword": "Jeweled Sword",
+  "advancements.swordsmod.jeweled_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.jeweled_sword.description": "Acquire a Jeweled Sword",
 
   "item.monthofswords.woven_sword": "Woven Sword",
+  "advancements.swordsmod.woven_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.woven_sword.description": "Acquire a Woven Sword",
   "item.monthofswords.woven_sword.power.dash": "Celestial Dash",
   "item.monthofswords.woven_sword.power.dash.desc.0": "Dashes in the direction you're looking",
   "item.monthofswords.woven_sword.power.dash.desc.1": "+4 damage while dashing",
   "item.monthofswords.woven_sword.tooltip": "Dashes on use. Dash attacks do 4 extra damage.",
 
   "item.monthofswords.shock_sword": "Shock Sword",
+  "advancements.swordsmod.shock_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.shock_sword.description": "Acquire a Shock Sword",
   "item.monthofswords.shock_sword.power.summon_lightning": "Summon Lightning",
   "item.monthofswords.shock_sword.power.summon_lightning.desc": "Summons a lightning bolt where you're looking",
   "item.monthofswords.shock_sword.power.storm_damage": "Storm Damage",
   "item.monthofswords.shock_sword.power.storm_damage.desc": "+2 damage in thunderstorms",
 
   "item.monthofswords.infestation_sword": "Infestation Sword",
+  "advancements.swordsmod.infestation_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.infestation_sword.description": "Acquire an Infestation Sword",
   "item.monthofswords.infestation_sword.power.friend_of_bugs": "Friend of Bugs",
   "item.monthofswords.infestation_sword.power.friend_of_bugs.desc": "Nearby arthropods will fight for you.",
   "item.monthofswords.infestation_sword.power.bugbait": "Bugbait",
@@ -161,6 +213,8 @@
   "item.monthofswords.infestation_sword.power.bugbait.desc.2": "3sec cooldown per silverfish",
 
   "item.monthofswords.crystal_sword": "Crystal Sword",
+  "advancements.swordsmod.crystal_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.crystal_sword.description": "Acquire a Crystal Sword",
   "item.monthofswords.crystal_sword.power.resonance": "Resonance",
   "item.monthofswords.crystal_sword.power.resonance.desc.0": "Consecutive attacks against targets of the same type build up more damage.",
   "item.monthofswords.crystal_sword.power.resonance.desc.1": "+0.05 damage per attack on the same target",
@@ -168,6 +222,8 @@
   "item.monthofswords.crystal_sword.power.resonance.desc.3": "Attacks against targets of a different type reset the bonus damage.",
 
   "item.monthofswords.necro_sword": "Necromancer's Blade",
+  "advancements.swordsmod.necro_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.necro_sword.description": "Acquire a Necromancer's Blade",
   "item.monthofswords.necro_sword.power.necromancer": "Necromancer",
   "item.monthofswords.necro_sword.power.necromancer.desc": "Nearby undead will fight for you.",
   "item.monthofswords.necro_sword.power.raise_the_dead": "Raise The Dead",
@@ -176,6 +232,8 @@
   "item.monthofswords.necro_sword.power.raise_the_dead.desc.2": "3sec cooldown per undead",
 
   "item.monthofswords.glow_sword": "Glow Sword",
+  "advancements.swordsmod.glow_sword.title": "[PLACEHOLDER]",
+  "advancements.swordsmod.glow_sword.description": "Acquire a Glow Sword",
   "item.monthofswords.glow_sword.power.piercing_eyes": "Piercing Eyes",
   "item.monthofswords.glow_sword.power.piercing_eyes.desc": "+2 damage to glowing targets",
   "item.monthofswords.glow_sword.power.illuminance": "Illuminance",
@@ -189,7 +247,7 @@
   "item.monthofswords.silverfish_shell": "Silverfish Shell",
   "item.monthofswords.summon_fruit": "Fruit of Summoning",
   "item.monthofswords.banish_fruit": "Fruit of Banishing",
-  "item.monthofswords.calendar": "Calendar",
+  "item.monthofswords.calendar": "Calendar of Swords",
   "item.monthofswords.forest_petals": "Forest Petals",
 
   "death.attack.swordtembercurse.item": "%1$s fell to %3$s's curse wielded by %2$s",
@@ -229,7 +287,11 @@
 
   "monthofswords.descriptionutil.powercooldown": "%1$s Cooldown",
 
-  "monthofswords.descriptionutil.powertitleformat": "%1$s ( %2$s )"
+  "monthofswords.descriptionutil.powertitleformat": "%1$s ( %2$s )",
 
+  "advancements.swordsmod.root.title": "A Long Month Ahead",
+  "advancements.swordsmod.root.description": "Acquire a sword from Month of Swords",
+  "advancements.swordsmod.long_month.title": "The Month of Swords",
+  "advancements.swordsmod.long_month.description": "Collect every sword"
 
 }

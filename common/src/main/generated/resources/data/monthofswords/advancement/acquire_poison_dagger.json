@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:poison_dagger"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#476E2C",
+      "translate": "advancements.swordsmod.poison_dagger.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:poison_dagger"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#476E2C",
+      "translate": "advancements.swordsmod.poison_dagger.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

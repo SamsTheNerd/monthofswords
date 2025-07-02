@@ -13,7 +13,7 @@ public final class SwordsModFabric implements ModInitializer {
         // Proceed with mild caution.
 
         // Run our common setup.
-        SwordsMod.init();
         SwordsMod.XPLAT_INSTANCE = new SwordsModXPlatFabric();
+        SwordsMod.init();
     }
 }

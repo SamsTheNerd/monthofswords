@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:echo_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#1ECAD4",
+      "translate": "advancements.swordsmod.echo_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:echo_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#1ECAD4",
+      "translate": "advancements.swordsmod.echo_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

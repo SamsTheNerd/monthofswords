@@ -1,0 +1,68 @@
+{
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "monthofswords:wing_sword",
+              "monthofswords:floral_sword",
+              "monthofswords:cursed_sword",
+              "monthofswords:divine_sword",
+              "monthofswords:gummy_sword",
+              "monthofswords:stealth_sword",
+              "monthofswords:moon_sword",
+              "monthofswords:sun_sword",
+              "monthofswords:ocean_sword",
+              "monthofswords:enchanting_sword",
+              "monthofswords:dueling_sword",
+              "monthofswords:flame_sword",
+              "monthofswords:ice_sword",
+              "monthofswords:poison_dagger",
+              "monthofswords:potion_sword",
+              "monthofswords:bone_sword",
+              "monthofswords:portal_sword",
+              "monthofswords:lucky_sword",
+              "monthofswords:forest_sword",
+              "monthofswords:echo_sword",
+              "monthofswords:eye_sword",
+              "monthofswords:mechanical_sword",
+              "monthofswords:summoned_sword",
+              "monthofswords:jeweled_sword",
+              "monthofswords:woven_sword",
+              "monthofswords:shock_sword",
+              "monthofswords:infestation_sword",
+              "monthofswords:crystal_sword",
+              "monthofswords:necro_sword",
+              "monthofswords:glow_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": {
+      "translate": "advancements.swordsmod.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:calendar"
+    },
+    "title": {
+      "translate": "advancements.swordsmod.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "monthofswords:calendar"
+    ]
+  }
+}

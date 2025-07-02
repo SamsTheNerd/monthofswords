@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:flame_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#FC6F03",
+      "translate": "advancements.swordsmod.flame_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:flame_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#FC6F03",
+      "translate": "advancements.swordsmod.flame_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

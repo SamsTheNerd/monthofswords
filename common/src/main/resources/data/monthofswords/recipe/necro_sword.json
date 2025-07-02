@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "RNR",
+    "RTR",
+    " O "
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:ominous_trial_key"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "T": {
+      "item": "minecraft:totem_of_undying"
+    },
+    "R": {
+      "item": "minecraft:rotten_flesh"
+    }
+  },
+  "result": {
+    "id": "monthofswords:necro_sword"
+  }
+}

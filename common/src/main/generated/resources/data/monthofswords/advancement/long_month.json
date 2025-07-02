@@ -1,0 +1,681 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "monthofswords.acquire_bone_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_bone_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_crystal_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_crystal_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_cursed_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_cursed_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_divine_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_divine_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_dueling_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_dueling_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_echo_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_echo_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_enchanting_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_enchanting_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_eye_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_eye_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_flame_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_flame_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_floral_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_floral_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_forest_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_forest_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_glow_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_glow_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_gummy_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_gummy_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_ice_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_ice_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_infestation_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_infestation_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_jeweled_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_jeweled_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_lucky_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_lucky_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_mechanical_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_mechanical_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_moon_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_moon_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_necro_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_necro_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_ocean_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_ocean_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_poison_dagger": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_poison_dagger": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_portal_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_portal_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_potion_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_potion_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_shock_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_shock_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_stealth_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_stealth_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_summoned_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_summoned_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_sun_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_sun_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_wing_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_wing_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "monthofswords.acquire_woven_sword": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "minecraft:player",
+                "advancements": {
+                  "monthofswords:acquire_woven_sword": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": {
+      "translate": "advancements.swordsmod.long_month.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:calendar"
+    },
+    "title": {
+      "translate": "advancements.swordsmod.long_month.title"
+    }
+  },
+  "requirements": [
+    [
+      "monthofswords.acquire_wing_sword"
+    ],
+    [
+      "monthofswords.acquire_floral_sword"
+    ],
+    [
+      "monthofswords.acquire_cursed_sword"
+    ],
+    [
+      "monthofswords.acquire_divine_sword"
+    ],
+    [
+      "monthofswords.acquire_gummy_sword"
+    ],
+    [
+      "monthofswords.acquire_stealth_sword"
+    ],
+    [
+      "monthofswords.acquire_moon_sword"
+    ],
+    [
+      "monthofswords.acquire_sun_sword"
+    ],
+    [
+      "monthofswords.acquire_ocean_sword"
+    ],
+    [
+      "monthofswords.acquire_enchanting_sword"
+    ],
+    [
+      "monthofswords.acquire_dueling_sword"
+    ],
+    [
+      "monthofswords.acquire_flame_sword"
+    ],
+    [
+      "monthofswords.acquire_ice_sword"
+    ],
+    [
+      "monthofswords.acquire_poison_dagger"
+    ],
+    [
+      "monthofswords.acquire_potion_sword"
+    ],
+    [
+      "monthofswords.acquire_bone_sword"
+    ],
+    [
+      "monthofswords.acquire_portal_sword"
+    ],
+    [
+      "monthofswords.acquire_lucky_sword"
+    ],
+    [
+      "monthofswords.acquire_forest_sword"
+    ],
+    [
+      "monthofswords.acquire_echo_sword"
+    ],
+    [
+      "monthofswords.acquire_eye_sword"
+    ],
+    [
+      "monthofswords.acquire_mechanical_sword"
+    ],
+    [
+      "monthofswords.acquire_summoned_sword"
+    ],
+    [
+      "monthofswords.acquire_jeweled_sword"
+    ],
+    [
+      "monthofswords.acquire_woven_sword"
+    ],
+    [
+      "monthofswords.acquire_shock_sword"
+    ],
+    [
+      "monthofswords.acquire_infestation_sword"
+    ],
+    [
+      "monthofswords.acquire_crystal_sword"
+    ],
+    [
+      "monthofswords.acquire_necro_sword"
+    ],
+    [
+      "monthofswords.acquire_glow_sword"
+    ]
+  ]
+}

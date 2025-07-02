@@ -17,6 +17,7 @@ import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Uuids;
 import net.minecraft.world.World;
 
@@ -56,12 +57,16 @@ public class SummonableSwordItem extends SwordtemberItem implements SwordActionH
 
     public static void trySummonSword(PlayerEntity player){
 
+        var mainStack = player.getStackInHand(Hand.MAIN_HAND);
+//        var offStack = player.getStackInHand(Hand.OFF_HAND);
+        if(!mainStack.isEmpty()) return;
         var optSD = SwordsModXPlat.getInstance().getEntityTarget(player).modifyAttached(SwordsModDataAttachments.SUMMON_SWORD_DATA_ATTACHMENT_TYPE,
             optSDOld -> optSDOld.map(SummonSwordData::withFreshUuid));
         if(optSD.isEmpty()) return;
         ItemStack stack = optSD.get().stack();
         if(stack.isEmpty()) return;
-        player.giveItemStack(stack.copy());
+        player.setStackInHand(Hand.MAIN_HAND, stack.copy());
+//        player.giveItemStack(stack.copy());
     }
 
     @Override

@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
-    "  S",
-    "GN ",
-    "QG "
+    " S ",
+    "GNG",
+    " Q "
   ],
   "key": {
     "S": [

@@ -119,7 +119,7 @@ public class PotionSwordItem extends SwordtemberItem {
             potionContents.buildTooltip((potionTooltipLine) -> {
                 potionTooltip.add(potionTooltipLine);
             }, 1, context.getUpdateTickRate());
-            tooltip.addAll(2, potionTooltip);
+            tooltip.addAll(1, potionTooltip);
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.samsthenerd.monthofswords.utils;
 
 import com.samsthenerd.monthofswords.registry.SwordsModItems;
+import com.samsthenerd.monthofswords.registry.SwordsModLoot;
+import com.samsthenerd.monthofswords.utils.Description.AcquisitionDesc.LootDropDesc;
 import com.samsthenerd.monthofswords.utils.Description.SwordPower;
 import dev.architectury.platform.Platform;
 import net.minecraft.item.Item;
@@ -18,6 +20,10 @@ public class ItemDescriptions {
 
     public static Optional<Description> getItemDescription(Item item){
         return Optional.ofNullable(ITEM_DESCRIPTIONS.get(Registries.ITEM.getId(item)));
+    }
+
+    public static Optional<Description> getItemDescriptionFromId(Identifier id){
+        return Optional.ofNullable(ITEM_DESCRIPTIONS.get(id));
     }
 
     public static void addDescription(Description desc){
@@ -172,6 +178,7 @@ public class ItemDescriptions {
         .withPower(new SwordPower("summon", Description.ACTION_POWER, Optional.empty()))
         .withPower(new SwordPower("banish", Description.ACTION_POWER, Optional.empty()))
         .withSpecificAcqDesc()
+        .withAcquisitionDesc(new LootDropDesc(SwordsModLoot.LOOT_LISTS.get(SwordsModItems.SUMMON_FRUIT.getId()).stream().toList()))
         .finalize(ItemDescriptions::addDescription);
 
     public static final Description JEWELED_DESC = Description.forItem(SwordsModItems.JEWELED_SWORD)
@@ -197,6 +204,7 @@ public class ItemDescriptions {
         .withPower(new SwordPower("bugbait", Description.CHARGE_USE_POWER, Optional.empty()))
         .withTextColor(0x8c9b8c)
         .withMatchingRecipe()
+        .withAcquisitionDesc(new LootDropDesc(SwordsModLoot.LOOT_LISTS.get(SwordsModItems.SILVERFISH_SHELL.getId()).stream().toList()))
         .finalize(ItemDescriptions::addDescription);
 
     public static final Description CRYSTAL_DESC = Description.forItem(SwordsModItems.CRYSTAL_SWORD)
@@ -209,7 +217,7 @@ public class ItemDescriptions {
         .withPower(new SwordPower("necromancer", Description.PASSIVE_POWER, Optional.empty()))
         .withPower(new SwordPower("raise_the_dead", Description.CHARGE_USE_POWER, Optional.empty()))
         .withTextColor(0xff637b)
-//        .withMatchingRecipe()
+        .withMatchingRecipe()
         .finalize(ItemDescriptions::addDescription);
 
     public static final Description GLOW_DESC = Description.forItem(SwordsModItems.GLOW_SWORD)

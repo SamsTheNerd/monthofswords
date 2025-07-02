@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:crystal_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#CFA0F3",
+      "translate": "advancements.swordsmod.crystal_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:crystal_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#CFA0F3",
+      "translate": "advancements.swordsmod.crystal_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

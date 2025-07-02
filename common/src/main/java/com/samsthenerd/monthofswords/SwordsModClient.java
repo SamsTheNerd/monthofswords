@@ -1,14 +1,15 @@
 package com.samsthenerd.monthofswords;
 
-import com.samsthenerd.monthofswords.registry.*;
+import com.samsthenerd.monthofswords.registry.SwordsModComponents;
+import com.samsthenerd.monthofswords.registry.SwordsModItems;
+import com.samsthenerd.monthofswords.registry.SwordsModKeybinds;
+import com.samsthenerd.monthofswords.registry.SwordsModNetworking;
 import com.samsthenerd.monthofswords.render.GhostifyTexture;
 import dev.architectury.event.events.common.InteractionEvent;
 import dev.architectury.networking.NetworkManager;
 import dev.architectury.registry.ReloadListenerRegistry;
-import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.client.rendering.ColorHandlerRegistry;
 import dev.architectury.registry.item.ItemPropertiesRegistry;
-import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.PotionContentsComponent;
@@ -56,6 +57,7 @@ public class SwordsModClient {
     }
 
     private static void registerEntityRenderers(){
-        EntityRendererRegistry.register(SwordsModEntities.LEAF_ATTACK, FlyingItemEntityRenderer::new);
+        // this doesn't work i guess?? awesome. do it sided
+//        EntityRendererRegistry.register(SwordsModEntities.LEAF_ATTACK, FlyingItemEntityRenderer::new);
     }
 }

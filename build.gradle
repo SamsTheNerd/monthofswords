@@ -29,6 +29,11 @@ subprojects {
     }
     group = rootProject.maven_group
 
+
+    def generatedResources = rootProject.file("common/src/main/generated/resources")
+
+    sourceSets.main.resources.srcDirs += [generatedResources]
+
     repositories {
         // Add repositories to retrieve artifacts from in here.
         // You should only use this when depending on other mods because

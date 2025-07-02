@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:wing_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#FFFFFF",
+      "translate": "advancements.swordsmod.wing_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:wing_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#FFFFFF",
+      "translate": "advancements.swordsmod.wing_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

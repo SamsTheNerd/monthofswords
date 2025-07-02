@@ -143,7 +143,7 @@ public class SwordsModItems {
     // make our creative tab.
     public static final RegistrySupplier<ItemGroup> SWORDS_MOD_GROUP = TABS.register("monthofswords_tab", () ->
             CreativeTabRegistry.create(Text.translatable("itemgroup.monthofswords.general"),
-                    () -> new ItemStack(CURSED_SWORD.get())));
+                    () -> new ItemStack(CALENDAR_ITEM.get())));
 
     /*
      * Helper function for registering an item.

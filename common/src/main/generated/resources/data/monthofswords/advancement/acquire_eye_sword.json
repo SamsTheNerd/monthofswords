@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:eye_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#97D16B",
+      "translate": "advancements.swordsmod.eye_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:eye_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#97D16B",
+      "translate": "advancements.swordsmod.eye_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

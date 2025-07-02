@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:stealth_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#FF5555",
+      "translate": "advancements.swordsmod.stealth_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:stealth_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#FF5555",
+      "translate": "advancements.swordsmod.stealth_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

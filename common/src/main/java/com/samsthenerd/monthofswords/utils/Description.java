@@ -56,6 +56,7 @@ public record Description(RegistrySupplier<? extends Item> item, List<SwordPower
             powTTs.addAll(pow.getPowerTooltip(this));
             powTTs.add(Text.literal(""));
         }
+        if(!powTTs.isEmpty()) powTTs.removeLast();
         return powTTs;
     }
 

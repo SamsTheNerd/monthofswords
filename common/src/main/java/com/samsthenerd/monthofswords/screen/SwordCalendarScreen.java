@@ -1,6 +1,7 @@
 package com.samsthenerd.monthofswords.screen;
 
 import com.samsthenerd.monthofswords.SwordsMod;
+import com.samsthenerd.monthofswords.mixins.MixinClientAdvancementManagerAccessor;
 import com.samsthenerd.monthofswords.registry.SwordsModComponents;
 import com.samsthenerd.monthofswords.registry.SwordsModItems;
 import com.samsthenerd.monthofswords.tooltips.RecipeTooltipData;
@@ -8,6 +9,7 @@ import com.samsthenerd.monthofswords.utils.Description;
 import com.samsthenerd.monthofswords.utils.Description.AcquisitionDesc.CraftingDesc;
 import com.samsthenerd.monthofswords.utils.Description.DescriptionItemComponent;
 import com.samsthenerd.monthofswords.utils.ItemDescriptions;
+import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
@@ -43,9 +45,16 @@ public class SwordCalendarScreen extends Screen {
         super.render(context, mouseX, mouseY, delta);
         int hoverSwordIdx = getSwordAtCoordinate(mouseX - guiX, mouseY - guiY);
         context.drawTexture(CALENDAR_BACK, guiX, guiY, 100, 0, 0, CALENDAR_WIDTH, CALENDAR_HEIGHT, 512, 512);
+        var advHandler = MinecraftClient.getInstance().getNetworkHandler().getAdvancementHandler();
+        var advProgs = ((MixinClientAdvancementManagerAccessor)(Object) advHandler).getAdvancementProgresses();
         for(int i = 0; i < SwordsModItems.ALL_SWORDS.size(); i++){
-            if(hoverSwordIdx != i) continue;
+
+//            if(hoverSwordIdx != i) continue;
             Identifier swordId = SwordsModItems.ALL_SWORDS.get(i);
+            AdvancementEntry advEntry = advHandler.get(swordId.withPrefixedPath("acquire_"));
+            if(advEntry == null) continue;
+            var advProg = advProgs.get(advEntry);
+            if(advProg == null || !advProg.isDone()) continue;
             Item swordItem = Registries.ITEM.get(swordId);
             var swordPos = getSwordPosition(i);
             int swordX = swordPos.getLeft()  + guiX;

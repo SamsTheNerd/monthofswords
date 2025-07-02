@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:glow_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#90F0D0",
+      "translate": "advancements.swordsmod.glow_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:glow_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#90F0D0",
+      "translate": "advancements.swordsmod.glow_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

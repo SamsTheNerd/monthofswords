@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:woven_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#FCCBE7",
+      "translate": "advancements.swordsmod.woven_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:woven_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#FCCBE7",
+      "translate": "advancements.swordsmod.woven_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

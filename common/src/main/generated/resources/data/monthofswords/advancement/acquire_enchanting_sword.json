@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:enchanting_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#91F788",
+      "translate": "advancements.swordsmod.enchanting_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:enchanting_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#91F788",
+      "translate": "advancements.swordsmod.enchanting_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

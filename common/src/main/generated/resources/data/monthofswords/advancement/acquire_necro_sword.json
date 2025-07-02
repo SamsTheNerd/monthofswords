@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:necro_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#FF637B",
+      "translate": "advancements.swordsmod.necro_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:necro_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#FF637B",
+      "translate": "advancements.swordsmod.necro_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

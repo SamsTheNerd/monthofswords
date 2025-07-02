@@ -48,6 +48,7 @@ public final class SwordsMod {
         SwordsModComponents.register();
         SwordsModDataLoaders.init();
         LuckyFunctions.register();
+        SwordsModDataAttachments.init();
 
         EntityEvent.LIVING_HURT.register((LivingEntity entity, DamageSource source, float amount) -> {
             ItemStack victimStack = entity.getMainHandStack();

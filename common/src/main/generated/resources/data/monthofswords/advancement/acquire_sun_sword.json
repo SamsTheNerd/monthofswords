@@ -1,0 +1,36 @@
+{
+  "parent": "monthofswords:root",
+  "criteria": {
+    "get_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monthofswords:sun_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#FFFF55",
+      "translate": "advancements.swordsmod.sun_sword.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monthofswords:sun_sword"
+    },
+    "show_toast": false,
+    "title": {
+      "color": "#FFFF55",
+      "translate": "advancements.swordsmod.sun_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_sword"
+    ]
+  ]
+}

@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
-    "  I",
-    " B ",
-    "C  "
+    "B",
+    "B",
+    "C"
   ],
   "key": {
     "B": {
@@ -12,11 +12,7 @@
     },
     "C": {
       "item": "minecraft:cauldron"
-    },
-    "I": [
-      { "item": "minecraft:iron_ingot" },
-      { "tag": "c:ingots/iron" }
-    ]
+    }
   },
   "result": {
     "id": "monthofswords:potion_sword"

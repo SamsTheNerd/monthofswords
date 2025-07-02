@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
-    "  F",
-    "GF ",
-    "IG "
+    " F ",
+    "GFG",
+    " I "
   ],
   "key": {
     "F": [
