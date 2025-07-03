@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.30.0
+
+### Added
+
+- Rest of the swords
+  - Forest Sword
+  - Echo Sword
+  - Eye Sword
+  - Mechanical Sword
+  - Summoned Sword
+  - Shock Sword
+  - Infestation Sword
+  - Crystal Sword
+  - Necromancer's Blade
+- Achievements for sword collection
+- Calendar to track sword collection, see abilities, and get hints on where to find them
+- Swords describe abilities in tooltip
+
+### Changed
+
+- Make sword recipes vertical rather than diagonal
+- Rebalance some recipes and sword stats
+
 ## 1.21.1
 
 ### Added

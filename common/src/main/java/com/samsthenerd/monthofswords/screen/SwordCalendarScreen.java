@@ -82,7 +82,7 @@ public class SwordCalendarScreen extends Screen {
                 .flatMap(craftDesc -> MinecraftClient.getInstance().world.getRecipeManager().get(craftDesc.recId()))
                 .map(RecipeEntry::value).map(RecipeTooltipData::new);
 
-            swordStack.set(SwordsModComponents.ITEM_DESCRIPTION_DATA, new DescriptionItemComponent(hintMode, recTTOpt));
+            swordStack.set(SwordsModComponents.ITEM_DESCRIPTION_DATA, new DescriptionItemComponent(hintMode, recTTOpt, false));
             context.drawItemTooltip(MinecraftClient.getInstance().textRenderer, swordStack, mouseX, mouseY);
         }
     }

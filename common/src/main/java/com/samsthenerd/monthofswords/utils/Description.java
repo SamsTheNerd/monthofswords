@@ -85,13 +85,15 @@ public record Description(RegistrySupplier<? extends Item> item, List<SwordPower
                 tt.addAll(getAcquisitionTooltip());
                 tt.add(applyColor(Text.translatable("monthofswords.descriptionutil.switchtopower")).formatted(Formatting.ITALIC));
             } else {
-                if (hasShiftSafe()) {
+                if (hasShiftSafe() || descData.showFull()) {
                     tt.addAll(getPowerTooltip());
                 } else {
                     tt.addAll(getSummaryTooltip());
                 }
-                tt.add(Text.literal(""));
-                tt.add(applyColor(Text.translatable("monthofswords.descriptionutil.switchtohint")).formatted(Formatting.ITALIC));
+                if(!descData.showFull()){
+                    tt.add(Text.literal(""));
+                    tt.add(applyColor(Text.translatable("monthofswords.descriptionutil.switchtohint")).formatted(Formatting.ITALIC));
+                }
             }
             return tt;
         }
@@ -321,17 +323,19 @@ public record Description(RegistrySupplier<? extends Item> item, List<SwordPower
         return timeText;
     }
 
-    public record DescriptionItemComponent(boolean hintMode, Optional<RecipeTooltipData> ttData){
+    public record DescriptionItemComponent(boolean hintMode, Optional<RecipeTooltipData> ttData, boolean showFull){
         public static final Codec<DescriptionItemComponent> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                 Codec.BOOL.fieldOf("hintMode").forGetter(DescriptionItemComponent::hintMode),
-                RecipeTooltipData.CODEC.optionalFieldOf("ttData").forGetter(DescriptionItemComponent::ttData)
+                RecipeTooltipData.CODEC.optionalFieldOf("ttData").forGetter(DescriptionItemComponent::ttData),
+                Codec.BOOL.fieldOf("showFull").forGetter(DescriptionItemComponent::showFull)
             ).apply(instance, DescriptionItemComponent::new)
         );
 
         public static final PacketCodec<RegistryByteBuf, DescriptionItemComponent> PACKET_CODEC = PacketCodec.tuple(
             PacketCodecs.BOOL, DescriptionItemComponent::hintMode,
             RecipeTooltipData.PACKET_CODEC.collect(PacketCodecs::optional), DescriptionItemComponent::ttData,
+            PacketCodecs.BOOL, DescriptionItemComponent::showFull,
             DescriptionItemComponent::new
         );
     }

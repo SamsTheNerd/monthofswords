@@ -1,18 +1,29 @@
 package com.samsthenerd.monthofswords.utils;
 
+import com.samsthenerd.monthofswords.SwordsMod;
+import com.samsthenerd.monthofswords.registry.SwordsModComponents;
 import com.samsthenerd.monthofswords.registry.SwordsModItems;
 import com.samsthenerd.monthofswords.registry.SwordsModLoot;
 import com.samsthenerd.monthofswords.utils.Description.AcquisitionDesc.LootDropDesc;
+import com.samsthenerd.monthofswords.utils.Description.DescriptionItemComponent;
 import com.samsthenerd.monthofswords.utils.Description.SwordPower;
 import dev.architectury.platform.Platform;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.TooltipContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
+import net.minecraft.text.Style;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class ItemDescriptions {
 
@@ -228,4 +239,86 @@ public class ItemDescriptions {
         .withTextColor(0x90f0d0)
         .withMatchingRecipe()
         .finalize(ItemDescriptions::addDescription);
+
+
+    public static String printAllAsMarkdown(){
+        StringBuilder res = new StringBuilder("## Swords\n");
+        for(var itemId : SwordsModItems.ALL_SWORDS){
+            Item swordItem = Registries.ITEM.get(itemId);
+            ItemStack swordStack = swordItem.getDefaultStack();
+            swordStack.set(SwordsModComponents.ITEM_DESCRIPTION_DATA, new DescriptionItemComponent(false, Optional.empty(), true));
+            List<Text> tooltipText = swordStack.getTooltip(TooltipContext.DEFAULT, MinecraftClient.getInstance().player, TooltipType.BASIC);
+            for(int i = 0; i < tooltipText.size(); i++){
+                Text t = tooltipText.get(i);
+                String lineStr = textToMarkdown(t);
+                if(i == 0){
+                    res.append("## ").append(lineStr).append("\n");
+                } else if(lineStr.isEmpty()){
+                    continue;
+                } else if(lineStr.startsWith(" ") || lineStr.startsWith("+")) {
+                    res.append("  - ").append(lineStr).append("\n");
+                } else {
+                    res.append("- ").append(lineStr).append("\n");
+                }
+            }
+//            tooltipText.stream()
+//                .map(ItemDescriptions::textToMarkdown)
+//                .forEachOrdered(str -> res.append(str).append("\n"));
+
+//            String swordName = I18n.translate(swordItem.getTranslationKey());
+//            res.append("### ").append(swordName).append("\n");
+//            var descOpt = getItemDescriptionFromId(itemId);
+//            if(descOpt.isEmpty()) continue;
+//            var desc = descOpt.get();
+//            desc.getPowerTooltip().stream()
+//                .map(ItemDescriptions::textToMarkdown)
+//                .forEachOrdered(str -> res.append(str).append("\n"));
+        }
+        String resStr = res.toString();
+        SwordsMod.LOGGER.info(resStr);
+        MinecraftClient.getInstance().keyboard.setClipboard(resStr);
+        return resStr;
+    }
+
+//    public record MDStyleState(Style style, boolean )
+
+    public static String getStyleChangeDelim(Style oldStyle, Style newStlye){
+        if(oldStyle.equals(newStlye)) return ""; // if identical styles do nothing
+        // if no bold/italic change return nothing
+        if(oldStyle.isBold() == newStlye.isBold() && oldStyle.isItalic() == newStlye.isItalic()){
+            return "";
+        }
+        // if no italic change, then must have just a bold change
+        if(oldStyle.isItalic() == newStlye.isItalic()){
+            return "**";
+        }
+        // if no bold change, then must have just an italic change
+        if(oldStyle.isBold() == newStlye.isBold()){
+            return "*";
+        }
+        // change of both
+        return "***";
+    }
+
+    public static String textToMarkdown(Text text){
+        StringBuilder res = new StringBuilder();
+        AtomicReference<Style> currentStyle = new AtomicReference<>(Style.EMPTY);
+        AtomicReference<String> trailingWhitespace = new AtomicReference<>("");
+        text.visit((sty, str) -> {
+            String stripLead = str.stripLeading();
+            String stripTrail = str.stripTrailing();
+            String stripped = str.strip();
+            String leadStr = str.substring(0, str.length() - stripLead.length());
+            String trailStr = str.substring(stripTrail.length());
+            String delim = getStyleChangeDelim(currentStyle.get(), sty);
+            currentStyle.set(sty);
+//            res.append(trailingWhitespace.get()).append(leadStr).append(delim).append(stripped);
+            res.append(leadStr).append(delim).append(stripped);
+            trailingWhitespace.set(trailStr);
+            return Optional.empty();
+        }, Style.EMPTY);
+        String delim = getStyleChangeDelim(currentStyle.get(), Style.EMPTY);
+        res.append(delim).append(trailingWhitespace.get());
+        return res.toString();
+    }
 }
