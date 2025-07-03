@@ -26,7 +26,8 @@
     ]
   },
   "mixins": [
-    "monthofswords.mixins.json"
+    "monthofswords.mixins.json",
+    "monthofswords.fabric.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.16.3",
