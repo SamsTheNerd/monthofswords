@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.samsthenerd.monthofswords.fabric.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [],
+  "mixins": [
+    "MixinLivEntAttributes"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
