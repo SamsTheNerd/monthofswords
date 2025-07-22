@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.30.1
+
+### Fixed
+
+- crashing with Sinytra (thanks unilock)
+
 ## 1.30.0
 
 ### Added
